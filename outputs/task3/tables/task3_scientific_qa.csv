@@ -1,0 +1,18 @@
+id,claim,status,evidence
+SA01,"Frozen selection, model, original predictions and metric tables retain audited SHA256",PASS,verified=7 original artifacts
+SA02,Exact sklearn R² recomputation from saved August final-fit predictions,PASS,r2_score=-2.185498782787
+SA03,All historical August candidate R² rows obey disclosed SSE/SST recovery identity,PASS,selection rows=14; individual candidate predictions unavailable
+SA04,Exact sklearn R² for every December model and both scopes uses original predictions,PASS,rows=6
+SA05,Original December MAE/RMSE and predictions remain numerically consistent,PASS,All six original rows reconciled within 1e-5 kW
+SA06,Exact sklearn R² for every stress model and both scopes uses saved frozen-model inference,PASS,rows=6
+SA07,"Pearson r and R² are separate, non-interchangeable columns",PASS,Pearson r=0.003875; R²=-7.952709
+SA08,Saved August and December predictions align one-to-one with eligible timestamped labels,PASS,August=35086; December=39313
+SA09,Saved stress predictions align one-to-one with eligible timestamped labels,PASS,stress=52502
+SA10,Target-conditional headline and broader counts independently reconcile by split,PASS,"August, stress and December masks recomputed from saved minute tables"
+SA11,Headline eligibility depends on unseen target fields and is identified as retrospective,PASS,The rule requires target minimum and negative-reading count
+SA12,Every diagnostic grouping accounts for all December headline observations,PASS,"Relative wind, turn, SOG, STW and daily totals each equal 39,270"
+SA13,Relative-wind missing 94 and high-turn-rate n=8 are explicit and disclosed,PASS,Missing relative wind=94; highest turn-rate bin=8
+SA14,Post-freeze audit scripts contain no fitting calls and frozen split excludes December from training,PASS,Audit code has no fit/partial_fit call; original model and selection hashes unchanged
+SA15,Academic PDF and paginated Markdown contain exactly 46 pages,PASS,PDF=46 pages; Markdown=46 numbered sections with 45 page breaks
+SA16,Academic report separates Pearson r and R² and omits internal script paths,PASS,Metric names distinct; internal script paths and agent history absent
+SA17,Direct sklearn R² for historical August candidate fits cannot be recomputed,UNRESOLVED,Individual selection-era candidate predictions and fitted candidate objects were not saved; algebraic R² from exact RMSE and common labels is disclosed

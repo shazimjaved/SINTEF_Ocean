@@ -1,0 +1,13 @@
+month,file,days_in_month,expected_at_nominal_15sec,n_target_obs,pct_of_nominal_15sec,n_negative,target_min,target_max,interpretation
+Jan,1.csv,31,178560,166699,93.4,115,-1416.12,6824.76,"observation-count density, not uptime or missing-value rate"
+Feb,2.csv,29,167040,166389,99.6,111,-1474.33,6997.54,"observation-count density, not uptime or missing-value rate"
+Mar,3.csv,31,178560,149512,83.7,30,-1280.63,7463.99,"observation-count density, not uptime or missing-value rate"
+Apr,4.csv,30,172800,171160,99.1,20,-1243.62,6858.6,"observation-count density, not uptime or missing-value rate"
+May,5.csv,31,178560,170498,95.5,189,-2881.24,6977.5,"observation-count density, not uptime or missing-value rate"
+Jun,6.csv,30,172800,162159,93.8,0,0.0,6651.55,"observation-count density, not uptime or missing-value rate"
+Jul,7.csv,31,178560,178007,99.7,28544,-5273.06,5389.43,"observation-count density, not uptime or missing-value rate"
+Aug,8.csv,31,178560,178534,100.0,495,-1432.35,5330.04,"observation-count density, not uptime or missing-value rate"
+Sep,9.csv,30,172800,129509,74.9,138,-192.26,5940.24,"observation-count density, not uptime or missing-value rate"
+Oct,10.csv,31,178560,88304,49.5,37,-255.78,5236.13,"observation-count density, not uptime or missing-value rate"
+Nov,11.csv,30,172800,170683,98.8,656,-24757.04,4873.74,"observation-count density, not uptime or missing-value rate"
+Dec,12.csv,31,178560,176579,98.9,166,-1631.91,5352.62,"observation-count density, not uptime or missing-value rate"

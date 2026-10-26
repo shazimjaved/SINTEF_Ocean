@@ -1,0 +1,3 @@
+month,n_target_raw,n_negative_raw,n_days_with_negative,min_kw,longest_near_contiguous_negative_run_readings,n_negative_1min,n_negative_1min_with_positive_cams_rpm_and_stw_gt_3kn,interpretation
+7,178007,28544,14,-5273.061523,17399,7185,6948,strong target-quality concern; mechanism and exact calibration boundaries unverified
+11,170683,656,8,-24757.035156,141,218,93,strong target-quality concern; mechanism and exact calibration boundaries unverified

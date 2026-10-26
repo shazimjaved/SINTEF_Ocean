@@ -1,0 +1,67 @@
+{
+  "selected": {
+    "score": 942.5139325787601,
+    "feature_set": "A_restricted_onboard",
+    "family": "histgb",
+    "parameter": 15,
+    "columns": [
+      "sin__HULL_HeadingTrue_deg",
+      "cos__HULL_HeadingTrue_deg",
+      "resultant__HULL_HeadingTrue_deg",
+      "n__HULL_HeadingTrue_deg",
+      "HULL_TurnRate_degmin",
+      "n__HULL_TurnRate_degmin",
+      "SOG_kn",
+      "n__SOG_kn",
+      "STW_kn",
+      "n__STW_kn",
+      "sin__WIND_RelAngle_deg",
+      "cos__WIND_RelAngle_deg",
+      "resultant__WIND_RelAngle_deg",
+      "n__WIND_RelAngle_deg",
+      "WIND_RelSpeed_kn",
+      "n__WIND_RelSpeed_kn"
+    ]
+  },
+  "train_months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "validation_months": [
+    8
+  ],
+  "test_months": [
+    12
+  ],
+  "quarantine_months": [
+    7,
+    11
+  ],
+  "coverage_stress_months": [
+    9,
+    10
+  ],
+  "operational_rule": "target_n>0; STW_kn>=3; target mean>0; target_min>=0; no negative target reading in minute",
+  "broader_rule": "target_n>0; STW_kn>=3 (includes zero/negative labels)",
+  "max_selection_fit_rows": 120000,
+  "selection_sampling": "uniform chronological index",
+  "mean_baseline_kw": 5188.3115436019425,
+  "speed_cube": {
+    "intercept_kw": 3282.3246677308093,
+    "cubic_kw_per_kn3": 1.0907379790652396
+  },
+  "persistence": "nondeployable: prior trustworthy power availability not established",
+  "external_weather": "exploratory: raw timestamp may be validity rather than issue time",
+  "software": {
+    "python": "3.11.0",
+    "sklearn": "1.8.0",
+    "pandas": "3.0.2",
+    "numpy": "2.4.2"
+  },
+  "final_fit_n": 166154,
+  "final_fit_seconds": 1.77
+}

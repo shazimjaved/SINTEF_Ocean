@@ -1,0 +1,6 @@
+source,reference,value,unit
+Particulars.xlsx Sheet1 D26 and towing PDF p6,scantling displacement volume,86941.0,m3
+assumed seawater density,conversion assumption,1.025,t/m3
+calculated,scantling mass at assumed density,89114.525,t
+Noon N08 August CSV; 31 same-date values,reported August displacement,89145.0,"not stated in source CSV; tonnes inferred, unverified"
+calculated,August minus converted scantling,30.47500000000582,t if Noon field is tonnes

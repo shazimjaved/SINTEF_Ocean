@@ -1,0 +1,10 @@
+category,count
+Registered in Metrics PDF,37
+In PDF AND observed in 1.csv-12.csv,36
+In PDF AND observed in Jan25.csv,26
+In PDF but not observed in any file,1
+Observed in files but not in PDF,0
+In 1.csv-12.csv but absent from Jan25.csv,10
+Target QID in PDF,1
+Target QID in 1.csv-12.csv,1
+Target QID in Jan25.csv,0

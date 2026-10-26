@@ -1,0 +1,6 @@
+{
+  "fit_seconds": 1.5136050000000978,
+  "train_n": 111171,
+  "feature_n": 60,
+  "family": "ridge"
+}

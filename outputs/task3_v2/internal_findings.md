@@ -1,0 +1,40 @@
+# Task 3 V2: internal modelling investigation (25 October 2026)
+
+This is an internal experiment note, not a client report or model release. V1's frozen model, selection, December predictions and metrics are unchanged. December is used here only to diagnose the already observed V1 failure; **all new model comparisons use April, May, June and August development folds**. No V2 model has been selected for final testing.
+
+## Verified observations
+
+- The registered target is QID `2::0::11::0_1::1::0::3::0_14::0::1::0_8`, Vessel Propeller Shaft Mechanical Power, instrument Torquemeter, unit kW. This matches the rendered registration PDF. Twenty representative raw channel-minute checks across January, August, October and December reproduce the completed-minute target and engine aggregates, including counts/minimums; no sampled timestamp, QID, unit, or feature-label pairing defect was found. The windows are `[end−1 minute, end)`. Onboard features and the label summarize the same completed minute, so the feature table does not establish prediction before that minute ends.
+- The V1 December headline has 39,270 minutes: observed mean 2,619.9 kW (SD 355.7), predicted mean 3,414.4 kW (SD 614.0), observed-minus-predicted bias −794.4 kW. Its Pearson r ≈0.004 and R² ≈−7.953 are separate quantities. The V1 August final-fit headline has Pearson r ≈0.837 and R² ≈−2.185.
+- Raw zero target readings coexist with forward motion and positive engine proxies: 17,268 June, 5,998 August, 13,757 September, and 987 November minutes under the diagnostic condition STW≥3 kn, CAMS RPM>50, fuel load>20%, scavenging pressure>0.5 bar. The longest cross-month zero runs span 11,773 and 9,603 minutes. Fifteen sampled raw checks inside long runs confirm the zero is in the source readings rather than caused by minute aggregation. Four-feature analog matching finds positive-power training neighbors for many such minutes (for example, 17,201/17,268 in June with mean analog target 5,540 kW). **The reason for the recorded zeros remains unknown.** The V1 positive-target headline is a retrospective evaluation subset, not an inference-time eligibility rule. Broader forward-scope results retain these zero labels.
+- Relationships change across periods even after coarse conditioning on speed, CAMS RPM, fuel load and scavenging pressure: common-bin later-minus-January–June target differences are about −985 kW in August, −1,023 kW in September–October and −1,180 kW in December. Five-neighbor matching at a 0.5 train-IQR caliper gives −991, −1,030/−869 (September/October), and −912 kW. Only 17.4% of December complete cases match that last caliper, so its matched estimate has limited support. These are descriptive associations, not causal calibration estimates.
+- A January–June pressure→power relation has high within-period Pearson r in August (0.995) and December (0.972), but mean later residuals of −1,042 and −723 kW. Non-target sensor relations also shift: the January–June pressure~fuel-load relation has a December mean residual of −0.489 bar (−1.30 training residual SD). This is inconsistent with treating a target-only calibration offset as an established diagnosis. Operating state, engine inputs, target instrumentation and unmeasured factors remain live explanations.
+
+## Development-only improvement experiments
+
+Nine onboard candidates were fitted on chronological Jan–Mar→Apr, Jan–Apr→May, Jan–May→Jun and Jan–Jun→Aug folds; both positive-target headline and broader forward labels were scored. Imputation and scaling are fitted within each training fold. July and November stay quarantined. The four-fold comparison is [here](experiments/v2_development_fold_comparison.png), with every numerical result in [the CSV](experiments/v2_walkforward_results.csv).
+
+| Candidate | Apr MAE | May MAE | Jun MAE | Aug MAE | Aug R² |
+|---|---:|---:|---:|---:|---:|
+| Restricted HGB, full history | 824.6 | 550.5 | 212.2 | 910.9 | −2.185 |
+| Restricted HGB, recent 90 days | 824.6 | 791.2 | 240.7 | 732.8 | −0.773 |
+| Extended-engine HGB, full history | 325.7 | 152.9 | 200.9 | 1173.3 | −2.579 |
+| Extended-engine Ridge, recent 90 days | 214.7 | 140.7 | 107.8 | 1032.4 | −1.761 |
+
+Recent-history Ridge has the lowest equal-fold mean headline MAE (373.9 kW), but **every tested candidate has a negative August R²**. August extended-engine HGB has Pearson r 0.989 yet bias −1,173 kW; squared bias contributes 98.9% of MSE. Recent-history Ridge has r 0.992, bias −1,032 kW and 99.2% squared-bias share. High correlation therefore does not imply well-calibrated power prediction. Broader June errors remain severe because of zero target runs; merely including those labels in training does not resolve the state ambiguity.
+
+Three exploratory provider-weather candidates were also tested on the same four folds. They did not remove the August shift (weather Ridge recent-90 MAE 1,058.8 kW, R² −1.907). Provider issue-time versus validity-time semantics are still unverified, so these models are not considered deployable.
+
+An **offline, nondeployable upper bound** estimated an offset from the first calendar day of each validation month and scored later days. In August, the extended-engine recent-90 Ridge later-day headline MAE fell from 1,031.3 to 74.7 kW and R² rose from −1.824 to 0.976; broader forward MAE remained 561.5 kW. The experiment requires trustworthy recent target labels and timing, uses validation labels, and worsens May MAE from 136.3 to 143.3 kW. It is not in the label-free model ranking and is not an operational correction.
+
+## Current interpretation and decision
+
+No genuine defect was established in the sampled V1 raw-to-minute pipeline, feature mapping or fold-level imputation. V2 therefore adds **diagnostic label-quality flags only** and does not rewrite V1 preprocessing. The dominant unresolved problems are long recorded zero-target states, temporal shifts in target-versus-engine relations, and poor December common support. The evidence does not identify a unique physical or calibration cause. No tested label-free strategy generalizes consistently across the development periods; model quality is **not resolved**, and no V2 December evaluation or deployment claim is justified.
+
+Next scientific work requires source metadata or engineering review of torquemeter status, engine-sensor calibration and operating modes; trustworthy target availability and latency; and a prospective regime/offset validation design using only earlier-period labels. Any new strategy should first pass multiple chronological development periods on the broader forward scope before another held-out assessment.
+
+## Reproduction and integrity
+
+Run from the project root with the Task 3 Python environment. `scripts/task3_v2/01_diagnose.py` through `10_label_calibration_upper_bound.py` (there is no script 11) and `12_quality_flags.py` write versioned internal evidence; `14_visualize_development.py` plots saved development results without fitting. `13_qa.py` checks 16 independent data, experiment and V1-integrity conditions and currently exits 0 (16 PASS, 0 FAIL). The V1 SHA-256 hashes in `outputs/task3/tables/frozen_artifact_sha256.json` are checked on each QA run. Experiment scripts intentionally refuse to overwrite existing primary results; preserve these results and use a new experiment name for future variants. No raw dataset, V1 frozen artifact, or original December prediction was changed.
+
+Execution history: the first `01_diagnose.py` attempt stopped on a missing conditional-bin column and the first `09_weather_dev.py` attempt stopped on the import path; each script was corrected and then completed with exit code 0. The first V2 QA run returned 15 PASS/1 FAIL because rounded saved predictions made an R² recomputation differ by at most 2.5×10⁻⁹ from the unrounded metric; a measured 1×10⁻⁸ comparison tolerance was applied, and the final two QA runs returned 16 PASS/0 FAIL with exit code 0. The saved numerical experiment outputs were not altered to clear that check.

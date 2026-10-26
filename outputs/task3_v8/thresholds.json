@@ -1,0 +1,36 @@
+{
+  "source_months": [
+    4,
+    5
+  ],
+  "feature_scale_months": [
+    1,
+    2,
+    3
+  ],
+  "feature_iqr": {
+    "STW_kn": 7.425000190734863,
+    "ME_RPM_CAMS": 9.125,
+    "ME_FuelLoad_pct": 5.909698486328125,
+    "ME_ScavAirPressure_bar": 0.3749699592590332
+  },
+  "offset_cap_kw": 282.1982055664062,
+  "reference_error_kw": 326.728955078125,
+  "limits": {
+    "zero_fraction": 0.030721735502711706,
+    "negative_fraction": 0.011171893177529008,
+    "cutoff_to_last_label_hours": 46.25999999999998,
+    "residual_mad_kw": 148.9455859375,
+    "onboard_history_drift": 2.245642546680191,
+    "prediction_disagreement_kw": 5333.864659423819
+  },
+  "history_days_used": 47,
+  "onboard_rows_used": 53878,
+  "reference_errors_n": 7037,
+  "quantile_levels_predeclared": {
+    "offset_abs_cap": 0.95,
+    "risk_feature_limits": 0.99,
+    "reference_absolute_error": 0.95
+  },
+  "interpretation": "risk flag and early-error reference, not current-state identification or validated probability"
+}

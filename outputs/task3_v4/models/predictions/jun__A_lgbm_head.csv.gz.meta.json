@@ -1,0 +1,6 @@
+{
+  "fit_seconds": 1.246546300000773,
+  "train_n": 93565,
+  "feature_n": 16,
+  "family": "lgbm"
+}

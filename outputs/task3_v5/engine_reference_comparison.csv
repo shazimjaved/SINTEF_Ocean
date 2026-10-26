@@ -1,0 +1,5 @@
+source,engine,smcr_kw,smcr_rpm,transmission_efficiency,propeller
+GA.jpg principal particulars (visual),MAN B&W 5S60MC-C Mark VII-tier II,8833,105,unspecified,unspecified in principal particulars
+Sea_Trials_curves.jpg graph (visual),"8833 kW reference, engine model not labelled",8833,unspecified,0.985 factor shown in DHP annotation,model/measured design and ballast curves; PSV detail not labelled on graph
+"Particulars.xlsx Sheet1 row 71, 75-80",engine model unspecified,9500,105,unspecified,"6.8 m, 4 blades, pitch ratio 0.6742, right-handed"
+Towing report PDF p8 (report p7),Wartsila 5RT-flex58T-D,9500,105,0.99,"TM1747A; 6.8 m, 4 blades, pitch ratio 0.6742, right-handed"

@@ -1,0 +1,86 @@
+{
+  "folds": [
+    [
+      "apr",
+      [
+        1,
+        2,
+        3
+      ],
+      4
+    ],
+    [
+      "may",
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      5
+    ],
+    [
+      "jun",
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      6
+    ],
+    [
+      "aug",
+      [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      8
+    ]
+  ],
+  "candidates": [
+    {
+      "name": "B_derived_ridge_recent90",
+      "group": "B",
+      "kind": "ridge",
+      "window": "recent90",
+      "derived": true,
+      "rolling": false
+    },
+    {
+      "name": "B_dynamic_ridge_recent90",
+      "group": "B",
+      "kind": "ridge",
+      "window": "recent90",
+      "derived": true,
+      "rolling": true
+    },
+    {
+      "name": "B_dynamic_hgb_recent90",
+      "group": "B",
+      "kind": "hgb",
+      "window": "recent90",
+      "derived": true,
+      "rolling": true
+    },
+    {
+      "name": "B_dynamic_hgb_full",
+      "group": "B",
+      "kind": "hgb",
+      "window": "full",
+      "derived": true,
+      "rolling": true
+    }
+  ],
+  "no_december": true,
+  "prediction_time": "end of completed minute",
+  "rolling_rule": "current and prior 14 or 59 completed minutes; per-month reset",
+  "no_label_calibration": true,
+  "no_torquemeter_predictors": true,
+  "weather_provider_channels": "excluded"
+}

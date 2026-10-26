@@ -1,0 +1,22 @@
+check_id,status,evidence
+V7_PROTOCOL,PASS,"Frozen definitions, explicit 24h delay, development-only permitted months"
+V7_FEATURES,PASS,24 extended input columns are independent onboard measurements/counts; no shaft/Noon/provider inputs
+V7_A_METRICS,PASS,72 V6 benchmark rows preserved numerically; CSV float64 reserialization tolerance 1e-10
+V7_A_PROVENANCE,PASS,All 24 referenced V6 prediction hashes unchanged
+V7_B_ALIGN_ELIGIBILITY,PASS,All B minute rows/source labels aligned; deleting current targets leaves eligibility unchanged
+V7_B_FIXED_AVAILABILITY,PASS,Fixed-model training labels precede each 24h cutoff; 1440 early September broad-model fallbacks explicit
+V7_B_UPDATE_CUTOFF,PASS,Three October refits independently reconstructed from permitted history strictly before Sep30
+V7_B_HISTORY,PASS,"Every daily residual, persistence and history mean independently uses [day-4d,day-1d); no same-day/future labels"
+V7_B_CALIBRATION_REPLAY,PASS,Saved assisted predictions exactly replay independent daily ledger values and matched-information baselines
+V7_C_SCHEDULE,PASS,54 predetermined disjoint calendar blocks; 18 each at 1h/6h/24h; zero value-based choices
+V7_C_GLOBAL_TRAIN_EXCLUSION,PASS,"All 12 reconstruction fits independently exclude all scheduled gaps, including gaps in earlier training months"
+V7_C_BASELINE_EXCLUSION,PASS,All six mean/speed baseline fits recomputed with the same global gap mask and latency cutoff
+V7_C_MASK_AND_TRUTH_ALIGNMENT,PASS,"Every gap label sealed during fitting/history, then rejoined to its exact source minute; natural missing never replaced by zero"
+V7_C_HISTORY_REPLAY,PASS,"All six histories/gap predictions replay exactly using verified Ridge float32 storage, strict lag and global hidden-label exclusion"
+V7_C_COVERAGE,PASS,"All 33,480 calendar gap minutes retained; every missing/positive/zero/negative count reconciles"
+V7_PERSISTENCE_COVERAGE,PASS,No scored B/C prediction has only 1-29 history labels: the shared minimum-30 rule does not weaken reported persistence vs a one-label requirement
+V7_C_HIDDEN_SENTINEL_REPLAY,PASS,Replacing all April held-out target values with a huge sentinel leaves the refitted May Ridge gap predictions unchanged
+V7_B_EXACT_METRICS,PASS,Every B MAE/RMSE/sklearn R2/Pearson r/bias independently recomputed
+V7_C_EXACT_METRICS,PASS,Every scored block and pooled duration metric independently recomputed without dropping difficult rows
+V7_R2_PEARSON_DISTINCTION,PASS,Exact sklearn finite R2 convention on constant-zero labels retained and flagged; Pearson r stays undefined
+V7_DAILY_RECOMPUTATION,PASS,All saved daily sample counts and MAE reconstructed from timestamped predictions

@@ -1,0 +1,7 @@
+regime,n_1min_slots,pct
+transit,21678,98.1
+stopped_or_slow,308,1.4
+manoeuvring,42,0.2
+negative_stw,26,0.1
+low_power_transit,23,0.1
+negative_power,11,0.0

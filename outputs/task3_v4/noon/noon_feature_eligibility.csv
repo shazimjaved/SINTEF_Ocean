@@ -1,0 +1,4 @@
+field_group,date_present,measurement_time_present,publication_time_present,ranked_model_status
+same-day loading/draft,True,False,False,excluded: timing not established
+prior-day loading/draft,True,False,False,excluded: report availability deadline not established
+daily slip/consumption,True,False,False,excluded: post-interval derivation and timing unverified

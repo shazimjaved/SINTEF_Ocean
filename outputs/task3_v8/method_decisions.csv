@@ -1,0 +1,6 @@
+method,decision,evidence,retained_role
+unchanged V7 calibrated Ridge,RETAIN conditional benchmark,Paired 24h MAE 1413 kW and worst anchor 5756 kW; not a reliable state detector,Original simple reference with explicit conditional information assumption
+bounded residual correction,REJECT as reliability improvement,Apr-May cap 282 kW worsens paired 24h MAE from 1413 to 1873 kW,Transparent unsuccessful ablation preserved
+historical-risk abstention flag,REJECT as safety or confidence guarantee,Paired 24h accepts 2160 zero truths and every accepted zero error exceeds early 327 kW reference,Diagnostic warning only; abstention and false confidence must both be shown
+nonnegative V7 clipping,CONSTRAINT SENSITIVITY ONLY,Paired 24h MAE falls to 1233 kW but worst anchor remains 5756 kW and zero onset is unresolved,Optional domain constraint only after physical scope is established; no model promotion
+delayed persistence,RETAIN matched-information comparator,Paired 24h MAE 1068 kW but worst anchor 4335 kW,Conditional baseline; no operational reliability claim

@@ -1,0 +1,14 @@
+file,physical_rows,unique_timestamp_qid_pairs,duplicate_keys,extra_duplicate_rows,conflicting_value_keys,malformed_short_rows,method
+1.csv,3657054,3657054,0,0,0,0,exact original timestamp text + exact registered QID; per-file set
+2.csv,3510816,3510816,0,0,0,0,exact original timestamp text + exact registered QID; per-file set
+3.csv,3368554,3368554,0,0,0,0,exact original timestamp text + exact registered QID; per-file set
+4.csv,3517849,3517849,0,0,0,0,exact original timestamp text + exact registered QID; per-file set
+5.csv,3757425,3757425,0,0,0,0,exact original timestamp text + exact registered QID; per-file set
+6.csv,3527867,3527867,0,0,0,0,exact original timestamp text + exact registered QID; per-file set
+7.csv,3838389,3838389,0,0,0,0,exact original timestamp text + exact registered QID; per-file set
+8.csv,3764623,3764623,0,0,0,0,exact original timestamp text + exact registered QID; per-file set
+9.csv,2759530,2759530,0,0,0,0,exact original timestamp text + exact registered QID; per-file set
+10.csv,1935036,1935036,0,0,0,0,exact original timestamp text + exact registered QID; per-file set
+11.csv,3670622,3670622,0,0,0,0,exact original timestamp text + exact registered QID; per-file set
+12.csv,3772203,3772203,0,0,0,0,exact original timestamp text + exact registered QID; per-file set
+Jan25.csv,1112405,1112405,0,0,0,0,exact original timestamp text + exact registered QID; per-file set

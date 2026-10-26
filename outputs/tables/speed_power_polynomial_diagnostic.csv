@@ -1,0 +1,2 @@
+n_paired_minutes,n_positive_speed_and_power,polynomial_at_7kn_kw,polynomial_at_10kn_kw,polynomial_at_14kn_kw,interpretation
+22088,21719,2955.143653811123,2576.162258841381,6540.068312994146,unconstrained descriptive cubic; not a physical or causal curve

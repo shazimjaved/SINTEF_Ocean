@@ -1,0 +1,17 @@
+id,claim,status,evidence
+V4Q01,"V1 frozen model, selection, predictions and metrics retain original hashes",PASS,7 frozen files
+V4Q02,Preserved V3 QA evidence remains complete,PASS,V3 QA rows=17
+V4Q03,Noon files are date-only and lack measurement/issuance columns,PASS,366 dated rows; no issue-time field
+V4Q04,"August Noon displacement is constant, not a within-month state indicator",PASS,August distinct displacement values=1
+V4Q05,State labels are retrospective outputs; all classifier inputs are onboard and target-free,PASS,feature sets=3
+V4Q06,August state AUC and average precision recompute from saved probabilities,PASS,Three independent onboard feature sets
+V4Q07,Zero-versus-positive same-month analog counts have valid denominators,PASS,June/August overlap rows=6
+V4Q08,State onset analysis uses saved August predictions and separate before/after windows,PASS,3 feature sets × 3 fixed windows
+V4Q09,"All boosting folds are chronological and exclude July, November and December",PASS,"[['apr', [1, 2, 3], 4], ['may', [1, 2, 3, 4], 5], ['jun', [1, 2, 3, 4, 5], 6], ['aug', [1, 2, 3, 4, 5, 6], 8]]"
+V4Q10,"Ranked predictors exclude target, torquemeter and Noon Report fields",PASS,"A/B/D input columns=[16, 24, 60]"
+V4Q11,Every candidate-fold has a saved broad prediction file and two score scopes,PASS,prediction files=60; scores=120
+V4Q12,Saved prediction timestamps and headline/broader counts reconcile by fold,PASS,60 files across four months
+V4Q13,"All MAE, RMSE, R2, Pearson r and bias values recompute exactly from saved predictions",PASS,120 model-fold-scope rows
+V4Q14,"Label-assisted scenario is separate, delayed and excludes December",PASS,rows=32
+V4Q15,Every assisted offset uses only eligible observations at least one day old,PASS,daily offset rows=214
+V4Q16,Separate assisted-scenario metrics reproduce saved minute predictions,PASS,32 scope-scenario rows

@@ -1,0 +1,191 @@
+{
+  "window": "[end-1 minute, end)",
+  "timezone": "UTC for 2024 Z timestamps",
+  "provider_rule": "latest raw timestamp before end, maximum age 3600s; issue time unknown",
+  "columns": {
+    "ME_ScavAirPressure_bar": {
+      "qid": "1::0::14::0_1::2::0::8::0_3::0::3::0_8",
+      "source": "onboard"
+    },
+    "ME_TC_RPM_Transducer": {
+      "qid": "1::0::15::0_1::2::0::3::0_1::0::6::0_8",
+      "source": "onboard"
+    },
+    "ME_FuelLoad_pct": {
+      "qid": "1::0::25::0_1::2::0::8::0_20::0::1::0_8",
+      "source": "onboard"
+    },
+    "SHAFT_Revolutions_TQ": {
+      "qid": "2::0::11::0_1::1::0::3::0_12::0::1::0_8",
+      "source": "torquemeter"
+    },
+    "SHAFT_Torque_Nm_TQ": {
+      "qid": "2::0::11::0_1::1::0::3::0_12::0::2::0_8",
+      "source": "torquemeter"
+    },
+    "SHAFT_MechPower_kW": {
+      "qid": "2::0::11::0_1::1::0::3::0_14::0::1::0_8",
+      "source": "target"
+    },
+    "SHAFT_MechEnergy_kWh_TQ": {
+      "qid": "2::0::11::0_1::1::0::3::0_15::0::1::0_8",
+      "source": "torquemeter"
+    },
+    "SHAFT_ThrustForce_kN_TQ": {
+      "qid": "2::0::11::0_1::1::0::3::0_17::0::1::0_8",
+      "source": "torquemeter"
+    },
+    "SHAFT_RPM_TQ": {
+      "qid": "2::0::11::0_1::1::0::3::0_1::0::6::0_8",
+      "source": "torquemeter"
+    },
+    "ME_FuelMassFlow_kghr_TQ": {
+      "qid": "2::0::11::0_1::2::0::8::0_22::0::1::1_8",
+      "source": "torquemeter"
+    },
+    "WIND_RelSpeed_kn": {
+      "qid": "2::0::1::0_1::1::0::7::0_1::0::4::22_8",
+      "source": "onboard"
+    },
+    "WIND_RelAngle_deg": {
+      "qid": "2::0::1::0_1::1::0::7::0_2::0::15::22_8",
+      "source": "onboard"
+    },
+    "HULL_WaterDepth_m": {
+      "qid": "2::0::4::0_1::1::0::2::0_37::0::2::0_8",
+      "source": "onboard"
+    },
+    "HULL_HeadingTrue_deg": {
+      "qid": "2::0::5::0_1::1::0::2::0_2::0::8::21_8",
+      "source": "onboard"
+    },
+    "HULL_TurnRate_degmin": {
+      "qid": "2::0::5::0_1::1::0::2::0_6::0::1::0_8",
+      "source": "onboard"
+    },
+    "SOG_kn": {
+      "qid": "2::0::6::1_1::1::0::2::0_1::0::1::0_8",
+      "source": "onboard"
+    },
+    "STW_kn": {
+      "qid": "2::0::7::0_1::1::0::2::0_1::0::5::11_8",
+      "source": "onboard"
+    },
+    "DRAFT_Fore_m": {
+      "qid": "3::0::1::0_1::1::0::2::0_11::0::1::0_8",
+      "source": "faulty_draft"
+    },
+    "DRAFT_Aft_m": {
+      "qid": "3::0::1::0_1::1::0::2::0_11::0::2::0_8",
+      "source": "faulty_draft"
+    },
+    "DRAFT_MidP_m": {
+      "qid": "3::0::1::0_1::1::0::2::0_11::0::3::0_8",
+      "source": "faulty_draft"
+    },
+    "DRAFT_MidS_m": {
+      "qid": "3::0::1::0_1::1::0::2::0_11::0::4::0_8",
+      "source": "faulty_draft"
+    },
+    "ME_RPM_CAMS": {
+      "qid": "3::0::1::0_1::2::0::8::0_1::0::6::0_8",
+      "source": "onboard"
+    },
+    "WIND_TrueSpeed_kn_MB": {
+      "qid": "4::0::4::0_1::1::0::7::0_1::0::4::21_8",
+      "source": "provider_mb"
+    },
+    "WIND_TrueAngle_deg_MB": {
+      "qid": "4::0::4::0_1::1::0::7::0_2::0::15::21_8",
+      "source": "provider_mb"
+    },
+    "WAVE_SigHeight_m_MB": {
+      "qid": "4::0::4::0_1::1::0::7::0_45::0::1::0_8",
+      "source": "provider_mb"
+    },
+    "SWELL_SigHeight_m_MB": {
+      "qid": "4::0::4::0_1::1::0::7::0_45::0::2::0_8",
+      "source": "provider_mb"
+    },
+    "CURR_Eastward_ms_MB": {
+      "qid": "4::0::4::0_1::1::0::7::0_56::0::3::0_8",
+      "source": "provider_mb"
+    },
+    "CURR_Northward_ms_MB": {
+      "qid": "4::0::4::0_1::1::0::7::0_56::0::4::0_8",
+      "source": "provider_mb"
+    },
+    "WAVE_TrueAngle_deg_S": {
+      "qid": "4::0::8::0_1::1::0::7::0_2::0::18::21_8",
+      "source": "provider_s"
+    },
+    "SEA_WaterTemp_C_S": {
+      "qid": "4::0::8::0_1::1::0::7::0_4::0::12::0_8",
+      "source": "provider_s"
+    },
+    "WAVE_Period_sec_S": {
+      "qid": "4::0::8::0_1::1::0::7::0_40::0::2::0_8",
+      "source": "provider_s"
+    },
+    "WAVE_SigHeight_m_S": {
+      "qid": "4::0::8::0_1::1::0::7::0_45::0::1::0_8",
+      "source": "provider_s"
+    },
+    "CURR_Eastward_ms_S": {
+      "qid": "4::0::8::0_1::1::0::7::0_56::0::3::0_8",
+      "source": "provider_s"
+    },
+    "CURR_Northward_ms_S": {
+      "qid": "4::0::8::0_1::1::0::7::0_56::0::4::0_8",
+      "source": "provider_s"
+    },
+    "WIND_Eastward_ms_S": {
+      "qid": "4::0::8::0_1::1::0::7::0_56::0::5::0_8",
+      "source": "provider_s"
+    },
+    "WIND_Northward_ms_S": {
+      "qid": "4::0::8::0_1::1::0::7::0_56::0::6::0_8",
+      "source": "provider_s"
+    }
+  },
+  "candidate_columns": [
+    "CURR_Eastward_ms_MB",
+    "CURR_Eastward_ms_S",
+    "CURR_Northward_ms_MB",
+    "CURR_Northward_ms_S",
+    "HULL_HeadingTrue_deg",
+    "HULL_TurnRate_degmin",
+    "ME_FuelLoad_pct",
+    "ME_RPM_CAMS",
+    "ME_ScavAirPressure_bar",
+    "ME_TC_RPM_Transducer",
+    "SEA_WaterTemp_C_S",
+    "SOG_kn",
+    "STW_kn",
+    "SWELL_SigHeight_m_MB",
+    "WAVE_Period_sec_S",
+    "WAVE_SigHeight_m_MB",
+    "WAVE_SigHeight_m_S",
+    "WAVE_TrueAngle_deg_S",
+    "WIND_Eastward_ms_S",
+    "WIND_Northward_ms_S",
+    "WIND_RelAngle_deg",
+    "WIND_RelSpeed_kn",
+    "WIND_TrueAngle_deg_MB",
+    "WIND_TrueSpeed_kn_MB"
+  ],
+  "excluded_from_model": [
+    "DRAFT_Aft_m",
+    "DRAFT_Fore_m",
+    "DRAFT_MidP_m",
+    "DRAFT_MidS_m",
+    "HULL_WaterDepth_m",
+    "ME_FuelMassFlow_kghr_TQ",
+    "SHAFT_MechEnergy_kWh_TQ",
+    "SHAFT_MechPower_kW",
+    "SHAFT_RPM_TQ",
+    "SHAFT_Revolutions_TQ",
+    "SHAFT_ThrustForce_kN_TQ",
+    "SHAFT_Torque_Nm_TQ"
+  ]
+}

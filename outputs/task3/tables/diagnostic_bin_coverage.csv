@@ -1,0 +1,4 @@
+condition,headline_n,binned_n,missing_bin_n,small_high_turn_bin_n
+relative_wind_kn,39270,39270,94,
+absolute_turn_degmin,39270,39270,0,8
+speed_over_ground_kn,39270,39270,0,

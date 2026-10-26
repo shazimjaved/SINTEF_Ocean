@@ -1,0 +1,259 @@
+{
+  "folds": [
+    [
+      "apr",
+      [
+        1,
+        2,
+        3
+      ],
+      4
+    ],
+    [
+      "may",
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      5
+    ],
+    [
+      "jun",
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      6
+    ],
+    [
+      "aug",
+      [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      8
+    ]
+  ],
+  "candidates": [
+    {
+      "name": "A_hgb_head",
+      "group": "A",
+      "family": "hgb",
+      "training_labels": "headline"
+    },
+    {
+      "name": "A_lgbm_head",
+      "group": "A",
+      "family": "lgbm",
+      "training_labels": "headline"
+    },
+    {
+      "name": "B_ridge_head",
+      "group": "B",
+      "family": "ridge",
+      "training_labels": "headline"
+    },
+    {
+      "name": "B_hgb_head",
+      "group": "B",
+      "family": "hgb",
+      "training_labels": "headline"
+    },
+    {
+      "name": "B_xgb_head",
+      "group": "B",
+      "family": "xgb",
+      "training_labels": "headline"
+    },
+    {
+      "name": "B_lgbm_head",
+      "group": "B",
+      "family": "lgbm",
+      "training_labels": "headline"
+    },
+    {
+      "name": "B_cat_head",
+      "group": "B",
+      "family": "cat",
+      "training_labels": "headline"
+    },
+    {
+      "name": "D_ridge_head",
+      "group": "D",
+      "family": "ridge",
+      "training_labels": "headline"
+    },
+    {
+      "name": "D_hgb_head",
+      "group": "D",
+      "family": "hgb",
+      "training_labels": "headline"
+    },
+    {
+      "name": "D_xgb_head",
+      "group": "D",
+      "family": "xgb",
+      "training_labels": "headline"
+    },
+    {
+      "name": "D_lgbm_head",
+      "group": "D",
+      "family": "lgbm",
+      "training_labels": "headline"
+    },
+    {
+      "name": "D_cat_head",
+      "group": "D",
+      "family": "cat",
+      "training_labels": "headline"
+    },
+    {
+      "name": "B_hgb_broad",
+      "group": "B",
+      "family": "hgb",
+      "training_labels": "broader"
+    },
+    {
+      "name": "B_lgbm_broad",
+      "group": "B",
+      "family": "lgbm",
+      "training_labels": "broader"
+    },
+    {
+      "name": "D_xgb_broad",
+      "group": "D",
+      "family": "xgb",
+      "training_labels": "broader"
+    }
+  ],
+  "feature_columns": {
+    "A": [
+      "sin__HULL_HeadingTrue_deg",
+      "cos__HULL_HeadingTrue_deg",
+      "resultant__HULL_HeadingTrue_deg",
+      "n__HULL_HeadingTrue_deg",
+      "HULL_TurnRate_degmin",
+      "n__HULL_TurnRate_degmin",
+      "SOG_kn",
+      "n__SOG_kn",
+      "STW_kn",
+      "n__STW_kn",
+      "sin__WIND_RelAngle_deg",
+      "cos__WIND_RelAngle_deg",
+      "resultant__WIND_RelAngle_deg",
+      "n__WIND_RelAngle_deg",
+      "WIND_RelSpeed_kn",
+      "n__WIND_RelSpeed_kn"
+    ],
+    "B": [
+      "sin__HULL_HeadingTrue_deg",
+      "cos__HULL_HeadingTrue_deg",
+      "resultant__HULL_HeadingTrue_deg",
+      "n__HULL_HeadingTrue_deg",
+      "HULL_TurnRate_degmin",
+      "n__HULL_TurnRate_degmin",
+      "ME_FuelLoad_pct",
+      "n__ME_FuelLoad_pct",
+      "ME_RPM_CAMS",
+      "n__ME_RPM_CAMS",
+      "ME_ScavAirPressure_bar",
+      "n__ME_ScavAirPressure_bar",
+      "ME_TC_RPM_Transducer",
+      "n__ME_TC_RPM_Transducer",
+      "SOG_kn",
+      "n__SOG_kn",
+      "STW_kn",
+      "n__STW_kn",
+      "sin__WIND_RelAngle_deg",
+      "cos__WIND_RelAngle_deg",
+      "resultant__WIND_RelAngle_deg",
+      "n__WIND_RelAngle_deg",
+      "WIND_RelSpeed_kn",
+      "n__WIND_RelSpeed_kn"
+    ],
+    "D": [
+      "sin__HULL_HeadingTrue_deg",
+      "cos__HULL_HeadingTrue_deg",
+      "resultant__HULL_HeadingTrue_deg",
+      "n__HULL_HeadingTrue_deg",
+      "HULL_TurnRate_degmin",
+      "n__HULL_TurnRate_degmin",
+      "ME_FuelLoad_pct",
+      "n__ME_FuelLoad_pct",
+      "ME_RPM_CAMS",
+      "n__ME_RPM_CAMS",
+      "ME_ScavAirPressure_bar",
+      "n__ME_ScavAirPressure_bar",
+      "ME_TC_RPM_Transducer",
+      "n__ME_TC_RPM_Transducer",
+      "SOG_kn",
+      "n__SOG_kn",
+      "STW_kn",
+      "n__STW_kn",
+      "sin__WIND_RelAngle_deg",
+      "cos__WIND_RelAngle_deg",
+      "resultant__WIND_RelAngle_deg",
+      "n__WIND_RelAngle_deg",
+      "WIND_RelSpeed_kn",
+      "n__WIND_RelSpeed_kn",
+      "sog_minus_stw_kn",
+      "tc_over_cams",
+      "scav_over_fuel",
+      "stw_cubed",
+      "cams_cubed",
+      "fuel_times_scav",
+      "STW_kn__mean15",
+      "STW_kn__std15",
+      "STW_kn__mean60",
+      "STW_kn__std60",
+      "STW_kn__delta15",
+      "SOG_kn__mean15",
+      "SOG_kn__std15",
+      "SOG_kn__mean60",
+      "SOG_kn__std60",
+      "SOG_kn__delta15",
+      "ME_RPM_CAMS__mean15",
+      "ME_RPM_CAMS__std15",
+      "ME_RPM_CAMS__mean60",
+      "ME_RPM_CAMS__std60",
+      "ME_RPM_CAMS__delta15",
+      "ME_FuelLoad_pct__mean15",
+      "ME_FuelLoad_pct__std15",
+      "ME_FuelLoad_pct__mean60",
+      "ME_FuelLoad_pct__std60",
+      "ME_FuelLoad_pct__delta15",
+      "ME_ScavAirPressure_bar__mean15",
+      "ME_ScavAirPressure_bar__std15",
+      "ME_ScavAirPressure_bar__mean60",
+      "ME_ScavAirPressure_bar__std60",
+      "ME_ScavAirPressure_bar__delta15",
+      "ME_TC_RPM_Transducer__mean15",
+      "ME_TC_RPM_Transducer__std15",
+      "ME_TC_RPM_Transducer__mean60",
+      "ME_TC_RPM_Transducer__std60",
+      "ME_TC_RPM_Transducer__delta15"
+    ]
+  },
+  "training_window": "prior 90 calendar days within permitted training months",
+  "no_validation_label_fit_or_calibration": true,
+  "no_december": true,
+  "headline": "positive target, no negative raw target, STW>=3",
+  "broader_forward": "all observed targets at STW>=3, including zeros/negative",
+  "threads_per_booster": 2,
+  "software": {
+    "python": "3.11.0",
+    "sklearn": "1.8.0",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.7.0",
+    "catboost": "1.2.10"
+  }
+}

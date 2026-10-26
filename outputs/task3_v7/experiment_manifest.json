@@ -1,0 +1,172 @@
+{
+  "version": "V7",
+  "B_fixed_months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8
+  ],
+  "B_eval_months": [
+    9,
+    10
+  ],
+  "B_models": [
+    "B_ridge_full",
+    "B_hgb_full",
+    "B_hgb_broad_full"
+  ],
+  "C_models": [
+    "B_ridge_full",
+    "B_hgb_broad_full"
+  ],
+  "C_training_months": {
+    "4": [
+      1,
+      2,
+      3
+    ],
+    "5": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "6": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "8": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "9": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8
+    ],
+    "10": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9
+    ]
+  },
+  "quarantined": [
+    7,
+    11
+  ],
+  "December": "previously inspected; never opened in V7",
+  "source_V2_sha256": "19d0c382585e4f20f753c55982da8a4836d399615da57fe14b71a5c02e00f456",
+  "latency_hours": 24,
+  "refresh": "UTC day start; history timestamp strictly < day_start-24h",
+  "history_lookback_days": 3,
+  "min_history": 30,
+  "B_update_snapshot": "2024-10-01T00:00:00Z",
+  "B_update_label_cutoff_exclusive": "2024-09-30T00:00:00Z",
+  "history_scope": "observed STW>=3, includes recorded zeros and negative labels; conditional trust",
+  "positive_history_sensitivity": "Ridge only; historical positive labels, never current eligibility",
+  "history_fallback": "fixed prediction for residual; positive training mean for persistence/history mean",
+  "eligibility": "finite observed onboard STW>=3; independent of current target",
+  "scoring": "only previously observed hidden/ordinary target; missing truths never scored as zero",
+  "C_schedule": "days 3,6,9,12,15,18,21,24,27 at 06:00 UTC; 1,6,24h repeated; no value-based selection",
+  "C_interval": "target window_end > start and <= end",
+  "C_global_mask": "all 54 gaps permanently hidden from every reconstruction fit and history",
+  "C_calibration_history": "current evaluation month only, out-of-time base residuals",
+  "B_calibration_history": "Sep onward only, out-of-time fixed residuals; October can use September",
+  "models": {
+    "B_ridge_full": {
+      "name": "B_ridge_full",
+      "group": "B",
+      "family": "ridge",
+      "window": "full",
+      "loss": "squared_error",
+      "labels": "headline",
+      "decay": null
+    },
+    "B_hgb_full": {
+      "name": "B_hgb_full",
+      "group": "B",
+      "family": "hgb",
+      "window": "full",
+      "loss": "squared_error",
+      "labels": "headline",
+      "decay": null
+    },
+    "B_hgb_broad_full": {
+      "name": "B_hgb_broad_full",
+      "group": "B",
+      "family": "hgb",
+      "window": "full",
+      "loss": "squared_error",
+      "labels": "broad",
+      "decay": null
+    }
+  },
+  "features": {
+    "A": [
+      "sin__HULL_HeadingTrue_deg",
+      "cos__HULL_HeadingTrue_deg",
+      "resultant__HULL_HeadingTrue_deg",
+      "n__HULL_HeadingTrue_deg",
+      "HULL_TurnRate_degmin",
+      "n__HULL_TurnRate_degmin",
+      "SOG_kn",
+      "n__SOG_kn",
+      "STW_kn",
+      "n__STW_kn",
+      "sin__WIND_RelAngle_deg",
+      "cos__WIND_RelAngle_deg",
+      "resultant__WIND_RelAngle_deg",
+      "n__WIND_RelAngle_deg",
+      "WIND_RelSpeed_kn",
+      "n__WIND_RelSpeed_kn"
+    ],
+    "B": [
+      "sin__HULL_HeadingTrue_deg",
+      "cos__HULL_HeadingTrue_deg",
+      "resultant__HULL_HeadingTrue_deg",
+      "n__HULL_HeadingTrue_deg",
+      "HULL_TurnRate_degmin",
+      "n__HULL_TurnRate_degmin",
+      "ME_FuelLoad_pct",
+      "n__ME_FuelLoad_pct",
+      "ME_RPM_CAMS",
+      "n__ME_RPM_CAMS",
+      "ME_ScavAirPressure_bar",
+      "n__ME_ScavAirPressure_bar",
+      "ME_TC_RPM_Transducer",
+      "n__ME_TC_RPM_Transducer",
+      "SOG_kn",
+      "n__SOG_kn",
+      "STW_kn",
+      "n__STW_kn",
+      "sin__WIND_RelAngle_deg",
+      "cos__WIND_RelAngle_deg",
+      "resultant__WIND_RelAngle_deg",
+      "n__WIND_RelAngle_deg",
+      "WIND_RelSpeed_kn",
+      "n__WIND_RelSpeed_kn"
+    ]
+  },
+  "selection": "none; frozen settings; all blocks reported",
+  "conditional": "trustworthy labels and 24h latency unverified",
+  "evaluation_status": "development only; Sep/Oct previously inspected"
+}

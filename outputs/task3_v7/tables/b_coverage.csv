@@ -1,0 +1,3 @@
+period,calendar_minutes,eligible_n,scored_forward_n,unscored_missing_eligible_n,positive_n,zero_n,negative_or_mixed_n,history_used_on_scored_n
+september,43200,31729,30760,969,16798,13926,36,27880
+october,44640,24720,21742,2978,21719,12,11,19787

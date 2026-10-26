@@ -1,0 +1,6 @@
+{
+  "fit_seconds": 6.212190400001418,
+  "train_n": 111206,
+  "feature_n": 60,
+  "family": "xgb"
+}

@@ -1,0 +1,19 @@
+file,row,column,raw_value,parsed_value,note
+N01_January_Data_with_Corrected_Fuel_Type.csv,7,Slip,%:  30.06,30.06,Extreme slip value (>25% or < -20%); requires physical review
+N01_January_Data_with_Corrected_Fuel_Type.csv,8,Slip,%:  42.32,42.32,Extreme slip value (>25% or < -20%); requires physical review
+N01_January_Data_with_Corrected_Fuel_Type.csv,9,Slip,%:  48.81,48.81,Extreme slip value (>25% or < -20%); requires physical review
+N01_January_Data_with_Corrected_Fuel_Type.csv,10,Slip,%:  59.32,59.32,Extreme slip value (>25% or < -20%); requires physical review
+N03_March_Data_with_Propulsion_and_Fuel.csv,4,Slip,%:  26.18,26.18,Extreme slip value (>25% or < -20%); requires physical review
+N03_March_Data_with_Propulsion_and_Fuel.csv,29,Slip,%:  50,50.0,Extreme slip value (>25% or < -20%); requires physical review
+N04_April_Data_with_Propulsion_and_Fuel.csv,29,Slip,%:  34.63,34.63,Extreme slip value (>25% or < -20%); requires physical review
+N05_May_Data_with_Propulsion_and_Fuel.csv,1,Slip,%:  27.76,27.76,Extreme slip value (>25% or < -20%); requires physical review
+N05_May_Data_with_Propulsion_and_Fuel.csv,3,Slip,%:  50,50.0,Extreme slip value (>25% or < -20%); requires physical review
+N05_May_Data_with_Propulsion_and_Fuel.csv,4,Slip,%:  37.25,37.25,Extreme slip value (>25% or < -20%); requires physical review
+N05_May_Data_with_Propulsion_and_Fuel.csv,8,Slip,%:  25.76,25.76,Extreme slip value (>25% or < -20%); requires physical review
+N05_May_Data_with_Propulsion_and_Fuel.csv,9,Slip,%:  44.97,44.97,Extreme slip value (>25% or < -20%); requires physical review
+N05_May_Data_with_Propulsion_and_Fuel.csv,25,Slip,%:  53.33,53.33,Extreme slip value (>25% or < -20%); requires physical review
+N07_July_Data_with_Propulsion_and_Fuel.csv,1,Slip,%:  -60,-60.0,Extreme slip value (>25% or < -20%); requires physical review
+N10_October_Data_with_Propulsion_and_Fuel.csv,3,Slip,%:  45.65,45.65,Extreme slip value (>25% or < -20%); requires physical review
+N11_November_Data_with_Propulsion_and_Fuel.csv,2,Slip,%:  29.7,29.7,Extreme slip value (>25% or < -20%); requires physical review
+N12_December_Data_with_Propulsion_and_Fuel.csv,22,Slip,%:  28.48,28.48,Extreme slip value (>25% or < -20%); requires physical review
+N12_December_Data_with_Propulsion_and_Fuel.csv,28,Slip,%:  -35,-35.0,Extreme slip value (>25% or < -20%); requires physical review

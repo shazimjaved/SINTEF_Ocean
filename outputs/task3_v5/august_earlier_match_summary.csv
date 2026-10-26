@@ -1,0 +1,4 @@
+max_normalized_distance,august_samples,matched_n,matched_fraction,distinct_earlier_peers,median_power_difference_kw,p10_power_difference_kw,p90_power_difference_kw,median_august_noon_displacement,median_earlier_noon_displacement,same_provisional_loading_fraction,median_august_mid_draft_m,median_earlier_mid_draft_m
+1.0,3517,3064,0.871197042934319,433,-899.6051,-1219.235888671875,-435.7089599609375,89145.0,35885.0,0.0,14.22,6.24
+2.0,3517,3516,0.9997156667614444,449,-886.33997,-1221.085205078125,-432.199951171875,89145.0,36731.0,0.0,14.2,6.24
+3.0,3517,3517,1.0,450,-886.30005,-1221.0822265625,-432.13798828125,89145.0,36731.0,0.0,14.2,6.24

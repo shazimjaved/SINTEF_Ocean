@@ -1,0 +1,89 @@
+{
+  "version": "V6",
+  "evaluation_role": "previously inspected development; not untouched holdout",
+  "arms": {
+    "jan_jun": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "jan_jun_aug": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8
+    ]
+  },
+  "evaluation_months": {
+    "september": 9,
+    "october": 10
+  },
+  "fixed_candidates": [
+    {
+      "name": "A_hgb_full_v1like",
+      "group": "A",
+      "family": "hgb",
+      "window": "full",
+      "loss": "squared_error",
+      "labels": "headline",
+      "decay": null
+    },
+    {
+      "name": "B_hgb_full",
+      "group": "B",
+      "family": "hgb",
+      "window": "full",
+      "loss": "squared_error",
+      "labels": "headline",
+      "decay": null
+    },
+    {
+      "name": "B_ridge_full",
+      "group": "B",
+      "family": "ridge",
+      "window": "full",
+      "loss": "squared_error",
+      "labels": "headline",
+      "decay": null
+    },
+    {
+      "name": "B_hgb_broad_full",
+      "group": "B",
+      "family": "hgb",
+      "window": "full",
+      "loss": "squared_error",
+      "labels": "broad",
+      "decay": null
+    }
+  ],
+  "candidate_source": "scripts/task3_v2/07_walkforward_experiments.py",
+  "candidate_source_sha256": "19d0c382585e4f20f753c55982da8a4836d399615da57fe14b71a5c02e00f456",
+  "training_window": "full permitted history, no recent-90-day truncation",
+  "target_training_scope": "V2 headline or broader-forward as in each candidate",
+  "evaluation_scopes": [
+    "positive",
+    "broader_forward",
+    "recorded_zero"
+  ],
+  "baseline_definitions": {
+    "training_mean": "mean positive train target",
+    "speed_cubic": "nonnegative least squares: a + b*STW^3 on positive train"
+  },
+  "bias_sign": "actual minus predicted",
+  "selection": "none; no V6 parameter choice based on September or October metrics",
+  "forbidden_months": [
+    7,
+    11,
+    12
+  ],
+  "forbidden_inputs": "Noon, external weather, target and torquemeter predictors",
+  "timestamp_rule": "completed one-minute window labelled by end; calendar day=end minus one minute",
+  "python": "3.11.0",
+  "sklearn": "1.8.0"
+}

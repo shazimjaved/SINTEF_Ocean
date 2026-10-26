@@ -1,0 +1,20 @@
+artifact,field,max_decimal_read_difference,canonical_dtype
+A reused metric,train_n,0.0,int64
+A reused metric,fit_seconds,0.0,float64
+A reused metric,n,0.0,int64
+A reused metric,mae_kw,2.2737367544323206e-13,float64
+A reused metric,rmse_kw,0.0,float64
+A reused metric,pearson_r,0.0,float64
+A reused metric,r2_score,0.0,float64
+A reused metric,bias_actual_minus_pred_kw,4.547473508864641e-13,float64
+A reused metric,observed_mean_kw,0.0,float64
+A reused metric,predicted_mean_kw,0.0,float64
+A reused metric,zero_n_in_scope,0.0,int64
+A reused metric,negative_or_mixed_n_in_scope,0.0,int64
+A reused metric,days_with_labels,0.0,int64
+C history month 4,fixed__B_ridge_full,0.00024218749967985786,float32 verified from saved pipeline predict
+C history month 5,fixed__B_ridge_full,0.00024218749967985786,float32 verified from saved pipeline predict
+C history month 6,fixed__B_ridge_full,0.00024218749967985786,float32 verified from saved pipeline predict
+C history month 8,fixed__B_ridge_full,0.00024218749967985786,float32 verified from saved pipeline predict
+C history month 9,fixed__B_ridge_full,0.00024218749967985786,float32 verified from saved pipeline predict
+C history month 10,fixed__B_ridge_full,0.00024218749967985786,float32 verified from saved pipeline predict

@@ -1,0 +1,13 @@
+file,rows,columns,date_only,time_or_issue_columns,fwd_draft_present,mid_draft_present,aft_draft_present,displacement_present
+N01_January_Data_with_Corrected_Fuel_Type.csv,31,15,True,,31,31,31,31
+N02_February_Data_with_Propulsion_and_Fuel.csv,29,15,True,,29,29,29,29
+N03_March_Data_with_Propulsion_and_Fuel.csv,31,15,True,,31,31,31,31
+N04_April_Data_with_Propulsion_and_Fuel.csv,30,15,True,,30,30,30,30
+N05_May_Data_with_Propulsion_and_Fuel.csv,31,15,True,,31,31,31,31
+N06_June_Data_with_Propulsion_and_Fuel.csv,30,15,True,,30,30,30,30
+N07_July_Data_with_Propulsion_and_Fuel.csv,31,15,True,,31,31,31,31
+N08_August_Data_with_Propulsion_and_Fuel.csv,31,15,True,,31,31,31,31
+N09_September_Data_with_Propulsion_and_Fuel.csv,30,15,True,,30,30,30,30
+N10_October_Data_with_Propulsion_and_Fuel.csv,31,15,True,,31,31,31,31
+N11_November_Data_with_Propulsion_and_Fuel.csv,30,15,True,,30,30,30,30
+N12_December_Data_with_Propulsion_and_Fuel.csv,31,15,True,,31,31,31,31

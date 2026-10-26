@@ -1,0 +1,18 @@
+id,claim,status,evidence
+V3Q01,"V1 frozen model, selection and original December predictions remain unchanged",PASS,7 hashes
+V3Q02,Year-wide torquemeter audit covers unique completed minutes,PASS,527040 minutes
+V3Q03,Active-engine zero-power minutes have synchronous mechanical torquemeter zeros,PASS,38990/38990
+V3Q04,Counter stasis exceptions remain visible and are not called clean boundaries,PASS,frozen=38985; discontinuities=5
+V3Q05,Sampled actual zero onsets and recovery switch four mechanical channels together,PASS,events=4; channels=16
+V3Q06,Speed-threshold exits are separated from actual measurement recovery,PASS,"{'speed-threshold boundary within zero state': 4, 'observed mechanical-zero onset': 3, 'observed mechanical recovery': 1}"
+V3Q07,Positive-power conversion factor is stable and 1000x literal N-m factor,PASS,factor range=0.104717–0.104722
+V3Q08,Raw sampled power agrees numerically with torque times shaft RPM at kN-m factor,PASS,n=474; raw MAE=6.609 kW
+V3Q09,Matched decomposition is arithmetically consistent and uses four development folds,PASS,rows=16
+V3Q10,"Model training and validation months are chronological and exclude July, November, December",PASS,"[['apr', [1, 2, 3], 4], ['may', [1, 2, 3, 4], 5], ['jun', [1, 2, 3, 4, 5], 6], ['aug', [1, 2, 3, 4, 5, 6], 8]]"
+V3Q11,Dynamic feature files exist only for declared model months,PASS,"['dynamic_2024_01.csv.gz', 'dynamic_2024_02.csv.gz', 'dynamic_2024_03.csv.gz', 'dynamic_2024_04.csv.gz', 'dynamic_2024_05.csv.gz', 'dynamic_2024_06.csv.gz', 'dynamic_2024_08.csv.gz']"
+V3Q12,Saved dynamic features are aligned and contain no target or torquemeter input,PASS,Seven month tables checked
+V3Q13,Sampled 15-minute means use only current and earlier feature windows,PASS,Two source-reconstructed rows per model month
+V3Q14,All declared candidates have both evaluation scopes on all folds,PASS,new rows=32; comparison rows=48
+V3Q15,All model-scope sample counts reconcile with untouched minute targets,PASS,32 model-fold-scope rows
+V3Q16,"R2, RMSE, bias, MAE and Pearson ranges are internally consistent",PASS,R2 recomputed from independent label variance
+V3Q17,Torquemeter diagnostic reuses onboard-only matches and reconciles power shifts,PASS,Eight development-only matched comparisons; August torque ratio near 0.80

@@ -1,0 +1,3 @@
+max_normalized_distance,september_samples,matched_n,matched_fraction,distinct_august_peers,median_september_minus_august_kw,p10_difference_kw,p90_difference_kw,median_abs_speed_difference_kn,median_abs_engine_rpm_difference,median_abs_fuel_load_difference_pct,median_abs_scav_pressure_difference_bar,median_september_mid_draft_m,median_august_mid_draft_m,identical_noon_displacement_fraction
+1.0,1685,1566,0.9293768545994066,112,119.36499,11.13006591796875,275.614990234375,0.05000019,0.5374985,0.74134827,0.010140002,14.1,14.25,1.0
+2.0,1685,1682,0.9982195845697329,118,124.05493,11.3068359375,339.57187500000003,0.07499981,0.57499695,0.8014507,0.012385011,14.1,14.25,1.0

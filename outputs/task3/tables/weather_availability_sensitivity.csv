@@ -1,0 +1,5 @@
+split,scope,n,all14_fresh_pct,any_fresh_pct
+stress,headline,38517,100.0,100.0
+stress,broader_forward,52502,100.0,100.0
+test,headline,39270,100.0,100.0
+test,broader_forward,39313,100.0,100.0

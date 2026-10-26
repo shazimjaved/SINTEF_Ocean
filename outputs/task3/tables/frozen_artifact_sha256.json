@@ -1,0 +1,9 @@
+{
+  "outputs\\task3\\tables\\frozen_selection.json": "0cf13b90a7715c72d6e2e89b2726e014380d9585331340cafc5c9c37c2a8cc46",
+  "outputs\\task3\\models\\selected_pipeline.joblib": "2d3321abac60ba4cd0f606b2125781894d02f3d8c2a872785d347a0ca881fb91",
+  "outputs\\task3\\tables\\test_predictions.csv.gz": "7d1b81bb4ebfe6c345cdbc35e2775ee4560c3e95b52c7ba166cc482938b76053",
+  "outputs\\task3\\tables\\validation_selected_predictions.csv": "07167bd4e81b936273fbf0be78e1a33d5e7e689dac8151b6ded8a5f76e8fac13",
+  "outputs\\task3\\tables\\validation_model_comparison.csv": "59ce2811bb5da2ad77a45d68e6ca0f1af2219c2c014e66c9098143cf28f51c83",
+  "outputs\\task3\\tables\\stress_metrics.csv": "85c455945ebf09489f2e9aaef401062de5b36f9e84b1d31c4cfd263fda86bb84",
+  "outputs\\task3\\tables\\test_metrics.csv": "ea9d5f25bc3cdace5412ba7d8033d3cac1544c6f9763889ba6e9c31771b59f15"
+}

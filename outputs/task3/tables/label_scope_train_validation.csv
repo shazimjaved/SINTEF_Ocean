@@ -1,0 +1,3 @@
+split,completed_minutes,target_minutes,forward_with_target,headline_minutes,headline_pct_of_forward
+train,262080,246767,184295,166154,90.15654249979652
+validation,44640,44640,41205,35086,85.14986045382842

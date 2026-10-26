@@ -1,0 +1,28 @@
+id,claim,status,evidence
+T3Q01,Half-open completed-minute windows exclude observations at or after end,PASS,first=6.0; second=9.0
+T3Q02,Provider latest-time lookup excludes future observation and records age,PASS,first source 00:00:45; second source 00:01:05; stale by 01:02
+T3Q03,"Circular mean of 350 and 10 degrees is near zero, not 180",PASS,sin=-2.818375077046596e-17; cos=1.0
+T3Q04,All twelve 2024 files built and raw row counts reconcile,PASS,months=12; rows=41079968
+T3Q05,Manifest uses explicit QIDs and 24 approved candidate channels,PASS,mapped=36; candidates=24
+T3Q06,Scavenge-air pressure remains onboard by explicit QID mapping,PASS,"{'qid': '1::0::14::0_1::2::0::8::0_3::0::3::0_8', 'source': 'onboard'}"
+T3Q07,"Minute tables have complete calendar grids, ordered unique labels and stable schema",PASS,minutes=527040; stable=True
+T3Q08,Target reading counts reconcile with prior independent monthly audit,PASS,All twelve target_n sums equal target_availability.csv
+T3Q09,"Export excludes torquemeter proxies, faulty drafts and sparse depth",PASS,columns=64; forbidden intersection=set()
+T3Q10,Every retained provider value is no more than 3600 seconds old,PASS,All 14 provider age columns across twelve monthly tables
+T3Q11,"Frozen chronology preserves Jan-Jun training, August validation, December test",PASS,"[1, 2, 3, 4, 5, 6]"
+T3Q12,Frozen model uses only candidate transforms and excludes all label fields,PASS,model_columns=16
+T3Q13,Training-only imputer is inside the saved fitted pipeline,PASS,"Pipeline(steps=[('simpleimputer',
+                 SimpleImputer(add_indicator=True, keep_empty_features=True,
+                               strategy='median')),
+                ('histgradientboostingregressor',
+                 HistGradientBoostingRegressor(early_stopping=False,
+                                               l2_regularization=1.0,
+                                               learning_rate=0.07, max_iter=120,
+                                               max_leaf_nodes=15,
+                                               min_samples_leaf=80,
+                                               random_state=4259))])"
+T3Q14,Saved imputation medians equal eligible January-June medians,PASS,training rows=166154; columns=16
+T3Q15,Selection is represented by an August validation row,PASS,"{'score': 942.5139325787601, 'feature_set': 'A_restricted_onboard', 'family': 'histgb', 'parameter': 15, 'columns': ['sin__HULL_HeadingTrue_deg', 'cos__HULL_HeadingTrue_deg', 'resultant__HULL_HeadingTrue_deg', 'n__HULL_HeadingTrue_deg', 'HULL_TurnRate_degmin', 'n__HULL_TurnRate_degmin', 'SOG_kn', 'n__SOG_kn', 'STW_kn', 'n__STW_kn', 'sin__WIND_RelAngle_deg', 'cos__WIND_RelAngle_deg', 'resultant__WIND_RelAngle_deg', 'n__WIND_RelAngle_deg', 'WIND_RelSpeed_kn', 'n__WIND_RelSpeed_kn']}"
+T3Q16,December metrics use only saved one-time holdout predictions,PASS,test rows=39313
+T3Q17,"Saved December predictions independently reproduce reported MAE, RMSE and R",PASS,n=39270; MAE=822.328930
+T3Q18,Pearson R is undefined for every constant training-mean baseline,PASS,Constant-prediction R cells are blank in all three performance tables

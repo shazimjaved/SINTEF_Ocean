@@ -1,0 +1,64 @@
+# ==============================================================================
+# SINTEF Ocean Real Vessel Data Challenge - .gitignore
+# ==============================================================================
+
+# 1. Raw confidential operational sensor and Noon Report data (never commit)
+data/
+data/raw/
+data/Noon Reports/
+*.csv.raw
+
+# 2. Heavy generated intermediate datasets, pivots, and feature matrices
+outputs/tables/pivot_oct2024.csv
+outputs/tables/pivot_jan2024_sampled.csv
+outputs/**/pivot_*.csv
+outputs/**/data/
+outputs/**/zero_states/
+outputs/**/model_features/
+outputs/**/paired/
+outputs/**/reconstruction/
+outputs/**/adaptation/
+outputs/**/ablation/
+outputs/**/experiments/
+outputs/**/audit/
+outputs/**/tables/*predictions*.csv
+outputs/**/tables/*traces*.csv
+
+# 3. Compressed archives and datasets (*.csv.gz, *.gz, *.zip, etc.)
+*.gz
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+
+# 4. Model checkpoints, binaries, and serialized caches
+*.pkl
+*.joblib
+*.parquet
+*.feather
+*.pt
+*.pth
+*.bin
+*.onnx
+*.h5
+*.model
+*_cache/
+
+# 5. Build, runtime, logs, and environment artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+.venv
+env/
+venv/
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+.ipynb_checkpoints/
+
+# 6. Specific document/figure export intermediates
+outputs/figures/*.pdf

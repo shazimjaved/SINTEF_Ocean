@@ -1,0 +1,13 @@
+period,loading_reference,days,positive_minutes,recorded_zero_minutes,reference_covered_positive_minutes,reference_days_ge30,median_of_eligible_daily_reference_ratios,median_of_daily_power_kw,median_of_daily_speed_kn,median_noon_displacement_unit_unspecified,median_noon_mid_draft_m
+August,scantling,31,35086,6030,19779.0,21,0.9537060356082807,3406.3198,11.225,89145.0,14.2
+Jan-Jun,ballast,88,83261,706,30915.0,41,1.2693477404031333,4588.5225,11.35,35885.0,6.2
+Jan-Jun,design,53,68417,21,64460.0,49,1.3530005653082948,5998.162,12.6375,70228.0,11.61
+Jan-Jun,not_close,41,14476,17377,0.0,0,,5771.605,12.55,61646.0,10.36
+July quarantine,ballast,20,14109,1066,12760.0,12,0.9875822345605536,4182.5376,12.637501,39428.0,6.75
+July quarantine,design,1,0,0,0.0,0,,,,73034.0,12.06
+July quarantine,not_close,9,0,42,0.0,0,,,,49522.108,8.37
+July quarantine,scantling,1,1289,0,1084.0,1,0.968578698563783,4326.77,12.05,88090.0,14.28
+Sep-Oct stress,ballast,24,21719,12,130.0,2,1.216030404167127,2489.9624,10.85,34789.0,6.1
+Sep-Oct stress,design,1,0,0,0.0,0,,,,68398.8,11.34
+Sep-Oct stress,not_close,6,0,0,0.0,0,,,,49815.5,8.535
+Sep-Oct stress,scantling,30,16798,13926,16513.0,13,1.0332113921204795,5038.54,12.5,89145.0,14.1

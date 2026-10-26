@@ -1,0 +1,102 @@
+{
+  "version": "V8",
+  "earlier_threshold_development": [
+    4,
+    5
+  ],
+  "feature_scale_months": [
+    1,
+    2,
+    3
+  ],
+  "paired_evaluation_months": [
+    6,
+    8,
+    9,
+    10
+  ],
+  "paired_training_months": {
+    "6": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "8": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "9": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8
+    ],
+    "10": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9
+    ]
+  },
+  "anchor_days": [
+    4,
+    11,
+    20,
+    29
+  ],
+  "anchor_hour_utc": 6,
+  "horizons_hours": [
+    1,
+    6,
+    24
+  ],
+  "paired_rule": "one 24h sealed union per anchor; horizons are identical-prefix scores; anchor unions do not overlap",
+  "global_embargo": "all 16 maximum-horizon gaps hidden from all later fits/history; no horizons revealed",
+  "latency": "history timestamps strictly before covered_day_start-24h; daily refresh",
+  "window": "[window_end-1min, window_end), not an intra-window forecast",
+  "label_scope": "observed STW>=3 history including zero/negative under conditional trust",
+  "history_days": 3,
+  "minimum_history": 30,
+  "threshold_levels": {
+    "offset_abs_cap": 0.95,
+    "risk_feature_limits": 0.99,
+    "reference_absolute_error": 0.95
+  },
+  "point_rules": [
+    "unchanged V7 median residual",
+    "symmetric cap at early-fold q95(abs daily offset)",
+    "nonnegative V7 clipping as separate output constraint"
+  ],
+  "flag_only": "no history OR historical zero/negative proportion, residual MAD, stale-label gap, onboard drift or prediction disagreement > early q99",
+  "uncertainty_reference": "V7 prediction +/- early-fold q95 absolute error; diagnostic, no guaranteed coverage",
+  "current_target": "never used for eligibility, flags, correction, threshold selection or imputation",
+  "paired_model": "only V2 B_ridge_full; alpha100; refit for new global embargo, V7 weights unchanged",
+  "no_tuning_using": [
+    6,
+    8,
+    9,
+    10,
+    12
+  ],
+  "quarantine": [
+    7,
+    11
+  ],
+  "December": "not read",
+  "selection": "no final model promotion; compare coverage, transitions, ordinary/zero errors, tails and matched baselines",
+  "source_v7_common_sha256": "a2375df5cf16c98c78c5475b034857ff88b12f7142e6fe0e229f11117ab75297",
+  "source_v2_sha256": "19d0c382585e4f20f753c55982da8a4836d399615da57fe14b71a5c02e00f456"
+}

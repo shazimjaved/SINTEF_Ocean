@@ -1,0 +1,21 @@
+predictor,source_group,pearson_r_october,n_paired_completed_minutes,n_distinct_raw_provider_timestamps_used,caution
+CURR_Eastward_ms_MB,provider_mb,-0.1119565778058755,22088,369,descriptive; paired minutes are autocorrelated and weather values repeat
+CURR_Eastward_ms_S,provider_s,-0.056204114315515835,22088,369,descriptive; paired minutes are autocorrelated and weather values repeat
+CURR_Northward_ms_MB,provider_mb,-0.06424569208829808,22088,369,descriptive; paired minutes are autocorrelated and weather values repeat
+CURR_Northward_ms_S,provider_s,-0.14861414772537973,22088,369,descriptive; paired minutes are autocorrelated and weather values repeat
+HULL_TurnRate_degmin,onboard,0.03402486214663256,22088,,descriptive; paired minutes are autocorrelated and weather values repeat
+ME_FuelLoad_pct,onboard,0.9195827986347233,22087,,descriptive; paired minutes are autocorrelated and weather values repeat
+ME_RPM_CAMS,onboard,0.8795314676413376,22086,,descriptive; paired minutes are autocorrelated and weather values repeat
+ME_ScavAirPressure_bar,onboard,0.9779811850089516,22087,,descriptive; paired minutes are autocorrelated and weather values repeat
+ME_TC_RPM_Transducer,onboard,0.9496989434233979,22087,,descriptive; paired minutes are autocorrelated and weather values repeat
+SEA_WaterTemp_C_S,provider_s,0.10618684815825341,22088,369,descriptive; paired minutes are autocorrelated and weather values repeat
+SOG_kn,onboard,0.6384437593460999,22088,,descriptive; paired minutes are autocorrelated and weather values repeat
+STW_kn,onboard,0.6280744878267855,22088,,descriptive; paired minutes are autocorrelated and weather values repeat
+SWELL_SigHeight_m_MB,provider_mb,0.16701996317703555,22088,369,descriptive; paired minutes are autocorrelated and weather values repeat
+WAVE_Period_sec_S,provider_s,0.0819300266594037,22088,369,descriptive; paired minutes are autocorrelated and weather values repeat
+WAVE_SigHeight_m_MB,provider_mb,0.25619714807770555,22088,369,descriptive; paired minutes are autocorrelated and weather values repeat
+WAVE_SigHeight_m_S,provider_s,0.09598127355228747,22088,369,descriptive; paired minutes are autocorrelated and weather values repeat
+WIND_Eastward_ms_S,provider_s,0.1638656335812649,22088,369,descriptive; paired minutes are autocorrelated and weather values repeat
+WIND_Northward_ms_S,provider_s,-0.054756318798509535,22088,369,descriptive; paired minutes are autocorrelated and weather values repeat
+WIND_RelSpeed_kn,onboard,0.29701446067662735,22087,,descriptive; paired minutes are autocorrelated and weather values repeat
+WIND_TrueSpeed_kn_MB,provider_mb,0.14587120509376023,22088,369,descriptive; paired minutes are autocorrelated and weather values repeat

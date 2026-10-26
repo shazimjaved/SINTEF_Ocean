@@ -1,0 +1,17 @@
+id,claim,status,evidence
+V2Q01,"V1 model, frozen selection, original December predictions and metrics remain unchanged",PASS,hashes=7
+V2Q02,Registered target QID/unit and sampled raw-to-minute target/engine means reconcile,PASS,"20/20 representative records across January, August, October, December"
+V2Q03,Three long zero-power runs contain raw zero target readings with matching active-engine sensors,PASS,15/15 raw channel-minute checks across three runs
+V2Q04,Long zero-power plateaus are reconciled across month boundaries,PASS,"top run minutes=[11773, 9603, 8850]"
+V2Q05,V2 quality flags cover the full year and reproduce zero-power month counts,PASS,minutes=527040; active-engine zero=38990
+V2Q06,Target-conditional headline counts remain unchanged in V2 annotations,PASS,All twelve monthly headline counts reconcile
+V2Q07,Target-derived quality flags are explicitly excluded from model input,PASS,none of these target-derived fields may be used as predictors
+V2Q08,Conditional comparison and nearest-neighbor shift tables have matched support counts,PASS,cell rows=6; neighbor rows=16
+V2Q09,Target and non-target sensor relationship shifts are separately recorded,PASS,relationships=35
+V2Q10,"Walk-forward development folds are chronological and exclude July, November and December",PASS,"[['apr', [1, 2, 3], 4], ['may', [1, 2, 3, 4], 5], ['jun', [1, 2, 3, 4, 5], 6], ['aug', [1, 2, 3, 4, 5, 6], 8]]"
+V2Q11,Every declared V2 candidate ran on every fold and both unchanged evaluation scopes,PASS,rows=72; candidates=9
+V2Q12,V2 fold headline counts reconcile with prior monthly audit,PASS,"{'apr': 42465, 'may': 17851, 'jun': 12084, 'aug': 35086}"
+V2Q13,Exploratory weather comparison uses only the same four development folds,PASS,rows=24
+V2Q14,Bias decomposition satisfies MSE = squared bias + residual variance,PASS,rows=36
+V2Q15,Offline first-day calibration scores exclude calibration-day labels and reproduce saved metrics,PASS,"Four folds, two scopes, raw and offset rows verified from saved predictions"
+V2Q16,Label-based offset experiment is explicitly marked nondeployable and excluded from ranking,PASS,nondeployable diagnostic upper bound

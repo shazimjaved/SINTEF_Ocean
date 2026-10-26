@@ -1,0 +1,21 @@
+{
+  "scenario": "conditional label-assisted, never ranked with label-free",
+  "base_candidates": [
+    "B_ridge_head",
+    "D_ridge_head"
+  ],
+  "folds": [
+    "apr",
+    "may",
+    "jun",
+    "aug"
+  ],
+  "prior_label_rule": "positive headline actual power only",
+  "lag_days": 1,
+  "lookback_days": 3,
+  "minimum_trusted_labels": 30,
+  "daily_rule": "history [day-4d, day-1d), correction set at UTC day start",
+  "december": "not read",
+  "no_same_day_or_future_labels": true,
+  "operational_status": "conditional; trustworthy power availability unverified"
+}

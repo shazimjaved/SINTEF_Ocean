@@ -1,0 +1,18 @@
+check_id,status,evidence
+V6_CONFIG_01,PASS,Predeclared Jan-Jun versus Jan-Jun+Aug histories; Sept/Oct development only
+V6_CONFIG_02,PASS,V2 candidate definitions source-hashed and unchanged
+V6_FEATURE_01,PASS,"16 restricted and 24 extended columns; onboard source, no target/torquemeter predictors"
+V6_FIT_01,PASS,Eight fits; all last training timestamps precede September labels
+V6_FIT_02,PASS,Positive/broad training counts match fixed histories
+V6_SCOPE_01,PASS,Independent source-minute scope and zero counts
+V6_RESULT_01,PASS,2 arms × 6 fixed methods × 2 months × 3 scopes = 72 unique rows
+V6_PRED_01,PASS,"24 preserved prediction files: two arms, six methods, two months"
+V6_ALIGN_01,PASS,"Every prediction timestamp, label and scope agrees with compact minute sources"
+V6_METRIC_01,PASS,Exact MAE/RMSE/Pearson R/R2/bias recomputed from all 72 saved scopes
+V6_DAILY_01,PASS,"Daily counts, MAE and bias independently recomputed from end-labelled predictions"
+V6_BASE_01,PASS,Jan-Jun baseline coefficients exactly reproduce V1 frozen baselines
+V6_V1_01,PASS,Jan-Jun restricted HGB exactly reproduces archived V1 Sep-Oct predictions
+V6_V1_02,PASS,Jan-Jun baselines reproduce archived combined Sep-Oct V1 stress metrics
+V6_FREEZE_01,PASS,Manifest predates outputs; evaluation months absent from every fit
+V6_PAIR_01,PASS,Paired training-history MAE deltas recomputed
+V6_COMPARE_01,PASS,"Baseline-relative and daily paired comparisons are numerical, not rankings"

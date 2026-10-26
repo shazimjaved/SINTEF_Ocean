@@ -1,0 +1,22 @@
+check_id,status,evidence
+V8_PROTOCOL,PASS,"Frozen small rule set, four Ridge refits only, explicit quarantines/no December"
+V8_INDEPENDENT_FEATURES,PASS,"Primary arrays exclude power, torque, shaft RPM, Noon/provider and target-derived states"
+V8_EARLY_ONLY_THRESHOLDS,PASS,Every threshold source is Jan-Mar onboard scales or Apr/May permitted history/earlier validation
+V8_THRESHOLD_RECOMPUTATION,PASS,Frozen q95 bound/error reference and q99 daily risk thresholds independently recomputed
+V8_V7_PRESERVED,PASS,All 54 V7 prediction hashes and every unchanged calibrated Ridge vector verified
+V8_V7_MODELS_UNCHANGED,PASS,Six source V7 Ridge model artifacts predate V8; new models saved only under V8
+V8_OLD_HISTORY_CUTOFFS,PASS,Old-model offsets/state proportions/onboard medians use only visible history strictly before day-24h
+V8_FOUR_FAILURE_CASES,PASS,"Four required cases have explicit last-available/admitted timestamps, correction age and independent conditions"
+V8_SEPARATE_PHYSICS,PASS,Exact-timestamp shared-source trio identity/scaling checked; literal registration N*m retained; not an ML input
+V8_RAW_MINUTE_ALIGNMENT,PASS,"Representative fully sampled raw [end-1min,end) power means agree with compact labels within .02kW CSV precision"
+V8_PAIRED_ANCHORS,PASS,16 predetermined disjoint 24h unions; 1h/6h/24h are intentional identical-prefix comparisons
+V8_GLOBAL_FIT_EMBARGO,PASS,Four alpha100 Ridge refits independently exclude old+new hidden labels; imputation medians match earlier training only
+V8_GLOBAL_HISTORY_EMBARGO,PASS,All new-anchor labels remain sealed in histories; n/state/offset/covariate statistics independently replay with strict delay
+V8_HORIZON_COVERAGE,PASS,All unions/prefixes and matched cohorts retained; original missing vs positive/zero/negative counts reconcile
+V8_RULES_AND_TRUTH_INVARIANCE,PASS,"Frozen bound/flags/clipping replay; arbitrary changes to current truth cannot change predictions, abstention or eligibility"
+V8_HIDDEN_LABEL_SENTINEL,PASS,Replacing every sealed June label with an extreme value leaves the refitted August paired predictions unchanged
+V8_PREDECLARATION,PASS,Protocol then early thresholds predate every new paired model fit
+V8_EXACT_POOLED_SELECTIVE_METRICS,PASS,Every full/selective MAE/RMSE/sklearn R2/Pearson r/bias/negativity/severe count recomputed on its actual denominator
+V8_EXACT_BLOCK_TAILS,PASS,Every block/anchor score plus equal-block p90/worst independently recomputed; disastrous cases included
+V8_DAILY_METRICS,PASS,All per-day denominators and numerical scores independently recomputed from covered-minute dates
+V8_FALSE_CONFIDENCE_ACCOUNTING,PASS,All accepted errors above the early q95 reference retained; no false-confidence cases silently removed

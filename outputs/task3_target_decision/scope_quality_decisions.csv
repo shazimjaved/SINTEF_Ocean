@@ -1,0 +1,13 @@
+topic,rule,interpretation,policy,limitation
+absent,target_n=0 and nonfinite mean,No target observation in completed minute,Retain missing; unscoreable; no target imputation,Not evidence of recorded zero
+positive_clean,"mean>0, min>=0, negative_n=0",Recorded positive; not independently certified physical truth,Existing positive-only training and retrospective diagnostic evaluation,Must not define deployment eligibility
+zero_clean,"mean=0, negative_n=0",Explicit observed zero; quality uncertain,Preserve value and episode/quality flags; broad recorded-label score plus separate sensitivity,Not validated missing or invalid sentinel
+negative_mean,observed mean<0,Recorded negative; mechanism unresolved,Preserve and score separately in broad non-quarantined evaluation,July/November remain quarantined
+mixed,nonnegative mean with negative raw readings,Mixed-sign minute; not clean positive/zero,Preserve raw-negative flag and report in negative/mixed diagnostic,Zero exclusion is not the same as positive-only scope
+positive_training,Historical labels satisfy existing positive filter,Conditional supervised learning choice already exercised,Freeze existing models; no retraining or relabelling,Does not identify current unknown target state
+deployment_eligibility,finite STW>=3 from completed minute,Target-independent onboard eligibility,"Retain predictions, unknown truth and uncovered rows",Never require current power>0 or current zero flag
+primary_evaluation,All eligible observed recorded labels in permitted periods,Recorded-channel agreement with unresolved physical validity,Broader-forward metrics and scoreable/prediction coverage primary,No all-regime physical-power success claim
+secondary_evaluation,Positive-only and zero-exclusion sensitivities,Retrospective target-conditioned diagnostics,Always paired with broader-forward results,No promotional replacement of difficult observations
+adaptation,"Past permissible labels only, stated delay and trust",Conditional separate information scenario,Preserve fixed rules and matched persistence/history mean,"Positive-history-only calibration is sensitivity, not validated cleaning"
+physics,Same-source torque/RPM used diagnostically,Separate reconstruction consistency evidence,Keep out of independent ML predictors,Cannot validate absolute target or zero sentinel
+stop,Prior source audit decision C,No decisive new source or transition evidence,Freeze scientific scope; no new model exploration,Need source metadata or new evidence to change validity policy

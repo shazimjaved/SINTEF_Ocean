@@ -1,0 +1,3 @@
+path,term,excerpt
+outputs/reports/scientific_validation_report.md,miscalibrat,"ained. ## What remains unresolved 1. **Target anomaly mechanism and exact periods.** SINTEF notes miscalibrated torque in parts of the data; the negative readings provide evidence of concern, not a calibration certificate. July and November remain quality-quarantined pending reference or operational records. December"
+outputs/reports/task1_preliminary.md,miscalibrat,"vember has 656 negative readings and a minimum near −24,757 kW. The SINTEF material warns of torque miscalibration in parts of the dataset. These observations strongly motivate quality quarantine, but they do **not** prove the fault mechanism or exact calibration boundaries. Negative readings remain in the raw data. -"

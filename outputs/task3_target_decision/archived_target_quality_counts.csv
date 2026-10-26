@@ -1,0 +1,13 @@
+source_month,calendar_minutes,target_minutes,forward_labelled,headline_minutes,zero_forward,zero_forward_active_engine,long_zero_run_minutes,negative_raw_forward,absent_target_calendar_n,negative_or_mixed_forward_n,context_status
+1,44640,41701,25074,25048,16,0,0,10,2939,10,permitted historical/development period
+2,41760,41649,32952,32924,21,0,0,7,111,7,permitted historical/development period
+3,44640,37437,35786,35782,0,0,0,4,7203,4,permitted historical/development period
+4,43200,42795,42468,42465,2,0,0,1,405,1,permitted historical/development period
+5,44640,42635,17903,17851,37,0,0,15,2005,15,permitted historical/development period
+6,43200,40550,30112,12084,18028,17268,17927,0,2650,0,permitted historical/development period
+7,44640,44450,23479,15398,1108,980,1039,6973,190,6973,quality-quarantined; archived counts only
+8,44640,44640,41205,35086,6030,5998,5998,89,0,89,permitted historical/development period
+9,43200,32388,30760,16798,13926,13757,13922,36,10812,36,permitted historical/development period
+10,44640,22088,21742,21719,12,0,0,11,22552,11,permitted historical/development period
+11,43200,42678,25833,24691,1004,987,987,138,522,138,quality-quarantined; archived counts only
+12,44640,44160,39313,39270,16,0,0,27,480,27,previously inspected December; archived counts only

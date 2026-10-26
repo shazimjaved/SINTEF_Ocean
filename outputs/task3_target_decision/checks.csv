@@ -1,0 +1,16 @@
+check,status,evidence
+V6 saved metrics,PASS,72 archived rows reproduced; 0 empty scopes retained additionally; max numeric difference 0; constant-target R2 convention flagged
+V7 adaptation saved metrics,PASS,68 archived rows reproduced; 0 empty scopes retained additionally; max numeric difference 1.14e-13; constant-target R2 convention flagged
+V7 gap saved metrics,PASS,40 archived rows reproduced; 8 empty scopes retained additionally; max numeric difference 0; constant-target R2 convention flagged
+V8 paired saved metrics,PASS,50 archived rows reproduced; 10 empty scopes retained additionally; max numeric difference 0; constant-target R2 convention flagged
+Saved prediction/source alignment,PASS,"96 saved files; truth, quality flags, timestamps and all eligible observed rows agree; no prediction generated"
+Observed error partition,PASS,"Every count, SAE, SSE and signed-error partition reconciled during evaluation; causal interpretation prohibited"
+Naturally missing truth retained,PASS,Eligibility uses STW only; absent truths remain unscoreable; V6 archive gaps displayed separately from V7/V8 saved prediction coverage
+No target-based deployment rule,PASS,Positive/zero/active-zero subsets used only for retrospective scoring and frozen historical training description
+Archive empty-scope convention,PASS,Initial validation expected V8 empty negative/mixed scopes; ten n=0 rows were absent from archive. Retained here; no metrics changed
+All V7 scheduled blocks retained,PASS,"54 original blocks, including zero-score blocks"
+No new modelling or December evaluation,PASS,"No model fitting/loading/prediction, corrected labels, raw sensor evaluation or December prediction file read"
+CSV error partition round-trip,PASS,152 model/period/horizon vectors retain disjoint counts; no zero group removed from broad scores
+Historical label-category counts,PASS,"All archived months reconcile; July/November/December counts are context, not new evaluation"
+Zero-sentinel evidence,PASS,No definitive zero-as-missing/invalid specification in supplied source material; absence of specification is not proof of physical validity
+All original artifacts preserved,PASS,"753 original raw, reference, V1-V8, source-audit and project artifacts retain SHA256 equality"

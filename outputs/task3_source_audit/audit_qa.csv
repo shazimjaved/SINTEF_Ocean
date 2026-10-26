@@ -1,0 +1,10 @@
+check,status,evidence
+Original artifacts unchanged,PASS,718 SHA256 comparisons
+Frozen protocol and implementation revision accounted for,PASS,"Explicit datetime-unit correction documented; no protocol, event or control change"
+Timing arithmetic independently checked,PASS,Every corrected interval agrees with pandas timedelta.total_seconds to 1e-9 s during analysis
+Exact event samples verified,PASS,Source power sampled before independent windows selected
+Only permitted independent signatures,PASS,No torquemeter/target fields in signal statistics
+Raw minute replay,PASS,13793 channel-minute comparisons
+Canonical duplicates absent in selected extracts,PASS,Parsed UTC timestamp plus exact QID
+Retrospective controls verified in raw,PASS,Diagnostic control sampling only
+All candidate events retained,PASS,Two onsets and one recovery

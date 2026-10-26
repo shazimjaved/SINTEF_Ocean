@@ -1,0 +1,19 @@
+item,frozen_rule
+prediction_source,saved CSV predictions only; no model object loaded or evaluated
+eligibility,finite observed STW>=3; independent of current target
+positive_scope,"observed target mean>0, target_min>=0, target_negative_n=0"
+recorded_zero_scope,observed mean=0 and target_negative_n=0; quality uncertain
+without_zero_scope,broader-forward excluding recorded_zero; negatives/mixed retained
+without_active_zero_scope,exclude only recorded-zero with V2 active-engine flag; retrospective sensitivity
+missing_truth,target_n=0 and nonfinite target; never scored or replaced
+scoring,paired by same saved prediction vector; changing scope never refits/recalibrates
+periods,V6 Sep/Oct; V7 adaptation Sep/Oct; V7 gaps Apr/May/Jun/Aug/Sep/Oct; V8 paired Jun/Aug/Sep/Oct
+December,not rescored or selected; no December predictions loaded
+quarantine,July/November excluded from new evaluation; existing quality summaries retained
+R2,sklearn force_finite convention; constant_target flagged; not interpreted as skill
+bias,"actual minus predicted, kW"
+error_partition,additive SAE/SSE/bias accounting by observed label group; no causal validity interpretation
+coverage,calendar and target-independent eligible denominators retained; V6 archive has observed-label rows only
+python,3.11.0
+pandas,3.0.2
+numpy,2.4.2

@@ -1,0 +1,4 @@
+event_id,kind,month,candidate,expected_before,expected_after,source,source_episode
+m06_onset,onset,6,2024-06-10 10:40:45.003000+00:00,2024-06-10T10:40:30.003Z,2024-06-10T10:40:45.003Z,outputs\task3_v3\zero_states\raw_mechanical_switch_events.csv,run_1_20240610
+m08_onset,onset,8,2024-08-27 20:01:30.007000+00:00,2024-08-27T20:01:15.006Z,2024-08-27T20:01:30.007Z,outputs\task3_v3\zero_states\raw_mechanical_switch_events.csv,run_2_20240827
+m09_recovery,recovery,9,2024-09-11 10:18:00+00:00,,,outputs\task3_v2\phase1\zero_power_runs_yearwide.csv,2024-09-10 14:12:00+00:00

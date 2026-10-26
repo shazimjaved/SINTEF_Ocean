@@ -1,0 +1,69 @@
+{
+  "scope": "bounded internal diagnostic audit; no training, relabelling or correction",
+  "raw_months": [
+    6,
+    8,
+    9
+  ],
+  "forbidden_raw_evaluation_months": [
+    7,
+    11,
+    12
+  ],
+  "event_sources": [
+    "outputs\\task3_v3\\zero_states\\raw_mechanical_switch_events.csv",
+    "outputs\\task3_v2\\phase1\\zero_power_runs_yearwide.csv"
+  ],
+  "event_resolution": "verify listed June/Aug onset pairs directly in source; resolve September manifest recovery candidate in raw power before choosing independent windows",
+  "events_are": "recorded-channel switches, not confirmed physical state changes",
+  "window": "[verified exact switch -10min, switch +10min); diagnostics use both sides",
+  "independent_channels": [
+    "STW_kn",
+    "SOG_kn",
+    "ME_RPM_CAMS",
+    "ME_FuelLoad_pct",
+    "ME_ScavAirPressure_bar",
+    "ME_TC_RPM_Transducer",
+    "WIND_RelSpeed_kn",
+    "WIND_RelAngle_deg",
+    "HULL_HeadingTrue_deg",
+    "HULL_TurnRate_degmin"
+  ],
+  "matching_channels": [
+    "STW_kn",
+    "SOG_kn",
+    "ME_RPM_CAMS",
+    "ME_FuelLoad_pct",
+    "ME_ScavAirPressure_bar",
+    "ME_TC_RPM_Transducer"
+  ],
+  "matching_scale": "IQR of complete independent STW>=3 Jan-Mar rows; no target filter",
+  "control_schedule": "hourly same-month anchors at same minute/second offset as event; at least 24h away",
+  "control_matching": "pre-anchor ten full completed-minute medians only; RMS normalized distance <=0.5 and maximum individual distance <=1; nearest 24 per state",
+  "control_scopes": [
+    "stable recorded-positive, raw minimum >0",
+    "stable recorded-zero"
+  ],
+  "control_state_selection": "retrospective diagnostic control definition only; never a deployable eligibility rule",
+  "control_requirements": "full 21 enclosing minutes observed and STW>=3; 10 pre-anchor complete feature minutes; no replacement when support inadequate",
+  "signature_statistics": [
+    "level_delta",
+    "edge_delta",
+    "sd_delta",
+    "within_minute_sd_delta",
+    "cadence_delta_s",
+    "max_gap_delta_s",
+    "phase_delta_s",
+    "count_delta"
+  ],
+  "signature_gate": "same channel/statistic outside full matched positive-control range with same nonzero signed change in both onsets and opposite signed change at recovery; >=12 controls each; >=30 raw samples on each event side",
+  "signature_gate_interpretation": "descriptive repeatability screen only; not a significance test or validated detector; no tuning after results",
+  "source_issue_gate": "new directly demonstrated processing inconsistency or authoritative release-specific issue; previously known ambiguities do not establish a new mechanism",
+  "decision_priority": "A confirmed issue, else B repeatable independent signal, else C no decisive new evidence; manual review must confirm source evidence",
+  "limits": "three selected events; matched controls not population false-positive estimates; no full-year integrity or impossibility claim",
+  "outputs": "audit script, manifest, diagnostic CSVs, compact raw-window extracts, concise internal markdown; no report formats",
+  "python": "3.11.0",
+  "pandas": "3.0.2",
+  "numpy": "2.4.2",
+  "script_sha256": "922a0f529d36ec5e3cda64accbbad474dc82b49687d353eed07779e4b00de27d"
+}

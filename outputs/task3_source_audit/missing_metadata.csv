@@ -1,0 +1,6 @@
+missing_item,minimum_required_content
+Exact release alteration/quality manifest,"Affected QIDs, UTC intervals, transformation semantics, release identifier and original truth if available"
+Torquemeter status/export specification,"Meaning of zero, validity flags, clocks/filter delays, scaling and calibration"
+Noon dictionary and timing,"Propulsion-consumption units, interval represented, acquisition/issuance and upstream independence"
+Actual propulsion configuration,Engine/shaft coupling and authoritative reconciliation of reference engine discrepancy
+Cleaning/event log,Actual UTC event intervals and provenance

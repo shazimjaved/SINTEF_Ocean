@@ -1,0 +1,13 @@
+{
+  "frozen_script_sha256": "922a0f529d36ec5e3cda64accbbad474dc82b49687d353eed07779e4b00de27d",
+  "corrected_script_sha256": "b003a8ac434f3e57b1f1708cdfa8fffb5bfeb3c8e6c4894f2859158893bfc455",
+  "reason": "New audit used native datetime64[us] integers as nanoseconds in timing statistics; corrected with explicit as_unit(ns), verified against timedelta.total_seconds. Original pipeline already normalizes nanoseconds.",
+  "affected_statistics": [
+    "cadence_delta_s",
+    "max_gap_delta_s",
+    "phase_delta_s"
+  ],
+  "initial_outputs": "Preserved as *_initial.csv; not used for conclusions",
+  "protocol_or_control_selection_changed": false,
+  "classification": "audit implementation correction; not a newly discovered source or V1-V8 defect"
+}

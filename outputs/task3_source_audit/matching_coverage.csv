@@ -1,0 +1,7 @@
+event_id,control_state,candidate_n,supported_n,selected_n,adequate_for_repeatability_screen
+m06_onset,positive_control,177,72,24,True
+m06_onset,zero_control,274,35,24,True
+m08_onset,positive_control,558,2,2,False
+m08_onset,zero_control,76,4,4,False
+m09_recovery,positive_control,256,0,0,False
+m09_recovery,zero_control,210,0,0,False

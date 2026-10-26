@@ -1,0 +1,51 @@
+experiment,period,training_history,horizon_hours,selection,calendar_or_scheduled_n,eligible_n,observed_eligible_n,missing_truth_eligible_n,positive_eligible_n,zero_eligible_n,active_engine_zero_eligible_n,negative_or_mixed_eligible_n,negative_mean_eligible_n,nonnegative_mixed_eligible_n,saved_rows
+V6_fixed,2024-10,jan_jun,0,all_saved_outputs,44640,24720,21742,2978,21719,12,0,11,11,0,21742
+V6_fixed,2024-09,jan_jun,0,all_saved_outputs,43200,31729,30760,969,16798,13926,13757,36,32,4,30760
+V6_fixed,2024-10,jan_jun,0,all_saved_outputs,44640,24720,21742,2978,21719,12,0,11,11,0,21742
+V6_fixed,2024-09,jan_jun,0,all_saved_outputs,43200,31729,30760,969,16798,13926,13757,36,32,4,30760
+V6_fixed,2024-10,jan_jun,0,all_saved_outputs,44640,24720,21742,2978,21719,12,0,11,11,0,21742
+V6_fixed,2024-09,jan_jun,0,all_saved_outputs,43200,31729,30760,969,16798,13926,13757,36,32,4,30760
+V6_fixed,2024-10,jan_jun,0,all_saved_outputs,44640,24720,21742,2978,21719,12,0,11,11,0,21742
+V6_fixed,2024-09,jan_jun,0,all_saved_outputs,43200,31729,30760,969,16798,13926,13757,36,32,4,30760
+V6_fixed,2024-10,jan_jun,0,all_saved_outputs,44640,24720,21742,2978,21719,12,0,11,11,0,21742
+V6_fixed,2024-09,jan_jun,0,all_saved_outputs,43200,31729,30760,969,16798,13926,13757,36,32,4,30760
+V6_fixed,2024-10,jan_jun,0,all_saved_outputs,44640,24720,21742,2978,21719,12,0,11,11,0,21742
+V6_fixed,2024-09,jan_jun,0,all_saved_outputs,43200,31729,30760,969,16798,13926,13757,36,32,4,30760
+V6_fixed,2024-10,jan_jun_aug,0,all_saved_outputs,44640,24720,21742,2978,21719,12,0,11,11,0,21742
+V6_fixed,2024-09,jan_jun_aug,0,all_saved_outputs,43200,31729,30760,969,16798,13926,13757,36,32,4,30760
+V6_fixed,2024-10,jan_jun_aug,0,all_saved_outputs,44640,24720,21742,2978,21719,12,0,11,11,0,21742
+V6_fixed,2024-09,jan_jun_aug,0,all_saved_outputs,43200,31729,30760,969,16798,13926,13757,36,32,4,30760
+V6_fixed,2024-10,jan_jun_aug,0,all_saved_outputs,44640,24720,21742,2978,21719,12,0,11,11,0,21742
+V6_fixed,2024-09,jan_jun_aug,0,all_saved_outputs,43200,31729,30760,969,16798,13926,13757,36,32,4,30760
+V6_fixed,2024-10,jan_jun_aug,0,all_saved_outputs,44640,24720,21742,2978,21719,12,0,11,11,0,21742
+V6_fixed,2024-09,jan_jun_aug,0,all_saved_outputs,43200,31729,30760,969,16798,13926,13757,36,32,4,30760
+V6_fixed,2024-10,jan_jun_aug,0,all_saved_outputs,44640,24720,21742,2978,21719,12,0,11,11,0,21742
+V6_fixed,2024-09,jan_jun_aug,0,all_saved_outputs,43200,31729,30760,969,16798,13926,13757,36,32,4,30760
+V6_fixed,2024-10,jan_jun_aug,0,all_saved_outputs,44640,24720,21742,2978,21719,12,0,11,11,0,21742
+V6_fixed,2024-09,jan_jun_aug,0,all_saved_outputs,43200,31729,30760,969,16798,13926,13757,36,32,4,30760
+V7_adaptation,2024-09,Jan-Jun+Aug; permitted earlier labels for assisted methods,0,all_saved_outputs,43200,31729,30760,969,16798,13926,13757,36,32,4,43200
+V7_adaptation,2024-10,Jan-Jun+Aug; permitted earlier labels for assisted methods,0,all_saved_outputs,44640,24720,21742,2978,21719,12,0,11,11,0,44640
+V7_reconstruction,2024-04,existing earlier-only sealed-gap model/history,0,all_saved_outputs,5580,5253,5208,45,5205,2,0,1,0,1,5580
+V7_reconstruction,2024-05,existing earlier-only sealed-gap model/history,0,all_saved_outputs,5580,2188,1829,359,1824,0,0,5,4,1,5580
+V7_reconstruction,2024-06,existing earlier-only sealed-gap model/history,0,all_saved_outputs,5580,3614,3614,0,1860,1754,1645,0,0,0,5580
+V7_reconstruction,2024-08,existing earlier-only sealed-gap model/history,0,all_saved_outputs,5580,5520,5520,0,4922,598,598,0,0,0,5580
+V7_reconstruction,2024-09,existing earlier-only sealed-gap model/history,0,all_saved_outputs,5580,3688,3688,0,1920,1768,1752,0,0,0,5580
+V7_reconstruction,2024-10,existing earlier-only sealed-gap model/history,0,all_saved_outputs,5580,3346,3300,46,3300,0,0,0,0,0,5580
+V7_reconstruction,all_sampled_months,existing earlier-only sealed-gap model/history,1,all_saved_outputs,1080,720,720,0,600,120,120,0,0,0,1080
+V7_reconstruction,all_sampled_months,existing earlier-only sealed-gap model/history,6,all_saved_outputs,6480,4725,4320,405,3600,720,720,0,0,0,6480
+V7_reconstruction,all_sampled_months,existing earlier-only sealed-gap model/history,24,all_saved_outputs,25920,18164,18119,45,14831,3282,3155,6,4,2,25920
+V8_paired,2024-06,existing globally sealed paired model/history,1,all_saved_outputs,240,180,120,60,0,120,65,0,0,0,240
+V8_paired,2024-08,existing globally sealed paired model/history,1,all_saved_outputs,240,240,240,0,180,60,60,0,0,0,240
+V8_paired,2024-09,existing globally sealed paired model/history,1,all_saved_outputs,240,180,180,0,60,120,120,0,0,0,240
+V8_paired,2024-10,existing globally sealed paired model/history,1,all_saved_outputs,240,120,120,0,120,0,0,0,0,0,240
+V8_paired,all_sampled_months,existing globally sealed paired model/history,1,all_saved_outputs,960,720,660,60,360,300,245,0,0,0,960
+V8_paired,2024-06,existing globally sealed paired model/history,6,all_saved_outputs,1440,1080,766,314,46,720,536,0,0,0,1440
+V8_paired,2024-08,existing globally sealed paired model/history,6,all_saved_outputs,1440,1440,1440,0,1080,360,360,0,0,0,1440
+V8_paired,2024-09,existing globally sealed paired model/history,6,all_saved_outputs,1440,1080,1080,0,462,618,618,0,0,0,1440
+V8_paired,2024-10,existing globally sealed paired model/history,6,all_saved_outputs,1440,1020,720,300,720,0,0,0,0,0,1440
+V8_paired,all_sampled_months,existing globally sealed paired model/history,6,all_saved_outputs,5760,4620,4006,614,2308,1698,1514,0,0,0,5760
+V8_paired,2024-06,existing globally sealed paired model/history,24,all_saved_outputs,5760,3968,3654,314,1126,2528,2311,0,0,0,5760
+V8_paired,2024-08,existing globally sealed paired model/history,24,all_saved_outputs,5760,5333,5333,0,3882,1446,1440,5,4,1,5760
+V8_paired,2024-09,existing globally sealed paired model/history,24,all_saved_outputs,5760,4320,4320,0,2622,1698,1698,0,0,0,5760
+V8_paired,2024-10,existing globally sealed paired model/history,24,all_saved_outputs,5760,4260,2874,1386,2874,0,0,0,0,0,5760
+V8_paired,all_sampled_months,existing globally sealed paired model/history,24,all_saved_outputs,23040,17881,16181,1700,10504,5672,5449,5,4,1,23040

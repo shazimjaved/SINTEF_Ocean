@@ -1,0 +1,18 @@
+{
+  "decision": "C",
+  "decision_text": "No decisive new evidence; stop model exploration.",
+  "audit_complete": true,
+  "source_issue_confirmed_in_this_release": false,
+  "release_modifications_status": "unresolved; absence of notes is not evidence for or against modification",
+  "new_V1_V8_processing_issue_confirmed": false,
+  "repeatable_independent_transition_signal_established": false,
+  "signal_limitation": "Only June has adequate matched positive controls; August has two and September has none under the unchanged predefined rule. No absence-of-signal or impossibility claim follows.",
+  "source_event_verification": "Original raw data confirms first changed samples for both manifest onsets and resolves September recovery before independent windows are selected.",
+  "original_artifacts_unchanged": 718,
+  "raw_channel_minute_checks_passed": 13793,
+  "qa_pass": 9,
+  "qa_fail": 0,
+  "new_audit_implementation_correction": "Datetime unit handling corrected, initial outputs retained; not a source or V1-V8 defect.",
+  "further_model_exploration": "stopped",
+  "new_models_or_relabelled_targets": 0
+}

@@ -1,0 +1,17 @@
+command_id,command_from_project_root,mode,can_fit_models,purpose
+VERIFY,python -X utf8 -B scripts/task3_readiness/verify_saved_outputs.py,saved_output_only,False,"Current consolidated hashes, chronology, ledgers, metrics, scopes and coverage"
+NOTEBOOK_ENV,python -m pip install -r scripts/task3_readiness/requirements.txt,environment_setup,False,Pinned available verification dependencies; installation not performed by verifier
+JUPYTER_ENV,python -m pip install -r scripts/task3_readiness/requirements-jupyter.txt,optional_environment_setup,False,Standard notebook kernel extras; package-index installation unavailable during this session
+V1_FEATURES,python -X utf8 -B scripts/11_task3_features.py,historical_fresh_copy_only_DO_NOT_RUN_HERE,False,Provenance/rebuild reference only; writes historical output paths; QA can contain sentinel fits
+V1_FIT,python -X utf8 -B scripts/12_task3_train_validate.py,historical_fresh_copy_only_DO_NOT_RUN_HERE,True,Provenance/rebuild reference only; writes historical output paths; QA can contain sentinel fits
+V1_EVAL,python -X utf8 -B scripts/13_task3_evaluate.py,historical_fresh_copy_only_DO_NOT_RUN_HERE,False,Provenance/rebuild reference only; writes historical output paths; QA can contain sentinel fits
+V2_FITS,python -X utf8 -B scripts/task3_v2/07_walkforward_experiments.py,historical_fresh_copy_only_DO_NOT_RUN_HERE,True,Provenance/rebuild reference only; writes historical output paths; QA can contain sentinel fits
+V3_FITS,python -X utf8 -B scripts/task3_v3/04_label_free_temporal_models.py,historical_fresh_copy_only_DO_NOT_RUN_HERE,True,Provenance/rebuild reference only; writes historical output paths; QA can contain sentinel fits
+V4_FITS,python -X utf8 -B scripts/task3_v4/04_boosting_development.py,historical_fresh_copy_only_DO_NOT_RUN_HERE,True,Provenance/rebuild reference only; writes historical output paths; QA can contain sentinel fits
+V5_REFERENCES,python -X utf8 -B scripts/task3_v5/01_physical_references.py,historical_fresh_copy_only_DO_NOT_RUN_HERE,False,Provenance/rebuild reference only; writes historical output paths; QA can contain sentinel fits
+V6_FITS,python -X utf8 -B scripts/task3_v6/01_run_development.py,historical_fresh_copy_only_DO_NOT_RUN_HERE,True,Provenance/rebuild reference only; writes historical output paths; QA can contain sentinel fits
+V7_ADAPT,python -X utf8 -B scripts/task3_v7/01_adaptation.py,historical_fresh_copy_only_DO_NOT_RUN_HERE,True,Provenance/rebuild reference only; writes historical output paths; QA can contain sentinel fits
+V7_GAPS,python -X utf8 -B scripts/task3_v7/02_reconstruction.py,historical_fresh_copy_only_DO_NOT_RUN_HERE,True,Provenance/rebuild reference only; writes historical output paths; QA can contain sentinel fits
+V7_QA,python -X utf8 -B scripts/task3_v7/04_qa.py,historical_fresh_copy_only_DO_NOT_RUN_HERE,True,Provenance/rebuild reference only; writes historical output paths; QA can contain sentinel fits
+V8_PAIRED,python -X utf8 -B scripts/task3_v8/03_paired_reconstruction.py,historical_fresh_copy_only_DO_NOT_RUN_HERE,True,Provenance/rebuild reference only; writes historical output paths; QA can contain sentinel fits
+V8_QA,python -X utf8 -B scripts/task3_v8/05_qa.py,historical_fresh_copy_only_DO_NOT_RUN_HERE,True,Provenance/rebuild reference only; writes historical output paths; QA can contain sentinel fits

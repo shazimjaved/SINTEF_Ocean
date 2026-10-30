@@ -1,0 +1,47 @@
+[
+  {
+    "references": [
+      "A1",
+      "A2",
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "R1",
+      "R2"
+    ],
+    "tables": 2,
+    "figures": 0,
+    "source_sha256": "390f6e2173edf39b4d6a44339b18ac5378850bd1a4b4a4907447b08faf807d84",
+    "task": 1,
+    "source": "task1_report_v2.md",
+    "pdf": "Task 1 Report v2.pdf",
+    "pdf_sha256": "d1f7d33cb1dd28f41a4375396befda4eb00954dca0a83d50a9d37312eb970a3a"
+  },
+  {
+    "references": [
+      "A1",
+      "A2",
+      "C1",
+      "C3",
+      "D1",
+      "D2",
+      "M1",
+      "N1",
+      "R1",
+      "R2",
+      "S1",
+      "V1",
+      "V2",
+      "V3",
+      "X1"
+    ],
+    "tables": 7,
+    "figures": 6,
+    "source_sha256": "258fbe4a10d704ec39d40a7bedf40332d01cf81caa88e0964efb9204691b9a9b",
+    "task": 2,
+    "source": "task2_report_v2.md",
+    "pdf": "Task 2 Report v2.pdf",
+    "pdf_sha256": "9bf1265c4e203daa3f0f7e9c68667992c15a9c05f69cd3c78e729a924e6fae43"
+  }
+]

@@ -1,0 +1,52 @@
+SINTEF Ocean Real Vessel Data Challenge
+30 October 2026
+TDT4259  |  Task 2  |  Version 2
+5
+3. Sensor quality and candidate measurements
+The original power-reconstruction proposal accounts for the 36 observed 2024 channels as follows. These roles are
+retained as data-understanding context; they are not a validated input specification for a clean-condition comparison.
+[R1, R2]
+Role in the original proposal
+Channels
+Documented treatment
+Shaft mechanical power
+1
+Target; reliability requires assessment.
+Torquemeter-related channels or close
+proxy
+6
+Excluded to reduce direct target leakage.
+Constant-zero draft measurements
+4
+Excluded as noninformative sensor readings.
+Echosounder water depth
+1
+Excluded initially because there is no October target overlap.
+Candidate predictors
+24
+Four other-source engine, four motion, two onboard relative-wind
+and fourteen provider channels.
+The four draft sensors have 8,226,522 values across thirteen files, all 0.0 m. They supply no useful draft variation; this
+does not establish installation, reporting or export cause. Water depth can be reconsidered for other periods only if its
+meaning and overlap are established. Noon draft/displacement fields may provide coarse loading context, subject to §5.
+[R2, M1]
+Eastward and northward sea-current variables are assigned to their corresponding provider sources in m/s; sea-water
+temperature is in degrees Celsius. Shaft revolutions has no specified unit in the registration. Heading and wind/wave
+directions require circular processing, and are excluded from the plain Pearson display. Source labels do not by
+themselves establish engine-signal independence, latency or availability at a decision time. [R1, R2, D1, D2]
+3.1 Target-power anomalies
+July 2024: 28,544 negative readings occur across fourteen dates. All target readings on 11, 12 and 15 July are negative,
+and the longest near-contiguous negative sequence is 17,399 readings. At completed-minute resolution, 6,948
+negative-power intervals coincide with positive CAMS engine RPM and speed through water above 3 kn. [R2]
+November 2024: 656 negative readings occur across eight dates, with a minimum near −24,757 kW. The combined
+negative-power/positive-engine-operation condition occurs in 93 completed-minute intervals. The minus sign is explicit
+here and agrees with the supporting draft and validation record. [R2, M1, S1]
+These patterns warrant separate target-quality investigation. They do not identify calibration errors, reversal, sign
+convention or exact fault boundaries. The challenge warns of torque miscalibration in parts of the data; corresponding
+operation/calibration records are still needed. Negative values have not been silently clipped or replaced in this revision.
+June's absence of negative readings is not proof of clipping. December has 166 negative readings; the historical
+evaluation-policy caveat is preserved in Appendix A. [C3, R2]
+Trustworthy target measurements are essential for comparison with a clean reference: a sensor shift can appear as a
+power difference. Likewise, an engine signal that closely follows power may support reconstruction while reflecting
+current degradation. Neither an apparently plausible estimate nor a strong association establishes clean-condition
+demand. Figures 2–4 retain the existing coverage evidence. [R2, A1]

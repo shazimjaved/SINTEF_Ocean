@@ -1,0 +1,9 @@
+SINTEF Ocean Real Vessel Data Challenge
+30 October 2026
+TDT4259  |  Task 2  |  Version 2
+11
+Appendix B continued — overlap and daily counts
+Figure 3: Number of October completed-minute intervals in which each channel is paired with the shaft-power target. Multiple minute
+pairs may share a single provider measurement.
+Figure 4: Daily October raw observation counts across sensor channels. Colours reflect different source sampling rates and should not be
+compared as equivalent uptime percentages.

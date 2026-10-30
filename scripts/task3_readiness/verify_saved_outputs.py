@@ -123,6 +123,62 @@ class Verifier:
             assert path.stat().st_size == row.bytes and sha256(path) == row.sha256, row.path
         return f"{len(historical)} historical artifacts plus {len(index)-len(historical)} implementation files match authoritative hashes; models hashed without loading"
 
+    def preservation_baseline(self):
+        # Recheck the immutable hashes recorded before readiness work began.
+        baseline = read("outputs/task3_target_decision/artifact_preservation.csv")
+        assert len(baseline) == 753 and baseline.path.is_unique
+        assert baseline.unchanged.all()
+        for row in baseline.itertuples():
+            path = ROOT / row.path
+            assert path.is_file() and path.stat().st_size == row.bytes
+            assert sha256(path) == row.sha256_before == row.sha256_after, row.path
+        return f"All {len(baseline)} pre-readiness historical artifacts still match the target-audit SHA256 baseline"
+
+    def required_artifacts_and_schemas(self):
+        required = [
+            "outputs/task3/tables/frozen_selection.json",
+            "outputs/task3/models/selected_pipeline.joblib",
+            "outputs/task3/tables/feature_manifest.json",
+            "outputs/task3_v6/experiment_manifest.json",
+            "outputs/task3_v6/development_metrics.csv",
+            "outputs/task3_v6/fit_inventory.csv",
+            "outputs/task3_v7/experiment_manifest.json",
+            "outputs/task3_v7/tables/b_adaptation_metrics.csv",
+            "outputs/task3_v7/adaptation/daily_history_ledger.csv",
+            "outputs/task3_v7/reconstruction/fit_inventory.csv",
+            "outputs/task3_v8/experiment_manifest.json",
+            "outputs/task3_v8/tables/paired_horizon_metrics.csv",
+            "outputs/task3_v8/paired/fit_inventory.csv",
+            "outputs/task3_target_decision/scope_metrics.csv",
+            "outputs/task3_target_decision/period_coverage.csv",
+            "outputs/task3_target_decision/gap_block_metrics.csv",
+            "outputs/task3_target_decision/observed_error_partition.csv",
+            "outputs/task3_source_audit/audit_decision.json",
+        ]
+        for path in required:
+            assert (ROOT / path).is_file(), path
+        schemas = {
+            "outputs/task3_v6/development_metrics.csv": {"candidate", "evaluation_month", "scope", "n", "mae_kw", "rmse_kw", "pearson_r", "r2_score"},
+            "outputs/task3_v7/tables/b_adaptation_metrics.csv": {"period", "method", "scope", "n", "mae_kw", "rmse_kw", "pearson_r", "r2_score"},
+            "outputs/task3_v8/tables/paired_horizon_metrics.csv": {"horizon_hours", "scope", "method", "selection", "n", "mae_kw", "rmse_kw", "pearson_r", "r2_score", "denominator_n"},
+            "outputs/task3_target_decision/scope_metrics.csv": {"experiment", "period", "selection", "method", "scope", "n", "mae_kw", "rmse_kw", "pearson_r", "r2_score", "eligible_n", "observed_eligible_n", "missing_truth_eligible_n", "predicted_eligible_n", "scored_scope_coverage_of_eligible"},
+            "outputs/task3_target_decision/period_coverage.csv": {"experiment", "period", "eligible_n", "observed_eligible_n", "missing_truth_eligible_n"},
+            "outputs/task3_target_decision/gap_block_metrics.csv": {"experiment", "block_id", "scope", "n", "mae_kw", "rmse_kw", "eligible_n", "missing_truth_eligible_n"},
+        }
+        for path, expected in schemas.items():
+            actual = set(pd.read_csv(ROOT / path, nrows=0).columns)
+            assert expected <= actual, (path, sorted(expected - actual))
+        minute = pd.read_csv(ROOT / "outputs/task3/data/minute_2024_09.csv.gz", nrows=2)
+        assert set(SOURCE_COLUMNS) <= set(minute.columns)
+        index = read("outputs/task3_readiness/artifact_index.csv").set_index("path")
+        registry = read("outputs/task3_readiness/retained_model_registry.csv")
+        assert registry.path.is_unique and len(registry) == 28
+        assert not registry.estimator_loaded.any()
+        for row in registry.itertuples():
+            assert row.path in index.index and row.sha256 == index.loc[row.path, "sha256"]
+            assert (ROOT / row.training_provenance).is_file()
+        return f"{len(required)} core artifacts exist; six saved-result schemas and minute-table target/coverage fields verified"
+
     def policies(self):
         d = json.loads((ROOT / "outputs/task3_source_audit/audit_decision.json").read_text())
         assert d["decision"] == "C" and not d["source_issue_confirmed_in_this_release"]
@@ -137,6 +193,11 @@ class Verifier:
         return "Zero remains observed and quality-uncertain; missing truth stays absent; positive and zero-excluded scopes are retrospective"
 
     def features_and_manifests(self):
+        frozen = json.loads((ROOT / "outputs/task3/tables/frozen_selection.json").read_text())
+        assert frozen["train_months"] == [1, 2, 3, 4, 5, 6]
+        assert frozen["validation_months"] == [8] and frozen["coverage_stress_months"] == [9, 10]
+        assert frozen["test_months"] == [12] and frozen["quarantine_months"] == [7, 11]
+        assert frozen["selected"]["family"] == "histgb" and frozen["selected"]["feature_set"] == "A_restricted_onboard"
         tree = ast.parse((ROOT / "scripts/channel_config.py").read_text(encoding="utf-8"))
         mapping = next(ast.literal_eval(n.value) for n in tree.body if isinstance(n, ast.Assign)
                        and any(isinstance(t, ast.Name) and t.id == "CHANNELS" for t in n.targets))
@@ -153,7 +214,7 @@ class Verifier:
             ("outputs/task3_v8/experiment_manifest.json", "source_v7_common_sha256", "scripts/task3_v7/common.py")]:
             spec = json.loads((ROOT / filename).read_text())
             assert spec[key] == sha256(ROOT / codepath), filename
-        return "Frozen feature allowlists and definition hashes agree; no historical module or model executed"
+        return "Frozen V1 August selection, September/October stress role and quarantine verified; feature allowlists and code hashes agree without executing models"
 
     def align(self, p, month):
         assert p.window_end_utc.is_unique
@@ -258,6 +319,7 @@ class Verifier:
             assert set(group.component) == {"positive", "recorded_zero", "negative_or_mixed"}
             for column in ["sum_absolute_error_kw", "sum_squared_error_kw2"]:
                 assert equal(group[column].sum(), row[column], atol=1e-5)
+            assert equal(group.contribution_to_broad_bias_kw.sum(), row.bias_actual_minus_pred_kw, atol=1e-5)
         assert self.gaps.block_id.nunique() == 54 and self.paired.anchor_id.nunique() == 16
         return "Every observed error partition reconciles; all 54 old blocks and 16 paired anchors retained; no causal validity claim"
 
@@ -277,7 +339,11 @@ class Verifier:
             use = d.eligible & d.observed
             if row.training_labels != "broad": use &= d.positive
             chosen = d[use]
-            assert len(chosen) == row.train_n and chosen.index.min() == row.first_training_timestamp and chosen.index.max() == row.last_training_timestamp
+            assert len(chosen) == row.train_n
+            assert pd.Timestamp(chosen.index.min()) == pd.Timestamp(row.first_training_timestamp)
+            assert pd.Timestamp(chosen.index.max()) == pd.Timestamp(row.last_training_timestamp)
+            # The August window ending exactly at 00:00 is the completed
+            # [23:59, 00:00) minute; September prediction windows start 00:01.
             assert pd.Timestamp(row.last_training_timestamp) < pd.Timestamp("2024-09-01T00:01Z")
             self.training_rows_checked += len(chosen)
         old = read("outputs/task3_v7/reconstruction_blocks.csv")
@@ -292,10 +358,10 @@ class Verifier:
                 d = pd.concat([self.source(m) for m in months])
                 cutoff = pd.Timestamp(row.label_cutoff_exclusive_utc)
                 use = d.eligible & d.observed & (pd.to_datetime(d.index, utc=True) < cutoff) & ~self.hidden(d.index, schedules)
-                if version == 8 or row.candidate == "B_ridge_full": use &= d.positive
+                if version == 8 or getattr(row, "candidate", None) == "B_ridge_full": use &= d.positive
                 chosen = d[use]
                 last = row.last_training_label_utc if version == 8 else row.last_label_ts
-                assert len(chosen) == row.train_n and chosen.index.max() == last and pd.Timestamp(last) < cutoff
+                assert len(chosen) == row.train_n and pd.Timestamp(chosen.index.max()) == pd.Timestamp(last) and pd.Timestamp(last) < cutoff
                 assert row.hidden_labels_in_fit == 0
                 self.training_rows_checked += len(chosen)
         update = read("outputs/task3_v7/adaptation/update_fit_inventory.csv")
@@ -392,16 +458,38 @@ class Verifier:
     def figure_and_notebook_contract(self):
         figures = read("outputs/task3_readiness/figure_captions.csv")
         retained = figures[figures.status.eq("retained_with_authoritative_caption")]
+        actual_png = {p.relative_to(ROOT).as_posix() for p in (ROOT / "outputs").rglob("*.png")}
+        assert set(figures.path) == actual_png and len(figures) == 62
+        artifact_roles = read("outputs/task3_readiness/artifact_index.csv").set_index("path").role
+        assert actual_png <= set(artifact_roles.index)
+        assert artifact_roles.loc[list(actual_png)].eq("figure").all()
         assert len(retained) == 12 and retained.visual_reviewed.all()
+        assert not figures.raw_standalone_approved.any()
         assert retained.authoritative_caption.str.contains("retrospective", case=False).all()
         for row in retained.itertuples():
             assert (ROOT / row.path).is_file() and row.must_show_caption
+        duration = retained.loc[retained.figure_id.eq("F7_DURATION"), "authoritative_caption"].iloc[0].lower()
+        assert "different calendar/operating samples" in duration and "not a causal" in duration
+        blocks = retained.loc[retained.figure_id.eq("F7_BLOCKS"), "authoritative_caption"].iloc[0].lower()
+        assert "blank errors mean unscoreable" in blocks
         import nbformat
         nb = nbformat.read(ROOT / "notebooks/task3_frozen_evidence.ipynb", as_version=4)
         nbformat.validate(nb)
         assert any("run_verification" in cell.source for cell in nb.cells if cell.cell_type == "code")
         assert not any(cell.source.lstrip().startswith(("!", "%")) for cell in nb.cells if cell.cell_type == "code")
-        return "12 visually reviewed retained figures have mandatory retrospective captions; actual notebook validates and calls the single verifier"
+        for i, cell in enumerate(nb.cells):
+            if cell.cell_type == "code":
+                compile(cell.source, f"task3_frozen_evidence.ipynb:cell-{i}", "exec")
+                lowered = cell.source.lower()
+                assert ".fit(" not in lowered and "joblib.load" not in lowered and "pickle.load" not in lowered
+        scenarios = read("outputs/task3_readiness/scenario_comparisons.csv")
+        assert len(scenarios) == 5 and scenarios.scenario.is_unique
+        assert scenarios.defensible_interpretation.str.contains("universal.*winner|winner.*universal", case=False, regex=True).any()
+        assert scenarios.information_contract.str.contains("inspected|unverified|retrospective|same-instrument|conditional", case=False).all()
+        pending = read("outputs/task3_readiness/not_performed.csv").set_index("check_or_activity").status
+        assert pending["standard_jupyter_kernel_execution"] == "UNVERIFIED"
+        assert pending["new_model_fit_or_selection"] == "NOT_PERFORMED"
+        return "All 62 PNGs are indexed; 12 reviewed figures require scope captions; notebook schema and code compile; Jupyter kernel execution is unverified"
 
     def fault_checks(self):
         healthy = moments([1., 2., 3.], [3., 4., 5.])
@@ -419,9 +507,75 @@ class Verifier:
         return "Independent known-value metrics, corrupted-MAE rejection, empty/constant truth and exact embargo boundaries verified in memory"
 
 
+def write_internal_summary(output, checks):
+    by_id = checks.set_index("check_id").status.to_dict()
+    checklist = [
+        ("Frozen V1-V8/source/target audit preservation", by_id.get("PRESERVATION_BASELINE", "FAIL"), "753 historical files match the pre-readiness SHA256 record"),
+        ("Artifact existence, index hashes and model registry", by_id.get("FROZEN_HASHES", "FAIL") if by_id.get("CORE_ARTIFACTS_SCHEMAS") == "PASS" else "FAIL", "Models are hash-verified without deserialization"),
+        ("Task 3 target policy and zero/missing distinction", by_id.get("TARGET_POLICY", "FAIL"), "Recorded zero remains quality-uncertain; missing truth remains missing"),
+        ("Independent feature allowlists and source-code provenance", by_id.get("FEATURES_MANIFESTS", "FAIL"), "No same-instrument shaft predictors admitted"),
+        ("Saved metric recomputation and paired scopes", by_id.get("SCOPE_METRICS_COVERAGE", "FAIL"), "912 scope rows; positive-only is retrospective"),
+        ("V1/V4 archived metric replay", by_id.get("LEGACY_METRICS", "FAIL"), "December replay is historical verification, never selection"),
+        ("Zero/positive/negative error accounting and gap retention", by_id.get("ERROR_PARTITION", "FAIL"), "54 V7 blocks and 16 V8 anchors retained"),
+        ("Chronological fitting and information cutoffs", by_id.get("TRAIN_CHRONOLOGY", "FAIL"), "V6/V7/V8 label and embargo timestamps reconstructed"),
+        ("Delayed-label history and paired horizon coverage", "PASS" if by_id.get("DELAYED_HISTORY") == by_id.get("HORIZONS_THRESHOLDS") == "PASS" else "FAIL", "Truth availability assumptions remain conditional"),
+        ("Figure caption and notebook structure/code syntax", by_id.get("FIGURE_NOTEBOOK_CONTRACT", "FAIL"), "12 reviewed figures captioned; notebook kernel not run"),
+        ("Standard Jupyter execution", "UNVERIFIED", "ipykernel/IPython unavailable in this environment"),
+        ("Independent physical target validity and a fresh labelled holdout", "UNAVAILABLE", "No independent reference or untouched labelled period in current evidence"),
+        ("Fresh raw-to-model rebuild or new fitting", "NOT_PERFORMED", "Outside scope; historical outputs preserved"),
+        ("Final academic methods/results report", "NOT_PERFORMED", "The course rubric describes a written section; report generation is explicitly excluded from this task"),
+    ]
+    checkframe = pd.DataFrame(checklist, columns=["requirement_or_check", "status", "evidence_or_gap"])
+    checkframe.to_csv(output / "readiness_checklist.csv", index=False)
+
+    pass_count = int(checks.status.eq("PASS").sum())
+    fail_count = int(checks.status.eq("FAIL").sum())
+    overall = "PASS" if fail_count == 0 else "FAIL"
+    failures = checks.loc[checks.status.eq("FAIL"), "check_id"].tolist()
+    text = [
+        "# Internal Task 3 technical readiness",
+        "",
+        f"**Saved-output verification: {overall} ({pass_count} PASS, {fail_count} FAIL).**",
+        "",
+        "This is an internal reproducibility note, not an academic report or client handover. No model was loaded, fitted, selected, or used to generate predictions.",
+        "",
+        "## Completed checks",
+        "",
+        "- Hashed 771 frozen project artifacts and five readiness implementation files; verified the 753-file pre-readiness preservation baseline.",
+        "- Recomputed 912 saved V6-V8 scope rows and 132 archived V1/V4 metric rows; reconciled missing-truth denominators and recorded-label error contributions.",
+        "- Reconstructed chronological training cutoffs and delayed-history ledgers; retained all 54 V7 blocks and 16 V8 paired anchors.",
+        "- Indexed all 62 output PNGs; 12 visually reviewed figures have mandatory captions that state scope and limitations.",
+        "- Validated notebook JSON and compiled every code cell. Standard Jupyter kernel execution was not run: `ipykernel` and `IPython` are unavailable locally.",
+        "- The original Task 3 requirement is reproducible notebooks/scripts; it does not require a notebook specifically. Existing scripts meet that form, and this notebook is an optional saved-evidence walkthrough.",
+        "- The local course rubric (`docs/2026_Lecture2_Dataset.pdf`) describes Task 3 methods, data preparation, baselines, validation, metrics, results and limitations, without prescribing Jupyter. Its written report section is not generated here because it is explicitly out of scope.",
+        "",
+        "## Frozen interpretation",
+        "",
+        "The current Task 3 scope is completed-minute, independent-onboard estimation of the registered recorded shaft-power channel with target-independent STW eligibility. Recorded zeros remain observed, quality-uncertain labels; no zero-as-missing conversion or target-based deployment gate is authorized. Positive-only/zero-excluded scores remain retrospective diagnostics. Label-assisted and simulated-gap results remain separate conditional scenarios. No universal all-regime winner is supported.",
+        "",
+        "Within the paired V8 artificial-gap sample, delayed persistence has the lowest tested broad MAE at 1/6/24 h (~910/~1021/~1068 kW) versus calibrated Ridge (~1273/~1337/~1413 kW), but transitions remain unreliable. V7 October delayed-residual Ridge (~120 kW MAE) beats matched persistence/history means (~350/~329 kW), while September persistence (~956 kW) beats calibration (~1147 kW). These results rely on an unverified 24 h trustworthy-label assumption. The independent-sensor V6 comparison changes by month and scope; it does not support a single winner.",
+        "",
+        "## Remaining limitations",
+        "",
+        "- The notebook's standard Jupyter kernel path remains unverified. Install the pinned optional dependencies in `scripts/task3_readiness/requirements-jupyter.txt` in an authorized environment, then execute it there if required.",
+        "- No untouched labelled period or independent shaft-power reference remains available for a fresh generalization/physical-validity claim.",
+        "- V2-V4 historical estimator weights were not persisted; their saved predictions and metadata remain indexed. V6 saved vectors do not cover all eligible missing-truth minutes.",
+        "- Full raw-to-feature/model training reproduction was not run. Versioned scripts and environment pins are indexed; a clean-copy rebuild is not part of this readiness task.",
+        "- The final academic methods/results narrative remains deliberately unproduced; this pass delivers only internal technical readiness artifacts.",
+        "",
+        "## Reproduction command",
+        "",
+        "From the project root: `python -X utf8 -B scripts/task3_readiness/verify_saved_outputs.py`.",
+    ]
+    if failures:
+        text.extend(["", "Failed verifier checks: " + ", ".join(failures) + "."])
+    (output / "internal_findings.md").write_text("\n".join(text) + "\n", encoding="utf-8")
+
+
 def run_verification(output_dir=None):
     verifier = Verifier()
-    stages = [("FROZEN_HASHES", verifier.hashes), ("TARGET_POLICY", verifier.policies),
+    stages = [("FROZEN_HASHES", verifier.hashes), ("PRESERVATION_BASELINE", verifier.preservation_baseline),
+              ("CORE_ARTIFACTS_SCHEMAS", verifier.required_artifacts_and_schemas), ("TARGET_POLICY", verifier.policies),
               ("FEATURES_MANIFESTS", verifier.features_and_manifests), ("SCOPE_METRICS_COVERAGE", verifier.check_target_comparisons),
               ("LEGACY_METRICS", verifier.legacy_metrics), ("ERROR_PARTITION", verifier.error_partition),
               ("TRAIN_CHRONOLOGY", verifier.training_availability), ("DELAYED_HISTORY", verifier.delayed_history),
@@ -436,6 +590,7 @@ def run_verification(output_dir=None):
         output.mkdir(parents=True, exist_ok=True)
         frame.to_csv(output / "verification_checks.csv", index=False)
         pd.DataFrame(verifier.history_bounds).to_csv(output / "verified_history_bounds.csv", index=False)
+        write_internal_summary(output, frame)
     return frame
 
 

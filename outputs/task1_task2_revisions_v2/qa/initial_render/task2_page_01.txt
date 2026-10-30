@@ -1,0 +1,48 @@
+SINTEF Ocean Real Vessel Data Challenge
+30 October 2026
+TDT4259  |  Task 2  |  Version 2
+1
+Task 2 — Data Understanding and Background
+SINTEF Ocean Real Vessel Data Challenge | TDT4259 Applied Data Science
+Version 2 · 30 October 2026 · Descriptive evidence and source suitability
+The numerical sensor findings and Figures 1–6 are retained from the delivered report of 25 October 2026. The completed
+scope audit supplies the added source-availability and Noon metadata findings. This revision does not recompute
+performance results or create a clean/current comparison. [R2, A1, A2]
+1. Dataset inventory
+The dataset contains 41,079,968 sensor records in twelve 2024 monthly files and 1,112,405 records for January 2025,
+giving 42,192,373 records across thirteen files. The registration identifies 37 QIDs: 36 occur in the 2024 data and 26 in
+January 2025. The registered channel without observed values is a turbocharger RPM indicator. All torquemeter
+channels, including shaft mechanical power, are absent in January 2025; it is not a labelled evaluation period for this
+target. [R2, D1, D2]
+The existing quality scan parsed all 42,192,373 observed sensor values as finite numeric values and identified no
+malformed short records, numeric parsing failures or duplicate original (timestamp, QID) keys. Numeric completeness
+within recorded rows does not establish coverage across calendar time. These are retained findings, not a newly
+executed full-data audit. [R2]
+1.1 Record structure and types
+Field
+2024 sensor records
+January 2025 records
+Timestamp
+ISO 8601 text with a Z suffix and millisecond
+precision; parsed as a UTC-aware datetime.
+Day-first timestamp text without a timezone; its
+actual timezone remains unconfirmed.
+QID
+Hierarchical text identifier, used as a categorical
+key.
+Same text identifier type.
+Sensor value
+Numeric text parsed as float64 / binary64.
+Numeric text parsed as float64 / binary64.
+Number of Records
+Not present; the files have three headerless fields.
+Additional integer-formatted field in a four-field
+file with a header; aggregation meaning
+unconfirmed.
+The dictionary classifies the 36 observed channels as numeric after parsing and the unobserved registered channel as
+not_observed. Heading and direction have circular semantics despite numeric storage. The 2024 source records are not
+necessarily in chronological order; ordering must be handled explicitly. [R2, D1, D2]
+Propulsion demand depends on speed through water, loading and trim, environmental resistance and operating state.
+Speed over ground is also influenced by current. The SINTEF presentation identifies these influences and the
+clean/current challenge calls for speed–power curves at different drafts. A defensible comparison therefore needs
+condition matching and a trustworthy reference, alongside a reliable power measurement. [C1, C3]

@@ -1,0 +1,87 @@
+SINTEF Ocean Real Vessel Data Challenge
+30 October 2026
+TDT4259  |  Task 2  |  Version 2
+2
+1.2 Compact source inventory
+The table distinguishes measured sources, engineering references, output examples and evidence not located. “Not
+found” is limited to the inspected project package. Exact paths, archive-member checks and scope are recorded in the
+audit inventory. [A1, A2]
+Supplied source / availability
+Relevant content and coverage
+Suitability and unresolved evidence
+Sensor time series —
+data/raw/1.csv through 12.csv;
+Jan25.csv
+2024 measurements of power, speed,
+motion, engine and external conditions;
+January 2025 has 26 channels.
+Current-condition observations need quality and
+comparability checks. January 2025 lacks shaft
+power; timezone/aggregation semantics remain
+uncertain. [R2, D2]
+Noon Reports — 12 CSVs under
+data/Noon Reports/
+All 366 dates of 2024; forward, mid and
+aft draft, displacement, environmental
+fields, propulsion consumption and fuel
+type.
+Daily loading context; units, observation/issue
+times and within-day representativeness need
+confirmation. No cleaning field or direct
+speed–power pair. See §5. [N1, A1]
+Vessel particulars —
+docs/Vessel/Particulars.xlsx
+Four loading conditions; dimensions,
+wetted areas, displacement volumes,
+engine ratings and propeller particulars.
+Reference configuration only. Displacement
+volume is labelled m³; Noon displacement units
+are unconfirmed. [V1]
+Sea-trial curves — docs/Vessel/Se
+a_Trials_curves.jpg
+Image of model and measured
+speed–power curves at design draft and
+ballast; axes Pd (kW), Vs (kn).
+Trial date, cleanliness, conditions, corrections,
+numeric table and power-definition provenance
+are not established by the image. [V2, A1]
+Towing-tank report — reference
+[V3]
+Full-scale predictions from model tests
+for four draft conditions, with/without
+PSV; clean bottom, calm sea and
+sufficient depth explicitly assumed.
+Candidate engineering clean reference. Confirm
+actual configuration, loading, speed range,
+margins and power location. It does not label a
+dated sensor period clean.
+Cleaning-event records — not
+found in the inspected package
+Announced by the challenge, but no
+actual event log located.
+Event dates, temporal completeness, cleaning
+extent, component and clean-state evidence are
+unknown; event quality cannot be assessed. [A1,
+A2]
+Actual engine shop-test
+report/map — not found in the
+inspected package
+Engine ratings and propeller/towing
+tests are available.
+Those references do not supply a measured
+engine fuel/load map or justify a fuel-saving
+estimate. [A1, A2]
+Supplied CSV templates — two files
+under docs/Templetes/
+Clean-baseline curve layout and
+example time-series output fields,
+including expected power, fouling and
+clean flags.
+Examples, not ground-truth measurements or
+maintenance records. An example clean flag
+supplies no cleaning date. [X1, A1]
+1.3 Engineering reference versus observed clean condition
+The towing-tank report supplies a clean-bottom engineering assumption. It does not prove a dated clean condition in
+the observed sensor series. The audit found no verified cleaning chronology or clean-labelled sensor interval. The
+sea-trial image is a candidate reference whose provenance still needs confirmation. No first month, post-gap period or
+template timestamp is assigned a clean label here. [V2, V3, A1]

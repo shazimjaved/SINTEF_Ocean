@@ -1,0 +1,14 @@
+check_id,status,evidence,elapsed_seconds
+FROZEN_HASHES,PASS,771 historical artifacts plus 5 implementation files match authoritative hashes; models hashed without loading,7.453
+PRESERVATION_BASELINE,PASS,All 753 pre-readiness historical artifacts still match the target-audit SHA256 baseline,7.42
+CORE_ARTIFACTS_SCHEMAS,PASS,18 core artifacts exist; six saved-result schemas and minute-table target/coverage fields verified,0.06
+TARGET_POLICY,PASS,Zero remains observed and quality-uncertain; missing truth stays absent; positive and zero-excluded scopes are retrospective,2.993
+FEATURES_MANIFESTS,PASS,"Frozen V1 August selection, September/October stress role and quarantine verified; feature allowlists and code hashes agree without executing models",0.017
+SCOPE_METRICS_COVERAGE,PASS,"912 frozen scope rows recomputed from saved vectors, with target-independent denominators and missing-truth coverage",8.275
+LEGACY_METRICS,PASS,132 V4/V1 archived metric rows reproduced; original December replay is historical verification only,6.318
+ERROR_PARTITION,PASS,Every observed error partition reconciles; all 54 old blocks and 16 paired anchors retained; no causal validity claim,0.149
+TRAIN_CHRONOLOGY,PASS,"V6 counts/chronology, V7 updates and strict 24h model fallback, V7/V8 sealed-gap train counts/cutoffs reconstructed without fitting",17.98
+DELAYED_HISTORY,PASS,"427 daily ledgers replayed: strict earlier-only cutoffs, residuals, matched baselines and global hidden-label exclusion",7.821
+HORIZONS_THRESHOLDS,PASS,All paired horizon denominators and naturally missing truths reconcile; early-only threshold provenance retained; dangerous accepted-zero errors preserved,0.238
+FIGURE_NOTEBOOK_CONTRACT,PASS,All 62 PNGs are indexed; 12 reviewed figures require scope captions; notebook schema and code compile; Jupyter kernel execution is unverified,0.404
+VERIFIER_FAULT_CHECKS,PASS,"Independent known-value metrics, corrupted-MAE rejection, empty/constant truth and exact embargo boundaries verified in memory",0.005

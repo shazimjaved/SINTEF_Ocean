@@ -1,0 +1,11 @@
+SINTEF Ocean Real Vessel Data Challenge
+30 October 2026
+TDT4259  |  Task 2  |  Version 2
+12
+Appendix B continued — descriptive relationships
+Figure 5: Descriptive Pearson correlations between shaft power and selected aligned scalar measurements. Blue bars indicate external
+sources for which repeated hourly values contribute to many minute pairs.
+Figure 6: Observed October speed–power summaries and an illustrative cubic physical heuristic, shown separately. The theoretical shape
+is not an empirical fit for this vessel.
+Loading, environmental conditions, voyage/time effects and measurement quality have not been controlled sufficiently
+to explain the observed decline. These figures do not establish fouling, a dated clean state or a cleaning benefit. [R2, A1]

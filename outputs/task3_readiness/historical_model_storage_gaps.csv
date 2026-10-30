@@ -1,0 +1,4 @@
+version,persisted_estimators,available_evidence,limitation
+V2,False,metrics/manifests and limited calibration predictions,Historical comparison weights were not persisted; no refit authorized or needed for saved-output verification
+V3,False,metrics/manifests/features,Historical comparison weights were not persisted; no refit authorized or needed for saved-output verification
+V4,False,60 saved prediction vectors plus experiment metadata,Historical comparison weights were not persisted; no refit authorized or needed for saved-output verification

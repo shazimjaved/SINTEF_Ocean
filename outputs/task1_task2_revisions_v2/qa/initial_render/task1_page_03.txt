@@ -1,0 +1,38 @@
+SINTEF Ocean Real Vessel Data Challenge
+30 October 2026
+TDT4259  |  Task 1  |  Version 2
+3
+6. Working assumptions and next decisions
+The next evidence requests are the cleaning and inspection history, including the last relevant event before the
+observation period; confirmation of the clean-reference conditions and vessel configuration; torquemeter
+calibration and operating records; and loading, weather and time-semantics metadata. These requests should
+establish event completeness, clean-state provenance and comparable conditions without assigning unverified
+clean labels. Task 2 explains the source-specific limitations. [A1, A2]
+Stakeholders should agree the definition of “current condition,” the decision horizon, the responsible reviewer and
+an acceptable uncertainty/alert policy. Economic evaluation additionally requires credible fuel-conversion
+information, cleaning and downtime costs, and an intended operating profile. No particular cost or saving is
+assumed.
+The course's accepted scope should be confirmed with the professor/organizer while the Task 3 reply is pending.
+The historical technical proposal is preserved for traceability in Task 2 v2, Appendix A; it has not been reassessed
+against later work. This revision addresses Task 1 and Task 2 only. Data attribution and vessel confidentiality remain
+part of the reporting requirements. [C3, C4]
+References and edition provenance
+References use project-relative paths. The corresponding Task 2 v2 report provides the detailed source inventory and technical
+appendix.
+[C1] docs/challenge/HullPIC25 Announcement.pdf, PDF pp. 1–3 (printed pp. 117–119): shipowner context, clean/current baselines,
+added power/speed loss, missing-data estimates, quality/uncertainty and optional hull/propeller distinction.
+[C2] docs/challenge/Big Data from ships Challenge V1.pptx, slides 3–9: original challenge objectives, source types and output
+formats.
+[C3] docs/SINTEF_Ocean_v2.pdf, PDF pp. 3, 5–7 and 13 (p. 13 is printed slide 14): business motivation, performance influences,
+cleaning and prediction questions; p. 12: source-use conditions.
+[C4] docs/2026_Lecture2_Dataset.pdf, PDF pp. 7–9: business understanding, data understanding and later technical evaluation
+criteria.
+[R1] Task 1 Report.pdf, delivered 25 October 2026, pp. 1–2: original objective and technical proposal.
+[R2] Task 2 Report.pdf, delivered 25 October 2026, pp. 1–7: retained descriptive evidence and limitations.
+[A1] outputs/task1_task2_scope_audit/internal_findings.md, 30 October 2026, §§1–7: scope review, bounded source search,
+suitability findings and requests.
+[A2] outputs/task1_task2_scope_audit/source_inventory.csv: exact source paths, inspection scope and provenance evidence
+supporting [A1].
+Edition provenance: The v2 editable source was reconstructed from the delivered PDFs and cross-checked against the related
+Markdown drafts. An exact editable source/build chain for the original PDFs was not found in the inspected scope. Existing documents
+remain preserved; this edition adds no performance analysis.

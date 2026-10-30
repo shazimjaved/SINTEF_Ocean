@@ -1,0 +1,68 @@
+[
+  {
+    "figure": 1,
+    "source": "Task 2 Report.pdf",
+    "source_page": 2,
+    "xref": 2,
+    "path": "assets/figure_01.png",
+    "width": 1669,
+    "height": 690,
+    "sha256": "606c18f6fd01c0fb56823637178fed1ae61673e76849205c6b0a4a6e6b681abe",
+    "pixel_sha256": "2f783ed6252c22a218d39e0305ea4ea8daebbd2ca03112f6696ea47a4ae60cb4"
+  },
+  {
+    "figure": 2,
+    "source": "Task 2 Report.pdf",
+    "source_page": 3,
+    "xref": 6,
+    "path": "assets/figure_02.png",
+    "width": 1530,
+    "height": 1249,
+    "sha256": "9bcfb7676e1629031c83c1dae414cdd04116a99637a06127c3b6aa05d5555058",
+    "pixel_sha256": "b13650f17583e8d982a73066771ee04dc321487b0ab2040fde78791524248794"
+  },
+  {
+    "figure": 3,
+    "source": "Task 2 Report.pdf",
+    "source_page": 4,
+    "xref": 10,
+    "path": "assets/figure_03.png",
+    "width": 1530,
+    "height": 969,
+    "sha256": "670ccb14acc71bc18615ea599a123bc39720e5f5e082f8a1f43fedcbe9776b2f",
+    "pixel_sha256": "c142a233a5f26738b4d7ceffd3b77d48a8028ae1ec189935fcbc9aebb209897f"
+  },
+  {
+    "figure": 4,
+    "source": "Task 2 Report.pdf",
+    "source_page": 5,
+    "xref": 14,
+    "path": "assets/figure_04.png",
+    "width": 1688,
+    "height": 969,
+    "sha256": "db4b820eb2aca54a27222df531b43569f2f89b08327f8923947da0ac87352c6e",
+    "pixel_sha256": "d8baf9fc4529170ae33daf9ac30a04d13219ed41ce43c5a913407a2e459478e8"
+  },
+  {
+    "figure": 5,
+    "source": "Task 2 Report.pdf",
+    "source_page": 6,
+    "xref": 18,
+    "path": "assets/figure_05.png",
+    "width": 1530,
+    "height": 902,
+    "sha256": "f9f752f9a7d1873162db4e016d63b954974a5057f185ed905798f9228786cbc9",
+    "pixel_sha256": "dbf69517510e0b9ad49dfb92e705f40cb04dca9589e9dac05605e11840d093a8"
+  },
+  {
+    "figure": 6,
+    "source": "Task 2 Report.pdf",
+    "source_page": 6,
+    "xref": 19,
+    "path": "assets/figure_06.png",
+    "width": 1805,
+    "height": 656,
+    "sha256": "0b50c9edb3669e5fc2787fcdcd5b4fe6fb9bf3aa306f7afea825195e2472bbba",
+    "pixel_sha256": "ca5a94e3a405e3ba51d68e912d5b8acfc3595531e74ab61de2439689df2927f7"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "command": "python -X utf8 -B scripts/task3_readiness/verify_saved_outputs.py",
+  "exit_code": 0,
+  "wall_seconds": 60.783,
+  "sampled_worker_peak_rss_bytes": 257839104,
+  "sampled_worker_peak_rss_mib": 245.89,
+  "sampled_worker_cpu_seconds": 58.406,
+  "physical_memory_bytes": 8204554240,
+  "available_memory_at_start_bytes": 1345179648,
+  "models_loaded_or_fitted": false,
+  "notebook_kernel_execution": "not performed; ipykernel/IPython unavailable"
+}

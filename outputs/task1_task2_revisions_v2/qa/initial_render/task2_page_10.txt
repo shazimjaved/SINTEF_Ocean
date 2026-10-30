@@ -1,0 +1,6 @@
+SINTEF Ocean Real Vessel Data Challenge
+30 October 2026
+TDT4259  |  Task 2  |  Version 2
+10
+Figure 2: Share of October calendar minutes represented after alignment, grouped by whether a channel is a candidate input or excluded
+measurement. Roles refer to the original reconstruction proposal.

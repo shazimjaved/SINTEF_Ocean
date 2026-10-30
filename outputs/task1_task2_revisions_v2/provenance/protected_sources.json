@@ -1,0 +1,314 @@
+[
+  {
+    "path": "Scientific_Validation.pdf",
+    "size": 60627,
+    "mtime_ns": 1792927691030214800,
+    "sha256": "9bd5671a0c0d0cc3a6ff80cd0fe5244accc9ceca681ab3b629254bfabada4b77"
+  },
+  {
+    "path": "Task 1 Report.pdf",
+    "size": 219538,
+    "mtime_ns": 1792927598978867800,
+    "sha256": "7d85a649c7d008c9c9688fe565206ff5915f26e0b459e8e166702714443b30f9"
+  },
+  {
+    "path": "Task 2 Report.pdf",
+    "size": 809999,
+    "mtime_ns": 1792927504434858500,
+    "sha256": "aa9cad091a2d27ff0314fc312c8daafb6f1ab716a4e7f980bd86e7d0208b0b93"
+  },
+  {
+    "path": "data/Noon Reports/N01_January_Data_with_Corrected_Fuel_Type.csv",
+    "size": 4002,
+    "mtime_ns": 1792836744285920200,
+    "sha256": "a0e97a9c80a3e40545e305e003bb622e77ab4923a1dc564b291f701ad06dca68"
+  },
+  {
+    "path": "data/Noon Reports/N02_February_Data_with_Propulsion_and_Fuel.csv",
+    "size": 3905,
+    "mtime_ns": 1792836744306971200,
+    "sha256": "2a1c29e912873b4d6964635aa719559795d6d596409e8bb6596dff1bbddd6cd9"
+  },
+  {
+    "path": "data/Noon Reports/N03_March_Data_with_Propulsion_and_Fuel.csv",
+    "size": 4332,
+    "mtime_ns": 1792836744290919600,
+    "sha256": "e975c4470a9cf2f49dc999e34aca044c4341932531fc775ca07018cca30904d5"
+  },
+  {
+    "path": "data/Noon Reports/N04_April_Data_with_Propulsion_and_Fuel.csv",
+    "size": 4051,
+    "mtime_ns": 1792836744306971200,
+    "sha256": "d3186338a1bbfbd235edc6d5c51e736a49d473be5276db6317c662e673c53949"
+  },
+  {
+    "path": "data/Noon Reports/N05_May_Data_with_Propulsion_and_Fuel.csv",
+    "size": 3958,
+    "mtime_ns": 1792836744340418500,
+    "sha256": "0d1ff779d73c438ae4963dbd21aed5605c698e83c6352e8a037c1d58847fc63c"
+  },
+  {
+    "path": "data/Noon Reports/N06_June_Data_with_Propulsion_and_Fuel.csv",
+    "size": 3658,
+    "mtime_ns": 1792836744290919600,
+    "sha256": "e18b9a9d2511250902ba16f3446d679739ce82c88ec67d51c394259eaa470f0d"
+  },
+  {
+    "path": "data/Noon Reports/N07_July_Data_with_Propulsion_and_Fuel.csv",
+    "size": 3973,
+    "mtime_ns": 1792836744290919600,
+    "sha256": "5ba1e671404243fbb9fe23b7a1acdaeea5942db37a4842975bd98c191f47edc8"
+  },
+  {
+    "path": "data/Noon Reports/N08_August_Data_with_Propulsion_and_Fuel.csv",
+    "size": 4161,
+    "mtime_ns": 1792836744266948900,
+    "sha256": "de8da7184e6c8105cbad76e36b1ae348062eede01e79ee13581397b04f2244cb"
+  },
+  {
+    "path": "data/Noon Reports/N09_September_Data_with_Propulsion_and_Fuel.csv",
+    "size": 4036,
+    "mtime_ns": 1792836744278785600,
+    "sha256": "be6fba8ba6af93a6639b0ebde370f9e81f3c8b458f280417e40371bc5918def8"
+  },
+  {
+    "path": "data/Noon Reports/N10_October_Data_with_Propulsion_and_Fuel.csv",
+    "size": 3938,
+    "mtime_ns": 1792836744322670800,
+    "sha256": "eb2369bf0fff3d272f72c74f5ab871149467fe8f563f0fbbacdedfc318d98454"
+  },
+  {
+    "path": "data/Noon Reports/N11_November_Data_with_Propulsion_and_Fuel.csv",
+    "size": 3722,
+    "mtime_ns": 1792836744306971200,
+    "sha256": "ee60ed956fc92f379acbcf737eca82d52a72e5af8a15382be9f685e3f26b36d7"
+  },
+  {
+    "path": "data/Noon Reports/N12_December_Data_with_Propulsion_and_Fuel.csv",
+    "size": 4483,
+    "mtime_ns": 1792836744322670800,
+    "sha256": "6f3dc13422d4b80a379a49743de511342d1c8ab87fb973ab3519044d69291feb"
+  },
+  {
+    "path": "data/raw/1.csv",
+    "size": 259788562,
+    "mtime_ns": 1792834265885633500,
+    "sha256": null
+  },
+  {
+    "path": "data/raw/10.csv",
+    "size": 138854293,
+    "mtime_ns": 1792836690752382000,
+    "sha256": null
+  },
+  {
+    "path": "data/raw/11.csv",
+    "size": 260805687,
+    "mtime_ns": 1792836697515991500,
+    "sha256": null
+  },
+  {
+    "path": "data/raw/12.csv",
+    "size": 270137670,
+    "mtime_ns": 1792836704671661500,
+    "sha256": null
+  },
+  {
+    "path": "data/raw/2.csv",
+    "size": 251040087,
+    "mtime_ns": 1792834525252158000,
+    "sha256": null
+  },
+  {
+    "path": "data/raw/3.csv",
+    "size": 241147642,
+    "mtime_ns": 1792834534354782000,
+    "sha256": null
+  },
+  {
+    "path": "data/raw/4.csv",
+    "size": 253100390,
+    "mtime_ns": 1792836645276835500,
+    "sha256": null
+  },
+  {
+    "path": "data/raw/5.csv",
+    "size": 265386295,
+    "mtime_ns": 1792836654021551400,
+    "sha256": null
+  },
+  {
+    "path": "data/raw/6.csv",
+    "size": 249314239,
+    "mtime_ns": 1792836662056023600,
+    "sha256": null
+  },
+  {
+    "path": "data/raw/7.csv",
+    "size": 272202878,
+    "mtime_ns": 1792836669134900100,
+    "sha256": null
+  },
+  {
+    "path": "data/raw/8.csv",
+    "size": 269544557,
+    "mtime_ns": 1792836677287690100,
+    "sha256": null
+  },
+  {
+    "path": "data/raw/9.csv",
+    "size": 196495447,
+    "mtime_ns": 1792836684642630900,
+    "sha256": null
+  },
+  {
+    "path": "data/raw/Jan25.csv",
+    "size": 71477987,
+    "mtime_ns": 1792836710543243600,
+    "sha256": null
+  },
+  {
+    "path": "docs/2026_Lecture2_Dataset.pdf",
+    "size": 439122,
+    "mtime_ns": 1790064865562382900,
+    "sha256": "d6498fbbb787b06e2eb3ce1d4a6f2dab97a15d16c21df976e1bfd0d1f06b8574"
+  },
+  {
+    "path": "docs/Metrics registration - Google Sheets.pdf",
+    "size": 39032,
+    "mtime_ns": 1792834174462469300,
+    "sha256": "72da91eacb37d36f9dead9b67051cd93c38a58a8a5ae554c327bd049257c9b99"
+  },
+  {
+    "path": "docs/SINTEF_Ocean_v2.pdf",
+    "size": 1382581,
+    "mtime_ns": 1792837111970096300,
+    "sha256": "b4e294a66f3a43f8254a4bb1ffce0a4f9806d19429c33ce34551601b461957a9"
+  },
+  {
+    "path": "docs/Templetes/BillTsars_Model1_CleanBaselineScantling.csv",
+    "size": 910,
+    "mtime_ns": 1792946821423894200,
+    "sha256": "b491fd0858c6bbb7dbe1a4f445ac72a5c4295a1b3b13e92c4ddacdf99100eba1"
+  },
+  {
+    "path": "docs/Templetes/BillTsars_Model1_Timeseries.csv",
+    "size": 2346,
+    "mtime_ns": 1792946824218366900,
+    "sha256": "4959737889459083afd5a166ce7dbc2519659b02b3a654dd307a399a0a13a02c"
+  },
+  {
+    "path": "docs/Vessel/GA.jpg",
+    "size": 802321,
+    "mtime_ns": 1792946798113258700,
+    "sha256": "845f02ce9a2a8cb1d9cde6c1afef202b760f7b765bc6d16d0e7d1d75ffd8d275"
+  },
+  {
+    "path": "docs/Vessel/Particulars.xlsx",
+    "size": 7048,
+    "mtime_ns": 1792946798830671300,
+    "sha256": "5384d7d4ce8e1a1c16ba1fd6424b4dd56c50b7e5487496c8693132b3b0cd23f6"
+  },
+  {
+    "path": "docs/Vessel/Sea_Trials_curves.jpg",
+    "size": 170043,
+    "mtime_ns": 1792946806350340900,
+    "sha256": "89a0e1af9cc2b43ad7180c5decfa8f0245ecc5634d72be8a636272535d9739c5"
+  },
+  {
+    "path": "docs/Vessel/TOWING TANK MODEL TEST REPORT for A 76000DWT Bulk Carrier with&without PSV.pdf",
+    "size": 2474973,
+    "mtime_ns": 1792946795435470300,
+    "sha256": "80be907408064d3f66e6e07f538b9507f7a617bc7e3a12187a39c1f9249d0225"
+  },
+  {
+    "path": "docs/challenge/Big Data from ships Challenge V1.pptx",
+    "size": 1831013,
+    "mtime_ns": 1792946871117756800,
+    "sha256": "8d0aa9355ffafbc536cc0cac67c3c439bc6341cf84085d6bc43e8fd0096fc1cd"
+  },
+  {
+    "path": "docs/challenge/Code of Conduct.docx",
+    "size": 8630,
+    "mtime_ns": 1792946879734118300,
+    "sha256": "ebef08247d21b03ad3efcdbcbf668799f998960dcf0a65420bceced7f1402f80"
+  },
+  {
+    "path": "docs/challenge/HullPIC25 Announcement.pdf",
+    "size": 109482,
+    "mtime_ns": 1792946883140250500,
+    "sha256": "8626d643ebe3d756661093727d9652a9dabd00f928c648b005e6b9563ae4fbb9"
+  },
+  {
+    "path": "outputs/reports/scientific_validation_report.md",
+    "size": 9807,
+    "mtime_ns": 1792922595764047100,
+    "sha256": "4e9c2305b988b77ee991401350de268eb225c79d0264f7101b6e42f5965a5b36"
+  },
+  {
+    "path": "outputs/reports/task1_preliminary.md",
+    "size": 7791,
+    "mtime_ns": 1792921462127358300,
+    "sha256": "114afd2b7ee7a9aef4ef7f0b5d075bb191e62491755c69b98859b3c4f1fa9a61"
+  },
+  {
+    "path": "outputs/reports/task2_preliminary.md",
+    "size": 11740,
+    "mtime_ns": 1792922545361137400,
+    "sha256": "5b18ecb6886ba0686c237e36344c0a93051e8879fc82c5dc3257fc8379acc24a"
+  },
+  {
+    "path": "outputs/tables/data_dictionary.csv",
+    "size": 9781,
+    "mtime_ns": 1792922555202914000,
+    "sha256": "948695cbc092a7d0a67e391298ba8b4f2450e0d4591fcb3a7dfcbf4ba9a670fd"
+  },
+  {
+    "path": "outputs/tables/data_inventory.csv",
+    "size": 1451,
+    "mtime_ns": 1792838629880436200,
+    "sha256": "6122e327f550557a3d7845113b5eba7c98bfc4a20d1c27d4c22cc0d828513549"
+  },
+  {
+    "path": "outputs/tables/noon_report_anomalies.csv",
+    "size": 2383,
+    "mtime_ns": 1792838657233657400,
+    "sha256": "5974c34ec2c9aa34933357859bb03ceb99d9f8c6c71b500a2156a97cb825326c"
+  },
+  {
+    "path": "outputs/tables/noon_report_inventory.csv",
+    "size": 2931,
+    "mtime_ns": 1792838629893441700,
+    "sha256": "1b01a653a114a594d7e87565d625fd1677991b284ee3cf1c11b941090d2895aa"
+  },
+  {
+    "path": "outputs/tables/noon_report_quality.csv",
+    "size": 20055,
+    "mtime_ns": 1792838657231123800,
+    "sha256": "9c3b63b4cf92e31f3f0f0005db96f056c6344fad7e3c7a569099788cc887559e"
+  },
+  {
+    "path": "outputs/tables/qid_per_file.csv",
+    "size": 2473,
+    "mtime_ns": 1792838629880436200,
+    "sha256": "7719f0f9a7cbeafeb7db0e7d03218ecce60c8bd9a727cd64fd3d59f397b57c4b"
+  },
+  {
+    "path": "outputs/tables/qid_reconciliation.csv",
+    "size": 322,
+    "mtime_ns": 1792922555202914000,
+    "sha256": "63d70003240b72096eaf4b936692311fc77db582c7fada6a3543e5368caddbe0"
+  },
+  {
+    "path": "outputs/task1_task2_scope_audit/internal_findings.md",
+    "size": 34046,
+    "mtime_ns": 1793309383298277100,
+    "sha256": "5766da6a78ccdd2bb3668a03b716ad668e416dafd35e208810611d330d1bca51"
+  },
+  {
+    "path": "outputs/task1_task2_scope_audit/source_inventory.csv",
+    "size": 110865,
+    "mtime_ns": 1793309118981128600,
+    "sha256": "6f819192712e90373caa55a055ab4075dd4cbf9cd8e871022d633a23ff3d3c22"
+  }
+]

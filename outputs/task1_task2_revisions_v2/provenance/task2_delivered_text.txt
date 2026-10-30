@@ -1,0 +1,258 @@
+--- DELIVERED PDF PAGE 1 ---
+Task 2: Data Understanding and Background
+SINTEF Ocean Real Vessel Data Challenge | TDT4259 Applied Data Science
+25 October 2026 | Preliminary technical findings
+1. Dataset inventory
+The dataset contains 41,079,968 sensor records in twelve 2024 monthly files and a further 1,112,405
+records for January 2025, giving 42,192,373 records across thirteen files. The sensor registration identifies
+37 QIDs. Thirty-six occur in the 2024 data; 26 occur in January 2025. The registered channel without observed
+values is a turbocharger RPM indicator. All torquemeter channels, including the shaft-power target, are absent
+in January 2025, so that month is not a labelled test period.
+The quality scan parsed all 42,192,373 observed sensor values as finite numeric values and found no malformed
+short records or duplicate original (timestamp, QID) keys. Recorded numeric completeness should not be
+confused with coverage across calendar time.
+1.1 Record structure and types
+Field
+2024 sensor records
+January 2025 records
+Timestamp
+ISO 8601 text with a Z suffix,
+interpreted as UTC-aware datetime
+Day-first timestamp text without a
+timezone; its actual timezone is
+unknown
+QID
+Hierarchical text identifier; categorical
+key
+Hierarchical text identifier; categorical
+key
+Sensor value
+Numeric text parsed as float64
+Numeric text parsed as float64
+Number of Records
+Not present
+Additional integer-formatted field;
+precise meaning unconfirmed
+The dictionary classifies the 36 observed channels as numeric (float64 after parsing) and the unobserved
+registered channel as not observed. Direction and heading measurements are numeric but also have circular-
+angle semantics. The 2024 source records are not necessarily sorted chronologically; ordering must be handled
+explicitly during processing.
+2. Sampling, temporal alignment and coverage
+The different sensors operate at different rates and timestamps. A wide table formed from the union of every
+raw timestamp therefore contains numerous empty cells even when individual sensors recorded data correctly.
+October 2024 target measure
+Result
+Meaning
+Numeric values among recorded target
+rows
+88,304 / 88,304
+No null value inside a recorded target
+row
+Target presence on the raw
+union-timestamp grid
+88,304 / 376,474
+About 76.5% of grid cells blank,
+largely because timestamps differ
+Target presence on completed-minute
+grid
+22,088 / 44,640
+49.48% of calendar minutes
+represented by a target observation
+For the October descriptive analysis, onboard readings are aggregated over trailing one-minute intervals, each
+labelled by the end of the completed minute. Environmental values are associated with an interval only when
+their raw timestamp is no later than the interval end and their age is at most sixty minutes. This avoids using a
+later raw timestamp for an earlier interval, but does not prove when a provider actually issued or made that
+value available.
+There are 14 external provider channels. Each has 643 raw October readings, 38,601 aligned calendar-
+minute values (86.47%) and 22,088 minutes paired with the power target. The target-paired values derive
+from 369 distinct raw provider timestamps per channel. Scavenging-air pressure is an onboard engine
+1
+
+
+--- DELIVERED PDF PAGE 2 ---
+SINTEF Ocean Real Vessel Data Challenge
+25 October 2026
+measurement: it covers 22,092 completed minutes, with 22,087 target-paired minutes. Water depth has
+only 61 completed-minute observations and no overlap with the October target.
+2.1 Monthly observation-count density
+The percentages below compare actual target counts with a nominal 15-second schedule across each calendar
+month. They indicate recording density, not the cause of gaps or verified sensor uptime.
+Month
+Recorded target readings
+Nominal density
+Negative readings
+January
+166,699
+93.4%
+115
+February
+166,389
+99.6%
+111
+March
+149,512
+83.7%
+30
+April
+171,160
+99.1%
+20
+May
+170,498
+95.5%
+189
+June
+162,159
+93.8%
+0
+July
+178,007
+99.7%
+28,544
+August
+178,534
+100.0%
+495
+September
+129,509
+74.9%
+138
+October
+88,304
+49.5%
+37
+November
+170,683
+98.8%
+656
+December
+176,579
+98.9%
+166
+Figure 1: Monthly target observation-count density relative to a nominal 15-second calendar schedule. The chart does
+not diagnose the reason for missing observations.
+October shaft-power readings appear on 16 of 31 calendar dates. Lower density in September and October
+makes coverage-stratified evaluation necessary, without assuming a particular cause of missing records.
+3. Sensor quality and candidate measurements
+The 36 observed 2024 channels consist of one target, six torquemeter-related channels or close proxies, four draft
+channels with constant zero readings, one water-depth channel without October target overlap, and 24 initially
+eligible predictors. The predictors comprise four other-source engine, four vessel-motion, two onboard
+relative-wind, and 14 environmental provider channels.
+The four draft sensors have 8,226,522 values across the thirteen files, all equal to 0.0 m. They do not
+provide useful draft variation. This observation does not establish whether the source is installation, reporting or
+TDT4259 · Preliminary technical findings
+2 / 7
+
+
+--- DELIVERED PDF PAGE 3 ---
+SINTEF Ocean Real Vessel Data Challenge
+25 October 2026
+export behavior. The eastward and northward sea-current variables are assigned to their corresponding provider
+sources; velocity is expressed in m/s. Sea-water temperature is in degrees Celsius, and the registration does not
+specify a unit for shaft revolutions.
+Figure 2: Share of October calendar minutes represented after alignment, grouped by whether a channel is a candidate
+input or excluded measurement.
+TDT4259 · Preliminary technical findings
+3 / 7
+
+
+--- DELIVERED PDF PAGE 4 ---
+SINTEF Ocean Real Vessel Data Challenge
+25 October 2026
+Figure 3: Number of October completed-minute intervals in which each channel is paired with the shaft-power target.
+Multiple minute pairs may share a single provider measurement.
+3.1 Target-power anomalies
+July 2024. The shaft-power series contains 28,544 negative readings across fourteen dates. All target
+readings on 11, 12 and 15 July are negative. The longest near-contiguous negative sequence spans 17,399
+readings. At completed-minute resolution, 6,948 negative-power intervals also coincide with positive CAMS
+engine RPM and speed through water above 3 knots.
+November 2024. There are 656 negative readings across eight dates, with a minimum near 24,757 kW.
+The combined negative-power/positive-engine-operation condition occurs in 93 one-minute intervals.
+These patterns support a target-quality concern and separate assessment of July and November. They do
+not on their own distinguish calibration errors from reversal, sign convention or other operating circumstances.
+Negative observations have not been silently clipped or replaced. June has no negative target readings, but that
+absence alone is not evidence of clipping.
+TDT4259 · Preliminary technical findings
+4 / 7
+
+
+--- DELIVERED PDF PAGE 5 ---
+SINTEF Ocean Real Vessel Data Challenge
+25 October 2026
+Figure 4: Daily October raw observation counts across sensor channels. Colours reflect different source sampling rates
+and should not be compared as equivalent uptime percentages.
+4. Relationships observed in October
+Pairwise Pearson correlations describe the aligned October minutes for scalar candidate variables. Torquemeter-
+related features, constant draft, sparse water depth and circular directions were excluded from this correlation
+display.
+Measurement
+Pearson correlation with shaft power
+Paired minutes
+Scavenging-air pressure
++0.978
+22,087
+Turbocharger RPM (transducer)
++0.950
+22,087
+Engine fuel load (%)
++0.920
+22,087
+Engine RPM (CAMS)
++0.880
+22,086
+Speed over ground
++0.638
+22,088
+Speed through water
++0.628
+22,088
+Significant wave height (Provider MB)
++0.256
+22,088
+TDT4259 · Preliminary technical findings
+5 / 7
+
+
+--- DELIVERED PDF PAGE 6 ---
+SINTEF Ocean Real Vessel Data Challenge
+25 October 2026
+Figure 5: Descriptive Pearson correlations between shaft power and selected aligned scalar measurements. Blue bars
+indicate external sources for which repeated hourly values contribute to many minute pairs.
+The strong engine associations indicate that these signals may be informative for reconstructing shaft power,
+subject to availability and independence checks. The weather correlations use repeated provider values and
+serially related target minutes; 22,088 paired minutes are not equivalent to 22,088 independent weather
+observations. These associations are not causal effects or trained-model feature importances.
+The October speed–power relationship is also not consistently increasing. Among nonnegative speed and power
+intervals, the observed median decreases from approximately 2,997 kW at 7.0–7.5 knots to 2,564 kW at
+10.0–10.5 knots and 2,431 kW at 11.0–11.5 knots. An unconstrained descriptive cubic fit likewise falls from
+approximately 2,955 kW at 7 knots to 2,576 kW at 10 knots. In contrast, the familiar idealized power speed3
+expression is a physical heuristic under assumptions that these pooled observations do not satisfy. Loading,
+operating conditions, time effects and measurement quality have not been controlled sufficiently to explain the
+empirical decline.
+Figure 6: Observed October speed–power summaries and an illustrative cubic physical heuristic, shown separately. The
+theoretical shape is not an empirical fit for this vessel.
+TDT4259 · Preliminary technical findings
+6 / 7
+
+
+--- DELIVERED PDF PAGE 7 ---
+SINTEF Ocean Real Vessel Data Challenge
+25 October 2026
+5. Noon Reports and implications for modeling
+The twelve Noon Report datasets cover all 366 unique dates in leap year 2024. Their daily cadence is much
+coarser than sensor records. June includes missing fuel type and propulsion-consumption fields; 18 extreme
+slip entries were flagged during the year, including 60% and +50% values. Daily displacement could act as a
+loading indicator, but a same-day measurement may not have been available early on that date. Incorporating it
+requires documented measurement and issuance times or a defensible lag.
+The provisional chronological design is January–June training, August validation and December final
+testing. July and November are reserved for quality investigation, while September–October provide coverage-
+stress analysis. December’s 166 negative target readings require an evaluation policy established before
+inspecting final test errors.
+6. Interpretation and limitations
+The current findings support a coherent starting point for regression, but they do not establish predictive accuracy,
+fuel savings or deployment readiness. The main dependencies are the torquemeter’s trustworthy operating
+periods, provider timestamp semantics, engine-signal availability and the generalizability of relationships across
+voyages and loading conditions. A completed-minute reconstruction should not be described as a real-time
+forecast without further evidence.
+TDT4259 · Preliminary technical findings
+7 / 7

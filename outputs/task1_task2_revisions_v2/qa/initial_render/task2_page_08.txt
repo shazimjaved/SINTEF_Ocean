@@ -1,0 +1,53 @@
+SINTEF Ocean Real Vessel Data Challenge
+30 October 2026
+TDT4259  |  Task 2  |  Version 2
+8
+Appendix A. Preserved technical proposal from 25 October 2026
+This appendix relocates technical specifications from delivered Task 1 §§1–5 and Task 2 §5. It preserves their historical
+status as proposals; it does not reassess them against later work, report experiments or establish a clean-condition
+model. Current Task 3 decisions remain pending and outside this revision. [R1, R2]
+A.1 Target and reconstruction formulation
+The original task is supervised regression of Vessel Propeller Shaft Mechanical Power (kW), registered QID:
+2::0::11::0_1::1::0::3::0_14::0::1::0_8
+Each example describes a completed one-minute interval. Onboard measurements are summarized at its end; the target
+is recorded power for that interval. This is not a prediction of the following minute, an instantaneous estimate at the
+beginning of the minute, or a demonstrated route-optimization system. January 2025 has no target for labelled
+evaluation. Provider data use the past-timestamp rule in §2, with availability unresolved. [R1, R2]
+The original exclusions cover torque, mechanical energy, thrust, shaft revolutions, shaft RPM and torquemeter-sourced
+fuel mass flow; four zero-draft channels; and initially water depth because of absent October overlap. The 24 candidates
+include engine RPM, turbocharger RPM, scavenging pressure, fuel load, vessel speeds/motion, relative wind and 14
+provider channels. These source labels/roles do not prove operational independence or a valid clean-condition feature
+set. [R1, M1]
+A.2 Historical development and evaluation periods
+Period
+Original assigned role
+Original rationale
+January–June 2024
+Primary training
+Earlier labelled observations; quality rules before fitting.
+July 2024
+Quality investigation
+Sustained negative-power episode.
+August 2024
+Validation
+Later period for method/parameter decisions.
+September–October 2024
+Coverage stress analysis
+Reduced observation-count density.
+November 2024
+Quality investigation
+Extreme negative outliers and further suspect readings.
+December 2024
+Untouched primary test
+Later assessment once methods are fixed.
+The original rationale avoids randomly mixing adjacent sensor minutes across training/testing. December's 166 negative
+readings require a policy fixed without inspecting test prediction errors and disclosure of excluded cases. July and
+November remain outside the original primary fitting/headline-testing proposal unless reliability is established. These
+statements describe the delivered proposal, not the status of later experiments. [R1, R2]
+A.3 Historical technical success measures
+The original proposal specifies MAE and RMSE in kW, supplementary R², observation counts,
+time-block/operating-condition reporting and simple baselines: a training-mean estimate, a speed-based heuristic fitted
+only on training data, and persistence only when a preceding trusted power observation would actually be available. It
+seeks meaningful improvement on untouched chronological data. Operational tolerance requires stakeholder
+requirements; model accuracy alone cannot establish maintenance value. No metric values or achieved improvements
+are asserted. [R1]

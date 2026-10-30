@@ -1,0 +1,50 @@
+SINTEF Ocean Real Vessel Data Challenge
+30 October 2026
+TDT4259  |  Task 2  |  Version 2
+6
+4. Relationships observed in October
+The retained Pearson analysis describes aligned October minutes for scalar candidate variables. Torquemeter-related
+features, constant draft, sparse water depth and circular directions were excluded. The values below and Figures 5–6 are
+existing descriptive results; no relationship was refitted for v2. [R2]
+Measurement
+Pearson correlation with shaft power
+Paired minutes
+Scavenging-air pressure
++0.978
+22,087
+Turbocharger RPM, transducer
++0.950
+22,087
+Engine fuel load (%)
++0.920
+22,087
+Engine RPM, CAMS
++0.880
+22,086
+Speed over ground
++0.638
+22,088
+Speed through water
++0.628
+22,088
+Significant wave height, Provider MB
++0.256
+22,088
+Strong engine associations suggest potential information for power reconstruction, subject to availability and
+independence checks. Weather correlations reuse hourly values and serially related target minutes: 22,088 pairs are not
+22,088 independent weather observations; only 369 distinct provider timestamps contribute. These associations are
+neither causal effects nor trained-model feature importances. [R2]
+The October speed–power relation is not consistently increasing. Among nonnegative speed and power intervals, median
+power decreases from approximately 2,997 kW at 7.0–7.5 kn to 2,564 kW at 10.0–10.5 kn and 2,431 kW at 11.0–11.5
+kn. The existing unconstrained descriptive cubic falls from approximately 2,955 kW at 7 kn to 2,576 kW at 10 kn. These
+retained observations do not establish the vessel's resistance law. [R2]
+The idealized relationship of power proportional to speed cubed is a physical heuristic under assumptions not
+established for these pooled observations. Loading, operating conditions, time/voyage effects and measurement quality
+have not been controlled sufficiently to explain the empirical decline. Regime mixing is not established as its cause.
+Figure 6 shows the illustrative theoretical shape separately from observed summaries. [R2, M1]
+Implication for the business question: this EDA supplies neither a clean/current label nor an estimate attributable to
+fouling. A future comparison needs an applicable reference and matched or justified corrections for speed, loading, trim,
+environment and operating state, with uncertainty carried through. No clean/current comparison is produced here. [C1,
+C3, A1]
+The six original figures are reproduced unchanged in Appendix B, retaining their numbering and substantive captions.
+Their source images were extracted from the authoritative delivered Task 2 PDF, rather than regenerated from data.

@@ -1,0 +1,40 @@
+SINTEF Ocean Real Vessel Data Challenge
+30 October 2026
+TDT4259  |  Task 2  |  Version 2
+7
+5. Noon Reports and implications for modeling
+The twelve Noon Report CSVs contain 366 valid unique dates, covering every date in leap year 2024. Their daily cadence
+is much coarser than sensor records. Forward, mid and aft draft and displacement are populated on all 366 dates and
+could support coarse loading descriptions. The supplied column headings do not confirm their units. The particulars
+workbook explicitly reports displacement volume in m³, so equivalence to Noon displacement must not be assumed.
+Draft definitions, trim derivation, units and any density conversion require confirmation. [R2, N1, V1, A1]
+Observation and issuance times are unknown. A same-day value may not have been available early that day or represent
+loading throughout it. A defensible lag may address online availability, but can misrepresent loading changes;
+retrospective comparison also needs evidence of the loading applicable to the sensor interval. [R2, A1]
+The existing audit flags 18 extreme slip entries, including −60% and +50%; these are review flags, not cleaning indicators.
+The scope audit found 116 blank propulsion-consumption entries and 116 blank fuel-type entries across the year,
+including all 30 June dates. Blank values do not imply zero consumption. One loading item requiring review is the 31
+March record: forward draft 5, mid 5.93, aft 1.29 and displacement 34015. Its definitions/transcription require checking
+before trim or reference matching; it is not declared erroneous here. [R2, N1, A1]
+There is no cleaning-event field or cleaning-related entry in the inspected Noon CSVs. The original month split has been
+relocated to Appendix A to preserve its historical specification while keeping this section data-oriented. [A1, A2]
+6. Interpretation and limitations
+The package offers candidate engineering reference material and substantial operational observations, but it does not
+establish a dated clean state in the sensor series. Cleaning-event records and an actual engine shop-test report/map
+were not found in the inspected package. Cleaning-event coverage, completeness, timing precision, component/extent
+and post-clean condition cannot be assessed without those records. Promised data and example clean flags do not
+resolve this absence. [A1, A2]
+Reference use requires the correct PSV configuration and loading/trim, an appropriate speed range, comparable
+environment/depth and operating state, compatible power definitions/measurement location, documented corrections
+and uncertainty. The towing report assumes calm sea, sufficient depth and a clean bottom. Its with/without-PSV
+percentages are not cleaning savings. The trial chart's 8833 and 0.985 annotations and the towing report's 9500 kW
+rating and 0.99 transmission efficiency require reconciliation; their difference alone does not establish a vessel
+mismatch. [V2, V3, A1]
+Requests needed to close these gaps are dated cleaning/inspection and maintenance history; reference/trial provenance
+and numeric curves; calibration/operation logs; loading, weather and timestamp metadata; and a defined
+current-condition window and decision horizon. These requests support feasibility assessment, not an assertion that
+fouling has occurred. [A1]
+The retained descriptive findings do not establish predictive accuracy, fuel savings, cleaning effectiveness or deployment
+readiness. Provider timing, engine-signal availability, loading representativeness and reliable target periods remain open.
+Completed-minute reconstruction does not establish a real-time or advance route-planning forecast. The pending Task 3
+work has not been assessed in this revision. [R2]

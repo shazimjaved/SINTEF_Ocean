@@ -1,0 +1,9 @@
+SINTEF Ocean Real Vessel Data Challenge
+30 October 2026
+TDT4259  |  Task 2  |  Version 2
+9
+Appendix B. Retained descriptive figures
+All six figures are unchanged source images from the delivered Task 2 report [R2]. Their numbering is retained; no figure
+represents a newly computed result or a clean/current comparison.
+Figure 1: Monthly target observation-count density relative to a nominal 15-second calendar schedule. The chart does not diagnose the
+reason for missing observations.

@@ -1,0 +1,225 @@
+{
+  "scope": "Document QA only; no sensor-performance computation or Task 3 review",
+  "pass": 23,
+  "fail": 0,
+  "checks": [
+    {
+      "check": "Protected originals, existing sources and audit artifacts",
+      "status": "PASS",
+      "evidence": {
+        "files": 52,
+        "content_hashes": 39,
+        "size_and_mtime_checks": 52,
+        "differences": []
+      }
+    },
+    {
+      "check": "Protected-source list excludes Task 3/investigation content",
+      "status": "PASS",
+      "evidence": "Only explicitly inventoried Task 1/2 sources and audit artifacts are read."
+    },
+    {
+      "check": "Task 1: intentional pagination",
+      "status": "PASS",
+      "evidence": {
+        "pages": 3,
+        "expected": 3,
+        "blank_pages": []
+      }
+    },
+    {
+      "check": "Task 1: editable source represented in extracted PDF text",
+      "status": "PASS",
+      "evidence": {
+        "blocks_or_table_cells": 55,
+        "missing": []
+      }
+    },
+    {
+      "check": "Task 1: text extraction in two PDF readers",
+      "status": "PASS",
+      "evidence": {
+        "fitz_characters": 9872,
+        "pypdf_characters": 9872,
+        "replacement_glyphs": []
+      }
+    },
+    {
+      "check": "Task 1: text stays within page margins",
+      "status": "PASS",
+      "evidence": []
+    },
+    {
+      "check": "Task 1: paragraphs, tables and images stay in content frame",
+      "status": "PASS",
+      "evidence": []
+    },
+    {
+      "check": "Task 1: reference links resolve",
+      "status": "PASS",
+      "evidence": {
+        "links": 17,
+        "broken": []
+      }
+    },
+    {
+      "check": "Task 1: technical identifiers, splits and metrics relocated",
+      "status": "PASS",
+      "evidence": "Main business report directs historical technical details to Task 2 Appendix A."
+    },
+    {
+      "check": "Task 1: all pages rasterize",
+      "status": "PASS",
+      "evidence": {
+        "pages": 3,
+        "dpi": 108
+      }
+    },
+    {
+      "check": "Task 2: intentional pagination",
+      "status": "PASS",
+      "evidence": {
+        "pages": 11,
+        "expected": 11,
+        "blank_pages": []
+      }
+    },
+    {
+      "check": "Task 2: editable source represented in extracted PDF text",
+      "status": "PASS",
+      "evidence": {
+        "blocks_or_table_cells": 256,
+        "missing": []
+      }
+    },
+    {
+      "check": "Task 2: text extraction in two PDF readers",
+      "status": "PASS",
+      "evidence": {
+        "fitz_characters": 26931,
+        "pypdf_characters": 26931,
+        "replacement_glyphs": []
+      }
+    },
+    {
+      "check": "Task 2: text stays within page margins",
+      "status": "PASS",
+      "evidence": []
+    },
+    {
+      "check": "Task 2: paragraphs, tables and images stay in content frame",
+      "status": "PASS",
+      "evidence": []
+    },
+    {
+      "check": "Task 2: reference links resolve",
+      "status": "PASS",
+      "evidence": {
+        "links": 95,
+        "broken": []
+      }
+    },
+    {
+      "check": "Task 2: all twelve monthly count/density/negative rows retained",
+      "status": "PASS",
+      "evidence": {
+        "rows": 12,
+        "differences": []
+      }
+    },
+    {
+      "check": "Task 2: seven existing correlations and pair counts retained",
+      "status": "PASS",
+      "evidence": [
+        [
+          "0.978",
+          "22,087"
+        ],
+        [
+          "0.950",
+          "22,087"
+        ],
+        [
+          "0.920",
+          "22,087"
+        ],
+        [
+          "0.880",
+          "22,086"
+        ],
+        [
+          "0.638",
+          "22,088"
+        ],
+        [
+          "0.628",
+          "22,088"
+        ],
+        [
+          "0.256",
+          "22,088"
+        ]
+      ]
+    },
+    {
+      "check": "Task 2: key retained descriptive values present",
+      "status": "PASS",
+      "evidence": [
+        "41,079,968",
+        "1,112,405",
+        "42,192,373",
+        "8,226,522",
+        "88,304",
+        "376,474",
+        "22,088",
+        "44,640",
+        "49.48%",
+        "38,601",
+        "86.47%",
+        "369",
+        "643",
+        "22,092",
+        "22,087",
+        "17,399",
+        "6,948",
+        "28,544",
+        "656",
+        "2,997",
+        "2,564",
+        "2,431",
+        "2,955",
+        "2,576"
+      ]
+    },
+    {
+      "check": "Task 2: signed anomaly values extract correctly",
+      "status": "PASS",
+      "evidence": [
+        "−24,757 kW",
+        "−60%"
+      ]
+    },
+    {
+      "check": "Task 2: six original figures preserved at pixel level",
+      "status": "PASS",
+      "evidence": {
+        "original_figures": 6,
+        "pdf_images": 6,
+        "pixel_hashes_match": true
+      }
+    },
+    {
+      "check": "Task 2: all pages rasterize",
+      "status": "PASS",
+      "evidence": {
+        "pages": 11,
+        "dpi": 108
+      }
+    },
+    {
+      "check": "Cross-report scope and evidence limitations are consistent",
+      "status": "PASS",
+      "evidence": "Both reports qualify cleaning/shop-test availability; Task 1 points to Task 2 historical appendix; engineering reference and dated observed clean state are explicitly distinct."
+    }
+  ]
+}

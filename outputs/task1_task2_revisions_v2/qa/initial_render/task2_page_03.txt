@@ -1,0 +1,89 @@
+SINTEF Ocean Real Vessel Data Challenge
+30 October 2026
+TDT4259  |  Task 2  |  Version 2
+3
+2. Sampling, temporal alignment and coverage
+Sensors operate at different rates and timestamps. A wide table formed from their union has empty cells even when
+individual sensors recorded correctly. Three October denominators answer different questions. [R2]
+October target measure
+Result
+Interpretation
+Numeric values among recorded target rows
+88,304 / 88,304
+No null numeric value within recorded target rows.
+Target presence on raw union-timestamp
+grid
+88,304 / 376,474
+About 76.5% of cells blank, largely because timestamps
+differ; not calendar coverage.
+Target presence on completed-minute grid
+22,088 / 44,640
+49.48% of calendar minutes represented by a target
+observation.
+For the existing October descriptive analysis, onboard readings are averaged in trailing one-minute intervals labelled by
+their end. The grid spans 1 October 00:01 through 1 November 00:00, representing October's 44,640 minutes. Each
+environmental value comes from the latest raw timestamp no later than the interval end, with a maximum age of 60
+minutes. This is a completed-minute description, not a forecast at the minute's start. A past raw timestamp does not
+establish provider issuance or operational availability; issue time, valid time and timezone semantics remain
+unconfirmed. [R2, M1]
+Each of the 14 external channels has 643 raw October readings, 38,601 aligned calendar-minute values (86.47%) and
+22,088 target-paired minutes. These pairs use only 369 distinct provider timestamps per channel. Scavenging-air
+pressure is onboard: 22,092 completed minutes and 22,087 target pairs. Water depth has 61 completed minutes and
+zero target overlap in October. Figures 2–3 retain the coverage/overlap displays. [R2]
+2.1 Monthly observation-count density
+The table uses a nominal uninterrupted 15-second calendar denominator. It describes recording density, not verified
+sensor uptime or the cause of gaps. Figure 1 retains the corresponding chart. [R2]
+Month, 2024
+Recorded target readings
+Nominal density
+Negative readings
+January
+166,699
+93.4%
+115
+February
+166,389
+99.6%
+111
+March
+149,512
+83.7%
+30
+April
+171,160
+99.1%
+20
+May
+170,498
+95.5%
+189
+June
+162,159
+93.8%
+0
+July
+178,007
+99.7%
+28,544
+August
+178,534
+100.0%
+495
+September
+129,509
+74.9%
+138
+October
+88,304
+49.5%
+37
+November
+170,683
+98.8%
+656
+December
+176,579
+98.9%
+166
+October power occurs on 16 of 31 dates. Reduced September/October density requires coverage-aware interpretation.
+Noon dates span 2024, but cleaning-event dates and pre/post-event overlap are unknown. January 2025 cannot define a

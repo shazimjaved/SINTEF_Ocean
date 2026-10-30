@@ -1,0 +1,129 @@
+--- DELIVERED PDF PAGE 1 ---
+Task 1 Problem Definition and Business Understanding
+SINTEF Ocean Real Vessel Data Challenge | TDT4259 Applied Data Science
+25 October 2026 | Preliminary technical findings
+1. Problem and practical objective
+The objective is to estimate vessel propeller shaft mechanical power (kW) from operating and environmental
+measurements that do not originate from the same torquemeter channel. Such an estimate could provide a
+secondary indication of propulsion demand or help check whether a measured power value is plausible. Its
+usefulness for performance monitoring will depend on the predictive accuracy and the availability of input signals
+when an estimate is needed.
+The task is formulated as supervised regression. The target is the recorded shaft mechanical power, and each
+training example represents an aligned one-minute period. The present formulation is a completed-minute power
+estimate: measurements within the minute are summarized at the end of that minute. It is not a forecast
+of the following minute, an instantaneous prediction at the beginning of the minute, or a demonstrated
+route-optimization system.
+The target is identified in the registration material as Vessel Propeller Shaft Mechanical Power. Its registered
+QID is:
+2::0::11::0_1::1::0::3::0_14::0::1::0_8
+It occurs in the twelve monthly 2024 datasets but not in the January 2025 file. January 2025 therefore cannot
+provide labelled evaluation observations for this target.
+2. Candidate input measurements
+The 2024 records contain 36 observed sensor channels. Their initial modeling roles are summarized below.
+Role
+Channels
+Proposed treatment
+Shaft mechanical power
+1
+Target variable, subject to quality
+assessment
+Torquemeter-related measurements or
+close proxy
+6
+Exclude from model inputs to reduce
+direct target leakage
+Draft measurements with constant
+zero values
+4
+Exclude as noninformative
+measurements
+Echosounder water depth
+1
+Exclude from the initial analysis
+because October has no paired target
+intervals
+Candidate predictors
+24
+Evaluate for coverage, quality,
+availability and predictive value
+The 24 candidate channels comprise four engine measurements from other named sources, four motion
+channels, two onboard relative-wind channels and fourteen environmental provider channels. Relevant examples
+include engine RPM, turbocharger RPM, scavenging air pressure, fuel load, speed over ground, speed through
+water, wind and wave conditions, and sea-water current components.
+A measurement’s presence in the dataset does not by itself establish that it will be available at the intended
+operational decision time. The engine-source timing and weather-provider issuance times require confirmation.
+Angular variables such as heading and wind direction also require circular processing rather than naïve arithmetic
+averaging.
+3. Data characteristics affecting the objective
+Target reliability.
+July 2024 contains 28,544 negative shaft-power readings across fourteen dates,
+including a near-contiguous sequence of 17,399 readings. November contains 656 negative readings, with a
+minimum near 24,757 kW. These patterns create a substantial risk of unreliable labels. Although the challenge
+1
+
+
+--- DELIVERED PDF PAGE 2 ---
+SINTEF Ocean Real Vessel Data Challenge
+25 October 2026
+material warns of torque miscalibration, these readings alone do not establish the precise failure mechanism or
+fault intervals. The underlying observations should be retained and the affected periods investigated separately.
+Observation density. September and October supply 74.9% and 49.5%, respectively, of the target readings
+expected under a nominal uninterrupted 15-second calendar schedule. In October, 88,304 target readings
+occupy 22,088 of 44,640 one-minute intervals, spread over sixteen calendar dates. This is a measure of
+recorded-data coverage, not proof that the instrument failed when readings were absent.
+Environmental measurements. In October, the provider channels have hourly source observations. Although
+each can be paired with 22,088 target-minute intervals after past-timestamp alignment, those pairs use only
+369 distinct provider timestamps. Repeated aligned weather values must not be interpreted as independent
+observations.
+Representativeness. Vessel loading, operating regimes, environmental conditions and repeated measurements
+can change observed relationships. Consequently, the October speed–power association is not evidence of a
+vessel-wide resistance law.
+4. Proposed development and evaluation periods
+A chronological evaluation design is necessary because randomly mixing adjacent sensor minutes between training
+and testing would overstate independence.
+Period
+Assigned role
+Rationale
+January–June 2024
+Primary training
+Earlier labelled observations; quality
+rules applied before fitting
+July 2024
+Quality investigation
+Sustained negative-power episode
+August 2024
+Validation
+Model selection and parameter
+decisions on a later period
+September–October 2024
+Coverage stress analysis
+Reduced observation-count density
+November 2024
+Quality investigation
+Extreme negative outliers and further
+suspicious readings
+December 2024
+Untouched primary test
+Final chronological assessment once
+methods are fixed
+The roles above define a proposed evaluation, not completed experiments. The December test period includes
+166 negative target readings. Any quality-filtered evaluation must use rules fixed without looking at test
+prediction errors, and the number of excluded cases must be reported. July and November remain outside the
+primary fitting and headline testing periods unless their reliability can be established.
+5. Success criteria and expected outputs
+Model evaluation will use mean absolute error (MAE) and root mean squared error (RMSE) in kW,
+with R2 reported as a supplementary measure. Results should include observation counts, performance by time
+block or operating condition, and comparison with appropriately defined simple baselines: a training-mean
+estimate, a speed-based heuristic fitted only on training data and, when genuinely available, a persistence
+estimate based on a previously trusted power reading.
+The immediate technical criterion is a meaningful improvement over suitable baselines on untouched chronological
+data. A satisfactory operational error tolerance cannot yet be fixed without a decision context and stakeholder-
+defined requirements. Claims of fuel savings, route improvements or operational deployment must wait for
+measured predictive performance and a realistic assessment of input availability.
+6. Working assumptions and next decisions
+The most consequential open decisions are the reliability boundaries of the torquemeter, the issue-time and
+timezone meaning of environmental data, the latency of onboard engine measurements, and whether a lagged
+Noon Report loading indicator would genuinely be available at inference time. These are explicit conditions on
+the eventual model design, not evidence of achieved model performance.
+TDT4259 · Preliminary technical findings
+2 / 2

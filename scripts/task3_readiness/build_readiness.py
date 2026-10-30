@@ -38,9 +38,8 @@ FIGURES = [
 def commands():
     rows = [
         ("VERIFY", "python -X utf8 -B scripts/task3_readiness/verify_saved_outputs.py", "saved_output_only", False, "Current consolidated hashes, chronology, ledgers, metrics, scopes and coverage"),
-        ("NOTEBOOK", "python -X utf8 -B scripts/task3_readiness/run_notebook.py", "saved_output_only", False, "Execute actual notebook code cells in a fresh Python process; validate ipynb; measure CPU/RAM"),
         ("NOTEBOOK_ENV", "python -m pip install -r scripts/task3_readiness/requirements.txt", "environment_setup", False, "Pinned available verification dependencies; installation not performed by verifier"),
-        ("JUPYTER_ENV", "python -m pip install -r scripts/task3_readiness/requirements-jupyter.txt", "optional_environment_setup", False, "Standard Jupyter extras; unavailable from package index during this session"),
+        ("JUPYTER_ENV", "python -m pip install -r scripts/task3_readiness/requirements-jupyter.txt", "optional_environment_setup", False, "Standard notebook kernel extras; package-index installation unavailable during this session"),
     ]
     rebuilds = [("V1_FEATURES", "scripts/11_task3_features.py", False), ("V1_FIT", "scripts/12_task3_train_validate.py", True),
                 ("V1_EVAL", "scripts/13_task3_evaluate.py", False), ("V2_FITS", "scripts/task3_v2/07_walkforward_experiments.py", True),
@@ -62,7 +61,7 @@ def create_notebook():
         "Replays saved-output checks and displays retained technical comparisons. "
         "No training, model selection, relabelling or report generation. Target: recorded completed-minute shaft power in kW. "
         "Recorded zeros remain observed and quality-uncertain. Positive-only and zero-excluded scores are retrospective subsets. "
-        "The supported local runner executes these Python cells in a fresh process; standard Jupyter additionally needs ipykernel."),
+        "The project contains a Python 3 notebook kernel specification. In this environment, its structure and every Python cell are validated by the canonical verifier; kernel execution is not claimed because ipykernel and IPython are unavailable locally."),
         nbf.new_code_cell("from pathlib import Path\nimport sys, os\n"
             "ROOT = next(p for p in [Path.cwd(), *Path.cwd().parents] if (p / 'scripts/task3_readiness/verify_saved_outputs.py').exists())\n"
             "sys.path.insert(0, str(ROOT / 'scripts/task3_readiness'))\n"
@@ -74,7 +73,8 @@ def create_notebook():
         nbf.new_markdown_cell("## Information scenarios and scope\n"
             "Compare methods within their stated information scenario. Past target labels and synchronous same-package physics "
             "are additional information, not independent-sensor prediction. All later periods have been inspected. "
-            "Original December results are replayed only to verify the historical frozen evaluation."),
+            "Original December results are replayed only to verify the historical frozen evaluation. R2 and Pearson correlation r "
+            "are separate statistics; neither is substituted for the other."),
         nbf.new_code_cell("scenarios = pd.read_csv(ROOT / 'outputs/task3_readiness/scenario_comparisons.csv')\n"
             "print(scenarios[['scenario','retained_reference','matched_baselines','defensible_interpretation']].to_string(index=False))\n"
             "policy = pd.read_csv(ROOT / 'outputs/task3_target_decision/scope_quality_decisions.csv')\n"
@@ -98,16 +98,16 @@ def create_notebook():
             "    show_figure(figure_id)"),
         nbf.new_code_cell("index = pd.read_csv(ROOT / 'outputs/task3_readiness/artifact_index.csv')\n"
             "print(index.groupby(['version','role'], dropna=False).size().to_string())\n"
-            "print('Verification and notebook outputs are internal implementation evidence.')\n"
-            "print('Runtime/RAM measurements are saved by run_notebook.py in notebook_execution.json.')"),
+            "print('Verification outputs are internal run records; the artifact index is the frozen input and implementation snapshot.')\n"
+            "print('The canonical verifier records individual check status and elapsed time.')"),
         nbf.new_markdown_cell("## Technical limits\n"
             "Source-level physical validity, zero/status conventions and actual delayed-label availability remain unresolved. "
-            "No universal all-regime model is promoted. Historical training/feature-build scripts are indexed for a fresh copy "
+            "No universal all-regime model is promoted. Historical training/feature-build scripts are indexed for reference "
             "but are not executed here. This notebook reproduces frozen evidence; it does not re-estimate historical weights.")]
     notebook = nbf.new_notebook(cells=cells, metadata={"kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
                                                     "language_info": {"name": "python", "version": "3.11.0"}})
     nbformat.validate(notebook)
-    NOTEBOOK.parent.mkdir(exist_ok=True)
+    NOTEBOOK.parent.mkdir(parents=True, exist_ok=True)
     nbformat.write(notebook, NOTEBOOK)
 
 
@@ -118,10 +118,10 @@ def metadata(path):
     if "target_decision" in p: version = "target_decision"
     suffix = path.suffix.lower()
     if suffix == ".joblib": role = "saved_model"
+    elif suffix == ".png": role = "figure"
     elif "manifest" in p or "provenance" in p or "inventory" in p: role = "manifest_provenance"
     elif "history" in p or "ledger" in p: role = "history_ledger"
     elif "qa" in path.name or "checks" in path.name: role = "QA"
-    elif suffix == ".png": role = "figure"
     elif "prediction" in path.name and "metric" not in path.name: role = "saved_predictions"
     elif "metric" in path.name or "comparison" in path.name: role = "metrics_comparison"
     elif "minute_2024" in path.name or "model_features" in p: role = "derived_dataset"
@@ -141,34 +141,54 @@ def main(refresh=False):
     OUT.mkdir(parents=True, exist_ok=True)
     index_path = OUT / "artifact_index.csv"
     if index_path.exists() and not refresh:
-        raise FileExistsError("Index exists; do not replace frozen expectations")
-    if not refresh:
-        create_notebook()
-        captions = []
-        reviewed = {p: (key, scenario, cap) for key, p, scenario, cap in FIGURES}
-        for p in sorted((ROOT / "outputs").rglob("*.png")):
-            rel = p.relative_to(ROOT).as_posix()
-            if rel in reviewed:
-                key, scenario, caption = reviewed[rel]
-                captions.append({"figure_id": key, "path": rel, "scenario": scenario, "status": "retained_with_authoritative_caption",
-                                 "visual_reviewed": True, "must_show_caption": True, "raw_standalone_approved": False,
-                                 "authoritative_caption": caption})
-            else:
-                captions.append({"figure_id": "ARCHIVE_" + p.stem, "path": rel, "scenario": "historical",
-                                 "status": "historical_not_currently_approved", "visual_reviewed": False, "must_show_caption": False,
-                                 "raw_standalone_approved": False, "authoritative_caption": "Historical figure; excluded from current retained set; no blanket caption approval."})
-        pd.DataFrame(captions).to_csv(OUT / "figure_captions.csv", index=False)
-        commands().to_csv(OUT / "commands.csv", index=False)
-        scenarios = [
-            ("A independent completed-minute sensors", "Original frozen restricted HGB plus V6 fixed extended Ridge/HGB history comparisons", "Historical training mean and nonnegative speed-cubic", "No new model selected. September positive mean (~232 kW) beats augmented Ridge (~564); October Ridge (~329) beats historical constants but retains negative R2.", "No current/past power predictor; all later evaluations inspected"),
-            ("B conditional delayed labels", "Existing V7 daily residual Ridge and permitted October update", "Persistence and history mean with identical history/cutoff", "October residual Ridge ~120 kW beats matched baselines ~350/~329; September persistence ~956 beats calibration ~1147. Conditional reference only.", "Trustworthy labels, strict day-start minus 24h cutoff, daily refresh; unverified availability"),
-            ("C original V7 simulated gaps", "Existing sealed-gap Ridge and residual correction", "Matched delayed persistence/history mean and fixed Ridge", "The 6h subset is strong but uses different anchors from other durations; at 24h history mean ~334 beats calibrated pooled ~414. No reliable transition repair.", "54 old gaps sealed across fits/history; independent predictors assumed available"),
-            ("C paired V8 simulated gaps", "Unchanged V7-definition calibration; safeguards retained as failed evidence", "Matched delayed persistence and history mean", "Persistence broadly outperforms tested calibration at all paired horizons (~910/1021/1068 kW), yet still has severe transitions. No universal winner promoted.", "16 paired anchors and common 24h embargo; positive-only and zero-excluded scopes retrospective"),
-            ("D same-package physics / package loss", "Exact synchronous torque/RPM audit only", "Instrument formula comparison; no independent ML ranking", "Useful consistency diagnostic; torque scale and outage validity unresolved. Entire-package loss/coordinated zero does not supply independent current-state evidence.", "Same-instrument data, unknown physical validity; no operational repair claim")]
-        pd.DataFrame(scenarios, columns=["scenario", "retained_reference", "matched_baselines", "defensible_interpretation", "information_contract"]).to_csv(OUT / "scenario_comparisons.csv", index=False)
+        raise FileExistsError("Index exists; use --refresh-implementation-hashes to preserve old expectations")
+
+    # These are new readiness outputs only; refreshing them never touches V1-V8.
+    create_notebook()
+    captions = []
+    reviewed = {p: (key, scenario, cap) for key, p, scenario, cap in FIGURES}
+    for p in sorted((ROOT / "outputs").rglob("*.png")):
+        rel = p.relative_to(ROOT).as_posix()
+        if rel in reviewed:
+            key, scenario, caption = reviewed[rel]
+            captions.append({"figure_id": key, "path": rel, "scenario": scenario, "status": "retained_with_authoritative_caption",
+                             "visual_reviewed": True, "must_show_caption": True, "raw_standalone_approved": False,
+                             "authoritative_caption": caption})
+        else:
+            captions.append({"figure_id": "ARCHIVE_" + p.stem, "path": rel, "scenario": "historical",
+                             "status": "historical_not_currently_approved", "visual_reviewed": False, "must_show_caption": False,
+                             "raw_standalone_approved": False, "authoritative_caption": "Historical figure; excluded from current retained set; no blanket caption approval."})
+    pd.DataFrame(captions).to_csv(OUT / "figure_captions.csv", index=False)
+    commands().to_csv(OUT / "commands.csv", index=False)
+    scenarios = [
+        ("A independent completed-minute sensors", "Original frozen restricted HGB is a historical reference; V6 fixed Ridge/HGB are retained comparisons, not a newly selected model", "V6 Jan-Jun+Aug matched arm: September broad HGB-broad MAE ~2286 vs Ridge 2325, training mean 2362 and speed-cubic 2361 kW. On the retrospective positive-only subset, mean 232 and speed-cubic 404 beat Ridge 564. October broad Ridge 329 beats HGB 814, mean 2397 and speed-cubic 1824 kW.", "Best tested fixed method changes by month and target scope; the displayed V6 R2 values are negative. Positive-only metrics are retrospective diagnostics. No universal model selected.", "No current or past power predictor; completed-minute onboard features; later chronological periods already inspected", "outputs/task3_target_decision/scope_metrics.csv; outputs/task3/tables/frozen_selection.json"),
+        ("B conditional delayed labels", "Existing V7 daily residual Ridge; V7 October update retained only as conditional evidence", "Same-history delayed persistence and history mean: October calibrated Ridge MAE ~120 vs persistence ~350/history mean ~329 kW; September persistence ~956 beats calibrated Ridge ~1147 kW on broad scope.", "Conditional result varies by regime; September positive-history calibration has ~238 kW retrospective positive MAE but ~2146 kW broad MAE. No target-based current eligibility.", "Trustworthy past labels, strict day-start minus 24h cutoff, daily refresh; actual availability and label validity unverified", "outputs/task3_target_decision/scope_metrics.csv; outputs/task3_v7/adaptation/daily_history_ledger.csv"),
+        ("C original V7 simulated gaps", "Existing V7 sealed-gap predictions; retained as a separate historical simulation", "Matched fixed Ridge, delayed persistence and history mean within each original V7 sample", "54 scheduled blocks retained; 38 contain scoreable truth. Horizon samples differ in calendar/operating state, so duration rankings are not causal; transitions remain severe.", "Artificial missing-power blocks; independent sensors assumed to survive; delayed label availability conditional", "outputs/task3_target_decision/gap_block_metrics.csv; outputs/task3_v7/reconstruction/fit_inventory.csv"),
+        ("C paired V8 simulated gaps", "V7-definition calibration and nonnegative clipping retained as comparisons, not promoted winners", "Matched delayed persistence: broad MAE ~910/~1021/~1068 kW at 1/6/24h versus calibrated ~1273/~1337/~1413 kW", "On 16 paired anchors/common embargo, persistence is the lowest-MAE tested method within this sample at all horizons; transition errors remain severe. This is not a universal all-regime winner. Horizons contain different operating minutes and natural missing truth.", "Retrospective paired gap simulation; common 24h embargo; positive-only scopes are retrospective", "outputs/task3_v8/tables/paired_horizon_metrics.csv; outputs/task3_v8/paired/horizon_coverage.csv"),
+        ("D same-package physics / package loss", "Exact synchronous torque/RPM audit only", "Instrument formula comparison; no independent ML ranking", "Useful consistency diagnostic; torque scale and outage validity unresolved. Coordinated zeros do not supply independent current-state evidence.", "Same-instrument data; physical validity unknown; no operational repair claim", "outputs/task3_v3/internal_findings.md; outputs/task3_source_audit/internal_findings.md")]
+    pd.DataFrame(scenarios, columns=["scenario", "retained_reference", "matched_baselines", "defensible_interpretation", "information_contract", "evidence_sources"]).to_csv(OUT / "scenario_comparisons.csv", index=False)
+    not_performed = [
+        ("standard_jupyter_kernel_execution", "UNVERIFIED", "ipykernel and IPython are not installed; no notebook cell was run through a Jupyter kernel"),
+        ("fresh_raw_to_prediction_rebuild", "NOT_PERFORMED", "Would rerun frozen feature/model scripts and could overwrite historical outputs; outside authorized scope"),
+        ("model_deserialization_or_inference", "NOT_PERFORMED", "Saved outputs are verified without loading serialized estimators or generating predictions"),
+        ("new_model_fit_or_selection", "NOT_PERFORMED", "Explicitly prohibited for this readiness task"),
+        ("fresh_untouched_chronological_holdout", "UNAVAILABLE", "All later labelled periods were previously inspected; no new independent label period is present"),
+        ("independent_physical_target_validation", "UNAVAILABLE", "No independent shaft-power reference and zero/status provenance remain unresolved"),
+        ("operational_delayed_label_availability", "UNVERIFIED", "V7/V8 label latency and trust assumptions are not established by project records"),
+        ("final_academic_methods_results_report", "NOT_PERFORMED", "Explicitly excluded from this task; the 2026 course rubric describes a written methods/results section, but no report is generated here"),
+    ]
+    pd.DataFrame(not_performed, columns=["check_or_activity", "status", "reason"]).to_csv(OUT / "not_performed.csv", index=False)
+
     if refresh:
         old = pd.read_csv(index_path)
-        rows = old[old.retention.ne("readiness_implementation")].to_dict("records")
+        rows = []
+        for record in old[old.retention.ne("readiness_implementation")].to_dict("records"):
+            path = ROOT / record["path"]
+            if not path.is_file() or path.stat().st_size != record["bytes"] or sha(path) != record["sha256"]:
+                raise RuntimeError(f"Frozen artifact changed; refusing to refresh index: {record['path']}")
+            version, role, retention = metadata(Path(record["path"]))
+            record.update(version=version, role=role, retention=retention)
+            rows.append(record)
     else:
         rows = []
         for p in sorted(ROOT.rglob("*")):
@@ -185,7 +205,7 @@ def main(refresh=False):
     for p in implementation:
         rows.append({"path": p.relative_to(ROOT).as_posix(), "bytes": p.stat().st_size, "sha256": sha(p), "version": "readiness",
                      "role": "notebook" if p.suffix == ".ipynb" else "implementation", "retention": "readiness_implementation",
-                     "verification_command": "NOTEBOOK" if p.suffix == ".ipynb" else "VERIFY", "usage_note": "Saved-output-only implementation; no model loading/training"})
+                     "verification_command": "VERIFY", "usage_note": "Saved-output-only implementation; no model loading/training"})
     index = pd.DataFrame(rows)
     index.to_csv(index_path, index=False)
     models = index[index.role.eq("saved_model")].copy()

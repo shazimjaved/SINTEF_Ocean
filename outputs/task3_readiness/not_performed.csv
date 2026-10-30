@@ -1,0 +1,9 @@
+check_or_activity,status,reason
+standard_jupyter_kernel_execution,UNVERIFIED,ipykernel and IPython are not installed; no notebook cell was run through a Jupyter kernel
+fresh_raw_to_prediction_rebuild,NOT_PERFORMED,Would rerun frozen feature/model scripts and could overwrite historical outputs; outside authorized scope
+model_deserialization_or_inference,NOT_PERFORMED,Saved outputs are verified without loading serialized estimators or generating predictions
+new_model_fit_or_selection,NOT_PERFORMED,Explicitly prohibited for this readiness task
+fresh_untouched_chronological_holdout,UNAVAILABLE,All later labelled periods were previously inspected; no new independent label period is present
+independent_physical_target_validation,UNAVAILABLE,No independent shaft-power reference and zero/status provenance remain unresolved
+operational_delayed_label_availability,UNVERIFIED,V7/V8 label latency and trust assumptions are not established by project records
+final_academic_methods_results_report,NOT_PERFORMED,"Explicitly excluded from this task; the 2026 course rubric describes a written methods/results section, but no report is generated here"

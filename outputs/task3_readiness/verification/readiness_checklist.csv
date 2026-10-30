@@ -1,0 +1,15 @@
+requirement_or_check,status,evidence_or_gap
+Frozen V1-V8/source/target audit preservation,PASS,753 historical files match the pre-readiness SHA256 record
+"Artifact existence, index hashes and model registry",PASS,Models are hash-verified without deserialization
+Task 3 target policy and zero/missing distinction,PASS,Recorded zero remains quality-uncertain; missing truth remains missing
+Independent feature allowlists and source-code provenance,PASS,No same-instrument shaft predictors admitted
+Saved metric recomputation and paired scopes,PASS,912 scope rows; positive-only is retrospective
+V1/V4 archived metric replay,PASS,"December replay is historical verification, never selection"
+Zero/positive/negative error accounting and gap retention,PASS,54 V7 blocks and 16 V8 anchors retained
+Chronological fitting and information cutoffs,PASS,V6/V7/V8 label and embargo timestamps reconstructed
+Delayed-label history and paired horizon coverage,PASS,Truth availability assumptions remain conditional
+Figure caption and notebook structure/code syntax,PASS,12 reviewed figures captioned; notebook kernel not run
+Standard Jupyter execution,UNVERIFIED,ipykernel/IPython unavailable in this environment
+Independent physical target validity and a fresh labelled holdout,UNAVAILABLE,No independent reference or untouched labelled period in current evidence
+Fresh raw-to-model rebuild or new fitting,NOT_PERFORMED,Outside scope; historical outputs preserved
+Final academic methods/results report,NOT_PERFORMED,The course rubric describes a written section; report generation is explicitly excluded from this task

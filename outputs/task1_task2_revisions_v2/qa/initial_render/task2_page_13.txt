@@ -1,0 +1,36 @@
+SINTEF Ocean Real Vessel Data Challenge
+30 October 2026
+TDT4259  |  Task 2  |  Version 2
+13
+References and edition provenance
+Paths are relative to the project root. PDF page references count physical pages; printed slide/page numbers are stated where different.
+[R1] Task 1 Report.pdf, 25 October 2026, pp. 1–2: authoritative original technical specification.
+[R2] Task 2 Report.pdf, 25 October 2026, pp. 1–7: authoritative retained sensor findings, tables, six figures and limitations.
+[C1] docs/challenge/HullPIC25 Announcement.pdf, PDF pp. 1–3 (printed pp. 117–119): promised sources; clean/current curves by
+draft; added power/speed loss; quality/uncertainty.
+[C3] docs/SINTEF_Ocean_v2.pdf, PDF pp. 5–7, 10 and 13: performance influences, advertised data, miscalibration warning and
+business questions.
+[A1] outputs/task1_task2_scope_audit/internal_findings.md, 30 October 2026, §§3–7: bounded source search, reference
+suitability, Noon checks and remaining requests.
+[A2] outputs/task1_task2_scope_audit/source_inventory.csv: file-level and archive-member evidence; search limitations and
+exact paths.
+[D1] docs/Metrics registration - Google Sheets.pdf, pp. 1–2: registered channel quantities, sources and units.
+[D2] outputs/tables/data_inventory.csv, data_dictionary.csv, qid_per_file.csv and qid_reconciliation.csv: existing
+inventory and channel-presence metadata, as inspected in the scope audit.
+[V1] docs/Vessel/Particulars.xlsx, Sheet1 B3:F80: design/scantling/ballast/heavy-ballast particulars; draft pairs 12.20/12.20,
+14.25/14.25, 5.00/7.80 and 4.40/9.40 m; engine and propeller data.
+[V2] docs/Vessel/Sea_Trials_curves.jpg: supplied Pd–Vs image with model/measured design-draft and ballast curves; provenance
+limitations documented in [A1].
+[V3] docs/Vessel/TOWING TANK MODEL TEST REPORT for A 76000DWT Bulk Carrier with&without PSV.pdf, PDF pp. 6–8 and
+10–14, especially p. 12 (printed p. 11): loading/configuration, power definitions and clean-bottom assumptions.
+[N1] Twelve CSVs under data/Noon Reports/, individually inventoried as NOON01–NOON12 in [A2]. The 31 March loading review item
+is in N03_March_Data_with_Propulsion_and_Fuel.csv, CSV line 32. Annual missingness/field checks are recorded in [A1] §5.
+[X1] docs/Templetes/BillTsars_Model1_CleanBaselineScantling.csv and BillTsars_Model1_Timeseries.csv: example
+output layouts; no ground-truth cleaning-event evidence.
+[M1] outputs/reports/task1_preliminary.md and task2_preliminary.md, 25 October 2026: related drafts used for cross-checks,
+not assumed to be exact original PDF sources.
+[S1] Scientific_Validation.pdf, 25 October 2026, pp. 1–2: supporting descriptive/data-quality scope and signed negative-power
+evidence; not a validation of clean-state attribution.
+Edition provenance: New authoritative v2 editable source reconstructed from the delivered PDFs and supporting drafts. The figures
+were extracted from the delivered Task 2 PDF and retained without recalculation. An exact editable source/build chain for the original
+PDFs was not found in the inspected scope. Historical originals and audit artifacts remain preserved.

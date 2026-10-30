@@ -1,0 +1,47 @@
+SINTEF Ocean Real Vessel Data Challenge
+30 October 2026
+TDT4259  |  Task 1  |  Version 2
+2
+3. Data characteristics affecting the objective
+The package contains operational sensor data, daily Noon Reports and engineering references, but the evidence has
+important limits. The delivered data analysis identifies suspect shaft-power readings, uneven coverage, unusable
+sensor draft values, repeated weather observations and uncertain timestamp semantics. These issues can make an
+apparent performance change unreliable. A single vessel and changing loading, weather and operating states also
+constrain generalization. Task 2 retains the numerical findings and their qualifications. [R2]
+Actual hull/propeller cleaning-event records were not found in the inspected package. The available towing-tank
+report explicitly predicts performance with a clean bottom under specified conditions, but this does not prove that
+any dated interval in the observed sensor series represents a clean vessel. The sea-trial image also needs fuller
+provenance before use as a validated reference. An actual engine shop-test report or fuel/load map was not found
+in the inspected package. [A1, A2]
+4. Scope and staged decision process
+The project should first establish reference applicability, trustworthy observation periods and comparable operating
+conditions. It can then assess whether an interpretable performance comparison is feasible and, if supported,
+present possible excess power or speed loss with uncertainty for maintenance review. This revision defines that
+decision process; it does not calculate the comparison.
+The original completed-minute shaft-power reconstruction remains a supporting use. Advance route planning
+requires a separately defined decision horizon and inputs available at that time. Distinguishing hull from propeller
+fouling is optional in the original challenge and requires additional evidence. Estimating fuel savings or deciding
+whether cleaning is economically worthwhile is conditional on validated performance and cost information. [C1, C3,
+R1]
+5. Success criteria and expected outputs
+Success should be judged by whether the evidence supports a useful and appropriately qualified decision. The
+following principles are proposed for agreement with stakeholders; no numerical acceptance threshold or achieved
+benefit is asserted.
+Success-measure principle
+What the eventual output should make assessable
+Reference and condition coverage
+The share of relevant operating periods with trustworthy observations and an applicable
+reference at comparable conditions; unsupported periods remain explicit.
+Decision-relevant uncertainty
+Whether uncertainty is small enough relative to an agreed maintenance-review threshold to
+justify investigation or action.
+Reliability of review indications
+How often a flagged change is subsequently explained by measurement or operating
+conditions, and how that affects confidence in future reviews.
+Usefulness to the decision owner
+Whether performance staff can document a supported inspect, consider-cleaning or defer
+decision, with evidence and unresolved questions visible.
+Intended outputs are a reference-applicability statement, a clearly dated comparison window, a qualified
+power/speed indication where defensible, and a concise maintenance-review brief. Technical prediction accuracy is
+an enabling quality measure, not a substitute for these decision requirements. No fouling detection, accuracy result,
+cleaning saving, fuel saving or cost-benefit estimate is demonstrated in this revision.
